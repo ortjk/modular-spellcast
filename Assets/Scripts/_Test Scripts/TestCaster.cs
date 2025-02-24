@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class TestCaster : MonoBehaviour
 {
-    public Spell spell;
+    public Spell[] spells;
 
     public void OnAttack()
     {
-        spell.Cast(Vector3.right);
+        foreach (Spell spell in spells)
+        {
+            spell.Cast(Vector3.right);
+        }
     }
 }
