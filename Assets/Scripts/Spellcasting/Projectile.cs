@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public abstract class Projectile: Spell
+public class Projectile : MonoBehaviour
 {
-    [Header("Projectile")]
-    [SerializeField] protected GameObject _projectilePrefab;
+    public Vector3 Direction { set; get; }
+    public float Speed { set; private get; }
+    public float Gravity { set; private get; }
     
-    protected float _speed;
-    protected float _gravity;
-    protected Vector3 _direction;
+    public bool Collided { get; private set; }
 
-    protected virtual void Traverse(float dt)
+    public void Traverse(float dt)
     {
-        
+        // apply gravity to direction
+        Direction = Vector3.Lerp(Direction, Vector3.down, Gravity * dt);
+        // move
+        this.transform.Translate(Direction * (Speed * dt));
     }
-
-    protected abstract void OnHit();
 }
