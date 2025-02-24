@@ -49,6 +49,16 @@ public class Wand : MonoBehaviour
         _currentSlot = 0;
     }
 
+    public int GetManaForCast()
+    {
+        if (spells.Length == 0)
+        {
+            return 0;
+        }
+
+        return spells[_currentSlot].Mana;
+    }
+
     private void Update()
     {
         if (_cooldown > 0f)

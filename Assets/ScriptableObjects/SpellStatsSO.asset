@@ -16,7 +16,7 @@ MonoBehaviour:
   - spellName: Cube
     damage: 0
     cooldown: 1
-    mana: 0
+    mana: 75
     speed: 100
     range: 0.5
     area: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   - spellName: Count
     damage: 0
     cooldown: 1
-    mana: 0
+    mana: 10
     speed: 100
     range: 0.5
     area: 0

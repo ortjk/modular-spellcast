@@ -795,6 +795,8 @@ MonoBehaviour:
   - {fileID: 1058208738}
   - {fileID: 185329124}
   - {fileID: 2128748162}
+  maxMana: 100
+  regen: 1
 --- !u!4 &1271297131
 Transform:
   m_ObjectHideFlags: 0
