@@ -6,5 +6,5 @@ public abstract class Spell: MonoBehaviour
     [SerializeField] protected SpellStatsSO _spell_stats;
     [SerializeField] protected int _spell_id;
 
-    public abstract void cast(Vector3 direction);
+    public abstract void Cast(Vector3 direction);
 }
