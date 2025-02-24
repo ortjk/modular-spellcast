@@ -15,7 +15,7 @@ MonoBehaviour:
   spellStats:
   - spellName: Cube
     damage: 0
-    cooldown: 0
+    cooldown: 1
     mana: 0
     speed: 100
     range: 0.5
@@ -23,7 +23,7 @@ MonoBehaviour:
     prefab: {fileID: 7108546712052221166, guid: 8d63d6c0eb4036ab69269f221c8dd3b4, type: 3}
   - spellName: Count
     damage: 0
-    cooldown: 0
+    cooldown: 1
     mana: 0
     speed: 100
     range: 0.5
