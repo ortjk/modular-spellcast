@@ -3,21 +3,33 @@ using System.Collections.Generic;
 
 public abstract class Spell: MonoBehaviour
 {
+    public struct QueryResult
+    {
+        public Queue<Spell> ToCast;
+        public int ManaCost;
+        public float Cooldown;
+    }
+    
     [Header("Spell Data")]
     [SerializeField] protected SpellStatsSO _spellStats;
     [SerializeField] protected int _spellID;
     
-    public float Cooldown { get; private set; }
-    public int Mana { get; private set; }
+    [System.NonSerialized] public Queue<Spell> Modifiers = new Queue<Spell>();
+    
+    public bool IsModifier { get; private set; }
     
     protected SpellStat _spellStat;
+    protected int _mana;
+    protected float _cooldown;
 
-    public abstract void Cast(Vector3 direction, Spell[] otherSpells);
+    public abstract void Query(Spell[] otherSpells, QueryResult result);
+    public abstract void Cast(Vector3 direction);
 
     protected virtual void Awake()
     {
         _spellStat = _spellStats.spellStats[_spellID];
-        Cooldown = _spellStat.cooldown;
-        Mana = _spellStat.mana;
+        IsModifier = _spellStat.isModifier;
+        _cooldown = _spellStat.cooldown;
+        _mana = _spellStat.mana;
     }
 }

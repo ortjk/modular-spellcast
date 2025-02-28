@@ -4,8 +4,15 @@ using System.Collections.Generic;
 public abstract class ProjectileSpell: Spell
 {
     protected List<Projectile> _projectileInstances = new List<Projectile>();
-
-    public override void Cast(Vector3 direction, Spell[] otherSpells)
+    
+    public override void Query(Spell[] otherSpells, QueryResult result)
+    {
+        result.ToCast.Enqueue(this);
+        result.ManaCost += _mana;
+        result.Cooldown += _cooldown;
+    }
+    
+    public override void Cast(Vector3 direction)
     {
         var projectile = GameObject.Instantiate(_spellStat.prefab, this.transform.position, Quaternion.identity, this.transform).GetComponent<Projectile>();
         projectile.Direction = direction;

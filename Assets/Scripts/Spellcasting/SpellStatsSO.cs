@@ -11,6 +11,7 @@ public struct SpellStat
     public float speed;
     public float range;
     public float area;
+    public bool isModifier;
     public GameObject prefab;
 }
 

@@ -8,7 +8,7 @@ public class TestCaster : MonoBehaviour
     {
         foreach (Spell spell in spells)
         {
-            spell.Cast(Vector3.right, null);
+            spell.Cast(Vector3.right);
         }
     }
 }

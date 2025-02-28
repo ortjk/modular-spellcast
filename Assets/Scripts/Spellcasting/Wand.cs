@@ -14,11 +14,10 @@ public class Wand : MonoBehaviour
     private int _currentSlot = 0;
     private float _cooldown = 0f;
 
-    public void Use(Vector3 direction)
+    public void Use(Vector3 direction, ref int mana)
     {
         if (_cooldown > 0f || spells.Length == 0)
         {
-            Debug.Log("Reached " + _cooldown);
             return;
         }
         
@@ -27,8 +26,20 @@ public class Wand : MonoBehaviour
         Spell[] otherSpells = new Spell[spells.Length - 1];
         SetOtherSpells(otherSpells);
         
-        spell.Cast(direction, otherSpells);
-        _cooldown += spell.Cooldown;
+        var sqresult = new Spell.QueryResult();
+        sqresult.ToCast = new Queue<Spell>();
+        spell.Query(otherSpells, sqresult);
+
+        if (sqresult.ManaCost > mana)
+        {
+            return;
+        }
+
+        _cooldown += sqresult.Cooldown;
+        while (sqresult.ToCast.Count > 0)
+        {
+            sqresult.ToCast.Dequeue().Cast(direction);
+        }
         
         _currentSlot += 1;
         if (_currentSlot >= spells.Length)
@@ -52,18 +63,6 @@ public class Wand : MonoBehaviour
             spells[i].transform.SetParent(transform);
         }
         _currentSlot = 0;
-    }
-
-    public int GetManaForCast()
-    {
-        if (spells.Length == 0)
-        {
-            return 0;
-        }
-
-        // TODO: integrate mana lookahead
-        
-        return spells[_currentSlot].Mana;
     }
 
     // gets all other spells than the current one in order of when they will be cast next
