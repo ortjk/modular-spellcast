@@ -7,7 +7,7 @@ public struct SpellStat
     public string spellName;
     public float damage;
     public float cooldown;
-    public float mana;
+    public int mana;
     public float speed;
     public float range;
     public float area;
