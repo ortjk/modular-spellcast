@@ -41,10 +41,10 @@ public class Wand : MonoBehaviour
             sqresult.ToCast.Dequeue().Cast(direction);
         }
         
-        _currentSlot += 1;
+        _currentSlot += sqresult.Count;
         if (_currentSlot >= spells.Length)
         {
-            _currentSlot = 0;
+            _currentSlot = _currentSlot - spells.Length;
             _cooldown += reloadTime;
         }
     }

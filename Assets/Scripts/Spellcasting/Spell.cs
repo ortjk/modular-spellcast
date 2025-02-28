@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 public abstract class Spell: MonoBehaviour
 {
-    public struct QueryResult
+    public class QueryResult
     {
-        public Queue<Spell> ToCast;
-        public int ManaCost;
-        public float Cooldown;
+        public Queue<Spell> ToCast = new Queue<Spell>();
+        public int ManaCost = 0;
+        public float Cooldown = 0f;
+        public int Count = 0;
     }
     
     [Header("Spell Data")]
     [SerializeField] protected SpellStatsSO _spellStats;
     [SerializeField] protected int _spellID;
-    
-    [System.NonSerialized] public Queue<Spell> Modifiers = new Queue<Spell>();
-    
+
+    public bool Queried { get; private set; } = false;
     public bool IsModifier { get; private set; }
     
     protected SpellStat _spellStat;
@@ -25,6 +25,21 @@ public abstract class Spell: MonoBehaviour
     public abstract void Query(Spell[] otherSpells, QueryResult result);
     public abstract void Cast(Vector3 direction);
 
+    protected void PreQuery(Spell[] otherSpells, QueryResult result)
+    {
+        Queried = true;
+        
+        result.ToCast.Enqueue(this);
+        result.ManaCost += _mana;
+        result.Cooldown += _cooldown;
+        result.Count += 1;
+    }
+
+    protected void PreCast()
+    {
+        Queried = false;
+    }
+    
     protected virtual void Awake()
     {
         _spellStat = _spellStats.spellStats[_spellID];

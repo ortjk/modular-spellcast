@@ -7,13 +7,13 @@ public abstract class ProjectileSpell: Spell
     
     public override void Query(Spell[] otherSpells, QueryResult result)
     {
-        result.ToCast.Enqueue(this);
-        result.ManaCost += _mana;
-        result.Cooldown += _cooldown;
+        PreQuery(otherSpells, result);
     }
     
     public override void Cast(Vector3 direction)
     {
+        PreCast();
+        
         var projectile = GameObject.Instantiate(_spellStat.prefab, this.transform.position, Quaternion.identity, this.transform).GetComponent<Projectile>();
         projectile.Direction = direction;
         projectile.Speed = _spellStat.speed;
