@@ -5,7 +5,7 @@ public abstract class ProjectileSpell: Spell
 {
     protected List<Projectile> _projectileInstances = new List<Projectile>();
 
-    public override void Cast(Vector3 direction)
+    public override void Cast(Vector3 direction, Spell[] otherSpells)
     {
         var projectile = GameObject.Instantiate(_spellStat.prefab, this.transform.position, Quaternion.identity, this.transform).GetComponent<Projectile>();
         projectile.Direction = direction;

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Wand : MonoBehaviour
 {
@@ -22,7 +23,11 @@ public class Wand : MonoBehaviour
         }
         
         Spell spell = spells[_currentSlot];
-        spell.Cast(direction);
+        
+        Spell[] otherSpells = new Spell[spells.Length - 1];
+        SetOtherSpells(otherSpells);
+        
+        spell.Cast(direction, otherSpells);
         _cooldown += spell.Cooldown;
         
         _currentSlot += 1;
@@ -56,7 +61,28 @@ public class Wand : MonoBehaviour
             return 0;
         }
 
+        // TODO: integrate mana lookahead
+        
         return spells[_currentSlot].Mana;
+    }
+
+    // gets all other spells than the current one in order of when they will be cast next
+    //
+    // e.g. for spells = [ A, B, C, D, E, F ], _currentSlot = 2
+    // returns [ D, E, F, A, B ]
+    private void SetOtherSpells(Spell[] otherSpells)
+    {
+        int offset = spells.Length - _currentSlot - 1;
+        
+        for (int i = 0; i < offset; i++)
+        {
+            otherSpells[i] = spells[i + _currentSlot + 1];
+        }
+
+        for (int i = 0; i < _currentSlot; i++)
+        {
+            otherSpells[i + offset] = spells[i];
+        }
     }
 
     private void Update()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class Spell: MonoBehaviour
 {
@@ -11,7 +12,7 @@ public abstract class Spell: MonoBehaviour
     
     protected SpellStat _spellStat;
 
-    public abstract void Cast(Vector3 direction);
+    public abstract void Cast(Vector3 direction, Spell[] otherSpells);
 
     protected virtual void Awake()
     {
