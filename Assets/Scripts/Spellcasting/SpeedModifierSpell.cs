@@ -12,7 +12,5 @@ public class SpeedModifierSpell: ModifierSpell
         Spell s = modifiedSpells[0];
         s.PreCast -= ModifySpeed;
         modifiedSpells.RemoveAt(0);
-        
-        Debug.Log("Remaining spells modified: " + modifiedSpells.Count);
     }
 }

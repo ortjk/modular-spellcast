@@ -52,6 +52,16 @@ public abstract class ProjectileSpell: Spell
         }
     }
 
+    public override void Reset()
+    {
+        PreCast = null;
+        MidCast = null;
+        PostCast = null;
+        PreCast = (Vector3 direction) => { Queried = false; };
+        Queried = false;
+        modifiers.Clear();
+    }
+
     protected abstract void OnHit(Vector3 position, Vector3 direction);
 
     protected virtual void Update()

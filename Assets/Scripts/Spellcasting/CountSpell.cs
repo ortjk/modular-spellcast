@@ -22,4 +22,14 @@ public class CountSpell: Spell
         _count++;
         Debug.Log("Count is: " + _count);
     }
+
+    public override void Reset()
+    {
+        PreCast = null;
+        MidCast = null;
+        PostCast = null;
+        PreCast = (Vector3 direction) => { Queried = false; };
+        Queried = false;
+        modifiers.Clear();
+    }
 }

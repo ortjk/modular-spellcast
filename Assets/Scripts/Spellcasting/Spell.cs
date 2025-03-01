@@ -31,6 +31,7 @@ public abstract class Spell: MonoBehaviour
 
     public abstract void Query(Spell[] otherSpells, QueryResult result);
     public abstract void Cast(Vector3 direction);
+    public abstract void Reset();
 
     protected void PreQuery(Spell[] otherSpells, QueryResult result)
     {

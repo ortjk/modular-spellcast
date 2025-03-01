@@ -18,6 +18,7 @@ public class Wand : MonoBehaviour
     {
         if (_cooldown > 0f || spells.Length == 0)
         {
+            Debug.Log("Cooldown");
             return;
         }
         
@@ -32,8 +33,15 @@ public class Wand : MonoBehaviour
 
         if (sqresult.ManaCost > mana)
         {
+            Debug.Log("Not enough mana: " + mana + " / " + sqresult.ManaCost);
+            
+            foreach (Spell s in spells)
+            {
+                s.Reset();
+            }
             return;
         }
+        mana -= sqresult.ManaCost;
 
         _cooldown += sqresult.Cooldown;
         while (sqresult.ToCast.Count > 0)

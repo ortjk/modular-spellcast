@@ -58,4 +58,15 @@ public abstract class ModifierSpell: Spell
         result.Cooldown -= _cooldown;
         result.Count -= 1;
     }
+
+    public override void Reset()
+    {
+        PreCast = null;
+        MidCast = null;
+        PostCast = null;
+        PreCast = (Vector3 direction) => { Queried = false; };
+        Queried = false;
+        modifiers.Clear();
+        modifiedSpells.Clear();
+    }
 }

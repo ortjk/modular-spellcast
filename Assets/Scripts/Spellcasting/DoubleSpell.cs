@@ -45,4 +45,14 @@ public class DoubleSpell: Spell
     {
         PreCast?.Invoke(direction);
     }
+
+    public override void Reset()
+    {
+        PreCast = null;
+        MidCast = null;
+        PostCast = null;
+        PreCast = (Vector3 direction) => { Queried = false; };
+        Queried = false;
+        modifiers.Clear();
+    }
 }
