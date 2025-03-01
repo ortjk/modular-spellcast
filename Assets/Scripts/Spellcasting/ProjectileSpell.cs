@@ -8,11 +8,16 @@ public abstract class ProjectileSpell: Spell
     public override void Query(Spell[] otherSpells, QueryResult result)
     {
         PreQuery(otherSpells, result);
+
+        while (modifiers.Count > 0)
+        {
+            modifiers.Dequeue().ModifySpell(this);
+        }
     }
     
     public override void Cast(Vector3 direction)
     {
-        PreCast();
+        PreCast?.Invoke(direction);
         
         var projectile = GameObject.Instantiate(_spellStat.prefab, this.transform.position, Quaternion.identity, this.transform).GetComponent<Projectile>();
         projectile.Direction = direction;

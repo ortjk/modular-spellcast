@@ -12,6 +12,18 @@ public class DoubleSpell: Spell
         {
             if (!otherSpells[i].Queried)
             {
+                foreach (var m in modifiers)
+                {
+                    // ensure doublespell is only removed from modifiers once
+                    if (found == 0)
+                    {
+                        m.modifiedSpells.RemoveAt(m.modifiedSpells.Count - 1);
+                    }
+                    
+                    m.modifiedSpells.Add(otherSpells[i]);
+                    otherSpells[i].modifiers.Enqueue(m);
+                }
+                
                 Spell[] newOtherSpells = new Spell[otherSpells.Length - 1 - i];
                 Array.Copy(otherSpells, i + 1, newOtherSpells, 0, otherSpells.Length - 1 - i);
                 otherSpells[i].Query(newOtherSpells, result);
@@ -19,6 +31,10 @@ public class DoubleSpell: Spell
 
                 if (found >= 2)
                 {
+                    while (modifiers.Count > 0)
+                    {
+                        modifiers.Dequeue();
+                    }
                     return;
                 }
             }
@@ -27,6 +43,6 @@ public class DoubleSpell: Spell
 
     public override void Cast(Vector3 direction)
     {
-        PreCast();
+        PreCast?.Invoke(direction);
     }
 }

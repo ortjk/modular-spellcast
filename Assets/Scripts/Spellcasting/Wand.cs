@@ -44,7 +44,7 @@ public class Wand : MonoBehaviour
         _currentSlot += sqresult.Count;
         if (_currentSlot >= spells.Length)
         {
-            _currentSlot = _currentSlot - spells.Length;
+            _currentSlot -= spells.Length;
             _cooldown += reloadTime;
         }
     }

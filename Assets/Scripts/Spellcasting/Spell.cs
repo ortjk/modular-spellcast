@@ -10,12 +10,19 @@ public abstract class Spell: MonoBehaviour
         public float Cooldown = 0f;
         public int Count = 0;
     }
+
+    public delegate void SpellStateHandler(Vector3 direction);
     
     [Header("Spell Data")]
     [SerializeField] protected SpellStatsSO _spellStats;
     [SerializeField] protected int _spellID;
+    
+    [System.NonSerialized] public Queue<ModifierSpell> modifiers = new Queue<ModifierSpell>();
+    public SpellStateHandler PreCast;
+    public SpellStateHandler MidCast;
+    public SpellStateHandler PostCast;
 
-    public bool Queried { get; private set; } = false;
+    public bool Queried { get; protected set; } = false;
     public bool IsModifier { get; private set; }
     
     protected SpellStat _spellStat;
@@ -34,11 +41,6 @@ public abstract class Spell: MonoBehaviour
         result.Cooldown += _cooldown;
         result.Count += 1;
     }
-
-    protected void PreCast()
-    {
-        Queried = false;
-    }
     
     protected virtual void Awake()
     {
@@ -46,5 +48,7 @@ public abstract class Spell: MonoBehaviour
         IsModifier = _spellStat.isModifier;
         _cooldown = _spellStat.cooldown;
         _mana = _spellStat.mana;
+
+        PreCast += (Vector3 direction) => { Queried = false; };
     }
 }
