@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
         inputs.MoveAxisRight = Input.GetAxisRaw("Horizontal");
         inputs.CameraRotation = _playerCamera.transform.rotation;
         inputs.JumpPressed = Input.GetKeyDown(KeyCode.Space);
-        inputs.SetCameraMode = Input.GetKeyDown(KeyCode.C);
         inputs.SpellCastPressed = Input.GetKeyDown(KeyCode.Mouse0);
 
         _characterController.SetInputs(ref inputs);

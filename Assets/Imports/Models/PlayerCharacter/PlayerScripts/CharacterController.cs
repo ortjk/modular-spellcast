@@ -8,7 +8,6 @@ public struct PlayerInputs
     public float MoveAxisRight;
     public float MoveAxisUp;
     public bool JumpPressed;
-    public bool SetCameraMode;
     public bool SpellCastPressed;
     public Quaternion CameraRotation;
 
@@ -32,7 +31,6 @@ public class CharacterController : MonoBehaviour, ICharacterController
     private bool _jumpRequested;
     private bool _spellCastRequested;
     private float _currentMana;
-    private bool _firstPersonCamera = true; 
 
     private void Start()
     {
@@ -53,21 +51,9 @@ public class CharacterController : MonoBehaviour, ICharacterController
 
         _moveInputVector = cameraPlanarRotation * moveInputVector;
         
+        _lookInputVector = cameraPlanarDirection;
+        _playerCamera._defaultDistance = 0f; _playerCamera._minDistance = 0f; _playerCamera._maxDistance = 0f;
         
-        if(_firstPersonCamera)
-        {
-            _lookInputVector = cameraPlanarDirection;
-            _playerCamera._defaultDistance = 0f; _playerCamera._minDistance = 0f; _playerCamera._maxDistance = 0f;
-        }
-        if(!_firstPersonCamera)
-        {
-            _lookInputVector = _moveInputVector.normalized;
-            _playerCamera._defaultDistance = 6f; _playerCamera._minDistance = 3f; _playerCamera._maxDistance = 10f;
-        }
-         if(inputs.SetCameraMode)
-        {
-            _firstPersonCamera = !_firstPersonCamera;
-        }
         if(inputs.JumpPressed)
         {
             _jumpRequested = true;
