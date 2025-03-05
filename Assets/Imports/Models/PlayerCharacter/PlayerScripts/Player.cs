@@ -21,11 +21,9 @@ public class Player : MonoBehaviour
     {
         float mouseUp = Input.GetAxisRaw("Mouse Y");
         float mouseRight = Input.GetAxisRaw("Mouse X");
-
         _lookInputVector = new Vector3(mouseRight, mouseUp, 0f);
 
-        float scrollInput = -Input.GetAxis("Mouse ScrollWheel");
-        _playerCamera.UpdateWithInput(Time.deltaTime,scrollInput, _lookInputVector);
+        _playerCamera.UpdateWithInput(Time.deltaTime, _lookInputVector);
     }
 
     private void HandleCharacterInputs()

@@ -3,11 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class PlayerCamera : MonoBehaviour
-{
-    [SerializeField]
-    public float _defaultDistance = 6f, 
-    _minDistance = 3f, _maxDistance = 10f;
-    
+{    
     [SerializeField]
     private float _distanceMovementSpeed = 5f, _distanceMovementSharpness = 10f, 
     _rotationSpeed = 10f, _rotationSharpness = 10000f, 
@@ -17,13 +13,11 @@ public class PlayerCamera : MonoBehaviour
     private Transform _followTransform;
     private Vector3 _currentFollowPosition, _planarDirection;
     private float _targetVerticalAngle;
-
     private float _currentDistance, _targetDistance;
 
     private void Awake()
     {
-        _currentDistance = _defaultDistance;
-        _targetDistance = _currentDistance;
+        _targetDistance = 0;
         _targetVerticalAngle = 0f;
         _planarDirection = Vector3.forward;
     }
@@ -37,7 +31,6 @@ public class PlayerCamera : MonoBehaviour
 
     private void OnValidate()
     {
-        _defaultDistance = Mathf.Clamp(_defaultDistance, _minDistance, _maxDistance);
         _defaultVerticleAngle = Mathf.Clamp(_defaultVerticleAngle, _minVerticleAngle, _maxVerticleAngle);
     }
 
@@ -53,15 +46,13 @@ public class PlayerCamera : MonoBehaviour
         Quaternion verticalRot = Quaternion.Euler(_targetVerticalAngle, 0, 0);
 
         targetRotation = Quaternion.Slerp(transform.rotation, planarRot * verticalRot, _rotationSharpness * deltaTime);
-        
         transform.rotation = targetRotation;
     }
 
-    private void HandlePosition(float deltaTime, float zoomInput, Quaternion targetRotation)
+    private void HandlePosition(float deltaTime, Quaternion targetRotation)
     {
-        _targetDistance += zoomInput * _distanceMovementSpeed;
-        _targetDistance = Mathf.Clamp(_targetDistance, _minDistance, _maxDistance);
-
+        _targetDistance +=  _distanceMovementSpeed;
+        _targetDistance = 0;
         _currentFollowPosition = Vector3.Lerp(_currentFollowPosition, _followTransform.position, 1f - Mathf.Exp(-_followSharpness * deltaTime));
         Vector3 targetPosition = _currentFollowPosition - ((targetRotation * Vector3.forward) * _currentDistance);
         
@@ -69,12 +60,12 @@ public class PlayerCamera : MonoBehaviour
         transform.position = targetPosition;
     }
 
-    public void UpdateWithInput(float deltaTime, float zoomInput, Vector3 rotationInput)
+    public void UpdateWithInput(float deltaTime, Vector3 rotationInput)
     {
         if(_followTransform)
         {
             HandleRotationInput(deltaTime, rotationInput, out Quaternion targetRotation);
-            HandlePosition(deltaTime, zoomInput, targetRotation);
+            HandlePosition(deltaTime, targetRotation);
         }
     }
 }

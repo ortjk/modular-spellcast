@@ -10,7 +10,13 @@ public struct PlayerInputs
     public bool JumpPressed;
     public bool SpellCastPressed;
     public Quaternion CameraRotation;
+}
 
+public struct NPCInputs
+{
+    public Vector3 MoveVector;
+    public Vector3 LookVector;
+    public bool Attack;
 }
 
 public class CharacterController : MonoBehaviour, ICharacterController
@@ -25,12 +31,12 @@ public class CharacterController : MonoBehaviour, ICharacterController
 
     [SerializeField]
     private float _maxStableMoveSpeed = 10f, _stableMovementSharpness = 15f, 
-    _orientaionSharpness = 10f, _jumpSpeed = 10f, _manaPool = 100f;
+    _orientaionSharpness = 10f, _jumpSpeed = 10f;
     
     private Vector3 _moveInputVector, _lookInputVector;
     private bool _jumpRequested;
     private bool _spellCastRequested;
-    private float _currentMana;
+    private bool _attackRequested;
 
     private void Start()
     {
@@ -52,7 +58,6 @@ public class CharacterController : MonoBehaviour, ICharacterController
         _moveInputVector = cameraPlanarRotation * moveInputVector;
         
         _lookInputVector = cameraPlanarDirection;
-        _playerCamera._defaultDistance = 0f; _playerCamera._minDistance = 0f; _playerCamera._maxDistance = 0f;
         
         if(inputs.JumpPressed)
         {
@@ -61,6 +66,16 @@ public class CharacterController : MonoBehaviour, ICharacterController
         if(inputs.SpellCastPressed)
         {
             _spellCastRequested = true;
+        }
+    }
+
+    public void SetInputs(ref NPCInputs inputs)
+    {
+        _moveInputVector = inputs.MoveVector;
+        _lookInputVector = inputs.LookVector;
+        if(inputs.Attack)
+        {
+            _attackRequested = true;
         }
     }
 

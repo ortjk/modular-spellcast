@@ -150,9 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ff7ea463ba4c240abbb5d07263f088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultDistance: 0
-  _minDistance: 0
-  _maxDistance: 0
   _distanceMovementSpeed: 5
   _distanceMovementSharpness: 10
   _rotationSpeed: 10
@@ -515,7 +512,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 7d237c6f6441b3445998507ce2625450, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -4292867590240871214, guid: 9d4dac896c5e9044b9bd79a967ae5408, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9d4dac896c5e9044b9bd79a967ae5408, type: 3}

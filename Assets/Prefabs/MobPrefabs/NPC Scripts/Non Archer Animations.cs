@@ -6,6 +6,7 @@ public class NonArchersAnimations : MonoBehaviour
 {
     [SerializeField]
     private Animator mAnimator;
+    [SerializeField]
     private KinematicCharacterMotor _motor;
     
     private System.Random _randomNumber = new System.Random();
