@@ -6,6 +6,7 @@ public class ArchersAnimations : MonoBehaviour
 {
     [SerializeField]
     private Animator mAnimator;
+    [SerializeField]
     private KinematicCharacterMotor _motor;
     private bool _newlySpawned = true;
     void Start()
