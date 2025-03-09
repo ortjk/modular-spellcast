@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private CharacterController _characterController;
 
+    private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
 
     private void Start()
@@ -17,34 +19,32 @@ public class Player : MonoBehaviour
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
     }
 
-    private void HandleCameraInput()
+    private void OnMove(InputValue value)
     {
-        float mouseUp = Input.GetAxisRaw("Mouse Y");
-        float mouseRight = Input.GetAxisRaw("Mouse X");
-        _lookInputVector = new Vector3(mouseRight, mouseUp, 0f);
-
-        _playerCamera.UpdateWithInput(Time.deltaTime, _lookInputVector);
+        var rawMove = value.Get<Vector2>();
+        _inputs.MoveAxisForward = rawMove.y;
+        _inputs.MoveAxisRight = rawMove.x;
+        
+        _characterController.SetInputs(ref _inputs);
     }
 
-    private void HandleCharacterInputs()
+    private void OnLook(InputValue value)
     {
-        PlayerInputs inputs = new PlayerInputs();
-        inputs.MoveAxisForward = Input.GetAxisRaw("Vertical");
-        inputs.MoveAxisRight = Input.GetAxisRaw("Horizontal");
-        inputs.CameraRotation = _playerCamera.transform.rotation;
-        inputs.JumpPressed = Input.GetKeyDown(KeyCode.Space);
-        inputs.SpellCastPressed = Input.GetKeyDown(KeyCode.Mouse0);
+        var rawLook = value.Get<Vector2>();
+        _lookInputVector = new Vector3(rawLook.x, rawLook.y, 0);
 
-        _characterController.SetInputs(ref inputs);
+        _inputs.CameraRotation = _playerCamera.transform.rotation;
+        _characterController.SetInputs(ref _inputs);
     }
 
-    private void Update()
+    private void OnJump(InputValue value)
     {
-        HandleCharacterInputs();
+        _inputs.JumpPressed = value.isPressed;
+        _characterController.SetInputs(ref _inputs);
     }
 
     private void LateUpdate()
     {
-        HandleCameraInput();
+        _playerCamera.UpdateWithInput(Time.deltaTime, _lookInputVector);
     }
 }

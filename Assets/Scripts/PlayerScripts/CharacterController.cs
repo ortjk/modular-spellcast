@@ -148,6 +148,7 @@ public class CharacterController : MonoBehaviour, ICharacterController
         else
         {
             currentVelocity += _gravity * deltaTime;
+            _jumpRequested = false;
         }
     }
 }
