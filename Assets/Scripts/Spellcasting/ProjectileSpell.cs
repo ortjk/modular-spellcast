@@ -4,9 +4,21 @@ using System.Collections.Generic;
 public abstract class ProjectileSpell: Spell
 {
     protected List<Projectile> _projectileInstances = new List<Projectile>();
+    
+    public override void Query(Spell[] otherSpells, QueryResult result)
+    {
+        PreQuery(otherSpells, result);
 
+        while (modifiers.Count > 0)
+        {
+            modifiers.Dequeue().ModifySpell(this);
+        }
+    }
+    
     public override void Cast(Vector3 direction)
     {
+        PreCast?.Invoke(direction);
+        
         var projectile = GameObject.Instantiate(_spellStat.prefab, this.transform.position, Quaternion.identity, this.transform).GetComponent<Projectile>();
         projectile.Direction = direction;
         projectile.Speed = _spellStat.speed;
@@ -38,6 +50,16 @@ public abstract class ProjectileSpell: Spell
             OnHit(projectile.transform.position, projectile.Direction);
             _projectileInstances.RemoveAt(i);
         }
+    }
+
+    public override void Reset()
+    {
+        PreCast = null;
+        MidCast = null;
+        PostCast = null;
+        PreCast = (Vector3 direction) => { Queried = false; };
+        Queried = false;
+        modifiers.Clear();
     }
 
     protected abstract void OnHit(Vector3 position, Vector3 direction);
