@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform _cameraFollowPoint;
     [SerializeField]
-    private CharacterController _characterController;
+    private PlayerController _playerController;
 
     private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         _inputs.MoveAxisForward = rawMove.y;
         _inputs.MoveAxisRight = rawMove.x;
         
-        _characterController.SetInputs(ref _inputs);
+        _playerController.SetInputs(ref _inputs);
     }
 
     private void OnLook(InputValue value)
@@ -34,13 +34,13 @@ public class Player : MonoBehaviour
         _lookInputVector = new Vector3(rawLook.x, rawLook.y, 0);
 
         _inputs.CameraRotation = _playerCamera.transform.rotation;
-        _characterController.SetInputs(ref _inputs);
+        _playerController.SetInputs(ref _inputs);
     }
 
     private void OnJump(InputValue value)
     {
         _inputs.JumpPressed = value.isPressed;
-        _characterController.SetInputs(ref _inputs);
+        _playerController.SetInputs(ref _inputs);
     }
 
     private void LateUpdate()

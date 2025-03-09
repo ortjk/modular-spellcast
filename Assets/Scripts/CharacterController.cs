@@ -2,81 +2,26 @@ using KinematicCharacterController;
 using Unity.Mathematics;
 using UnityEngine;
 
-public struct PlayerInputs
-{
-    public float MoveAxisForward;
-    public float MoveAxisRight;
-    public float MoveAxisUp;
-    public bool JumpPressed;
-    public bool SpellCastPressed;
-    public Quaternion CameraRotation;
-}
-
-public struct NPCInputs
-{
-    public Vector3 MoveVector;
-    public Vector3 LookVector;
-    public bool Attack;
-}
-
 public class CharacterController : MonoBehaviour, ICharacterController
 {
     [SerializeField]
-    private KinematicCharacterMotor _motor;
-    [SerializeField]
-    private PlayerCamera _playerCamera;
+    protected KinematicCharacterMotor _motor;
 
     [SerializeField]
-    private Vector3 _gravity = new Vector3(0f, -30f, 0f);
+    protected Vector3 _gravity = new Vector3(0f, -30f, 0f);
 
     [SerializeField]
-    private float _maxStableMoveSpeed = 10f, _stableMovementSharpness = 15f, 
+    protected float _maxStableMoveSpeed = 10f, _stableMovementSharpness = 15f, 
     _orientaionSharpness = 10f, _jumpSpeed = 10f;
     
-    private Vector3 _moveInputVector, _lookInputVector;
-    private bool _jumpRequested;
-    private bool _spellCastRequested;
-    private bool _attackRequested;
+    protected Vector3 _moveInputVector, _lookInputVector;
+    protected bool _jumpRequested;
+    protected bool _spellCastRequested;
+    protected bool _attackRequested;
 
-    private void Start()
+    protected void Start()
     {
         _motor.CharacterController = this;
-    }
-
-    public void SetInputs(ref PlayerInputs inputs)
-    {
-        Vector3 moveInputVector = Vector3.ClampMagnitude(new Vector3(inputs.MoveAxisRight, 0f, inputs.MoveAxisForward), 1f);
-        Vector3 cameraPlanarDirection = Vector3.ProjectOnPlane(inputs.CameraRotation * Vector3.forward, _motor.CharacterUp).normalized;
-
-        if(cameraPlanarDirection.sqrMagnitude == 0f)
-        {
-            cameraPlanarDirection = Vector3.ProjectOnPlane(inputs.CameraRotation * Vector3.up, _motor.CharacterUp).normalized;
-        }
-    
-        Quaternion cameraPlanarRotation = Quaternion.LookRotation(cameraPlanarDirection, _motor.CharacterUp);
-
-        _moveInputVector = cameraPlanarRotation * moveInputVector;
-        
-        _lookInputVector = cameraPlanarDirection;
-        
-        if(inputs.JumpPressed)
-        {
-            _jumpRequested = true;
-        }
-        if(inputs.SpellCastPressed)
-        {
-            _spellCastRequested = true;
-        }
-    }
-
-    public void SetInputs(ref NPCInputs inputs)
-    {
-        _moveInputVector = inputs.MoveVector;
-        _lookInputVector = inputs.LookVector;
-        if(inputs.Attack)
-        {
-            _attackRequested = true;
-        }
     }
 
     public void AfterCharacterUpdate(float deltaTime)
