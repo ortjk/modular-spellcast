@@ -41,7 +41,7 @@ public class DoubleSpell: Spell
         }
     }
 
-    public override void Cast(Vector3 direction)
+    public override void Cast(Vector3 direction, Vector3 origin)
     {
         PreCast?.Invoke(direction);
     }
