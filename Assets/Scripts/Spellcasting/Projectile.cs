@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class Projectile : MonoBehaviour
 {
     public Vector3 Direction { set; get; }
-    public float Speed { set; private get; }
-    public float Gravity { set; private get; }
+    public float Speed { set; get; }
+    public float Gravity { set; get; }
     
     public IDamageable HitEntity { private set; get; }
     public bool Collided { get; private set; }
