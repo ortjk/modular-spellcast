@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Projectile : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float Speed { set; private get; }
     public float Gravity { set; private get; }
     
+    public IDamageable HitEntity { private set; get; }
     public bool Collided { get; private set; }
 
     public void Traverse(float dt)

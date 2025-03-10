@@ -38,7 +38,6 @@ public abstract class ProjectileSpell: Spell
 
             if (projectile.Collided)
             {
-                Destroy(projectile.gameObject);
                 removeIndices.Push(i);
             }
         }
@@ -47,7 +46,8 @@ public abstract class ProjectileSpell: Spell
         {
             int i = removeIndices.Pop();
             var projectile = _projectileInstances[i];
-            OnHit(projectile.transform.position, projectile.Direction);
+            OnHit(projectile.transform.position, projectile.Direction, projectile.HitEntity);
+            Destroy(projectile.gameObject);
             _projectileInstances.RemoveAt(i);
         }
     }
@@ -62,7 +62,7 @@ public abstract class ProjectileSpell: Spell
         modifiers.Clear();
     }
 
-    protected abstract void OnHit(Vector3 position, Vector3 direction);
+    protected abstract void OnHit(Vector3 position, Vector3 direction, IDamageable entity);
 
     protected virtual void Update()
     {
