@@ -6,7 +6,7 @@ public class Spawning : MonoBehaviour
     [SerializeField]
     private float _minSpawnDelay = 3f, _maxSpawnDelay = 5f, _roundDelay = 120f;
     public GameObject[] enemyNPCs;
-    public Vector3[] spawnpoints;
+    public GameObject[] spawnpoints;
     public int _roundOneEnemyCapacity = 20, _currentRoundEnemyCapacity;
     public int _currentRound;
 
@@ -29,10 +29,20 @@ public class Spawning : MonoBehaviour
         _currentRoundEnemyCapacity = _roundOneEnemyCapacity+(2*_currentRound);
     }
 
+    private Vector3 PickSpawnPoint()
+    {
+        int index = _randomInteger.Next(0, spawnpoints.Length-1);
+        while(!spawnpoints[index].activeSelf)
+        {
+            index = _randomInteger.Next(0, spawnpoints.Length-1);
+        }
+        return spawnpoints[index].transform.position;
+    }
+
     private void SpawnEnemy()
     {
         GameObject enemy = enemyNPCs[_randomInteger.Next(0, enemyNPCs.Length-1)];
-        Vector3 spawnpoint = spawnpoints[_randomInteger.Next(0, spawnpoints.Length-1)];
+        Vector3 spawnpoint = PickSpawnPoint();
         Instantiate(enemy, spawnpoint, Quaternion.identity);
     }
 

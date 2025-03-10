@@ -357,7 +357,6 @@ MonoBehaviour:
   _stableMovementSharpness: 15
   _orientaionSharpness: 10
   _jumpSpeed: 10
-  _manaPool: 100
 --- !u!136 &4235033115764639958
 CapsuleCollider:
   m_ObjectHideFlags: 8
