@@ -13,7 +13,7 @@ public class TestWand : MonoBehaviour
     
     private void OnAttack()
     {
-        wand.Use(Vector3.right, ref _currentMana);
+        wand.Use(Vector3.right, Vector3.zero, ref _currentMana);
     }
 
     private void OnInteract()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public abstract class ProjectileSpell: Spell
 {
-    protected List<Projectile> _projectileInstances = new List<Projectile>();
+    public List<Projectile> projectileInstances = new List<Projectile>();
     
     public override void Query(Spell[] otherSpells, QueryResult result)
     {
@@ -15,30 +15,29 @@ public abstract class ProjectileSpell: Spell
         }
     }
     
-    public override void Cast(Vector3 direction)
+    public override void Cast(Vector3 direction, Vector3 origin)
     {
-        PreCast?.Invoke(direction);
-        
         var projectile = GameObject.Instantiate(_spellStat.prefab, this.transform.position, Quaternion.identity, this.transform).GetComponent<Projectile>();
         projectile.Direction = direction;
         projectile.Speed = _spellStat.speed;
         projectile.Gravity = _spellStat.range;
-        _projectileInstances.Add(projectile);
+        projectileInstances.Add(projectile);
+        
+        PreCast?.Invoke(direction);
     }
 
     protected virtual void TraverseProjectiles(float dt)
     {
         Stack<int> removeIndices = new Stack<int>();
         
-        for (int i = 0; i < _projectileInstances.Count; i++)
+        for (int i = 0; i < projectileInstances.Count; i++)
         {
-            var projectile = _projectileInstances[i];
+            var projectile = projectileInstances[i];
             
             projectile.Traverse(dt);
 
             if (projectile.Collided)
             {
-                Destroy(projectile.gameObject);
                 removeIndices.Push(i);
             }
         }
@@ -46,9 +45,10 @@ public abstract class ProjectileSpell: Spell
         while (removeIndices.Count > 0)
         {
             int i = removeIndices.Pop();
-            var projectile = _projectileInstances[i];
-            OnHit(projectile.transform.position, projectile.Direction);
-            _projectileInstances.RemoveAt(i);
+            var projectile = projectileInstances[i];
+            OnHit(projectile.transform.position, projectile.Direction, projectile.HitEntity);
+            Destroy(projectile.gameObject);
+            projectileInstances.RemoveAt(i);
         }
     }
 
@@ -62,7 +62,7 @@ public abstract class ProjectileSpell: Spell
         modifiers.Clear();
     }
 
-    protected abstract void OnHit(Vector3 position, Vector3 direction);
+    protected abstract void OnHit(Vector3 position, Vector3 direction, IDamageable entity);
 
     protected virtual void Update()
     {
