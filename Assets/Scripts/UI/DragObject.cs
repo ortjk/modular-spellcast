@@ -15,7 +15,7 @@ public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     private Vector2 _centerPoint;
     private Vector2 _worldCenterPoint => transform.TransformPoint(_centerPoint);
 
-    private void Awake()
+    public void Init()
     {
         _manager = GetComponentInParent<DragManager>();
         _image = GetComponent<Image>();
