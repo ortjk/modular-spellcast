@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -16,5 +17,10 @@ public class Projectile : MonoBehaviour
         Direction = Vector3.Lerp(Direction, Vector3.down, Gravity * dt);
         // move
         this.transform.Translate(Direction * (Speed * dt));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Collided = true;
     }
 }

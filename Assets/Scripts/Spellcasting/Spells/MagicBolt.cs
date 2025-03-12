@@ -20,6 +20,7 @@ public class MagicBolt: Spell
         if (Physics.Raycast(origin, direction, out hit, _spellStat.range, 0xFF))
         {
             var d = hit.collider.gameObject.GetComponent<IDamageable>();
+            // Debug.DrawRay(origin, direction * _spellStat.range, Color.red, 2);
             if (d != null)
             {
                 DamageInfo dmgInfo = new DamageInfo();

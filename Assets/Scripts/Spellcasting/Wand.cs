@@ -41,6 +41,8 @@ public class Wand : MonoBehaviour
             }
             return;
         }
+        
+        sqresult.ManaCost = Mathf.Clamp(sqresult.ManaCost, 0, sqresult.ManaCost);
         mana -= sqresult.ManaCost;
 
         _cooldown += sqresult.Cooldown;
