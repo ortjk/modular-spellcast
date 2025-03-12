@@ -6,6 +6,7 @@ public struct PlayerInputs
     public float MoveAxisRight;
     public float MoveAxisUp;
     public bool JumpPressed;
+    public bool GameIsPaused;
     public bool SpellCastPressed;
     public Quaternion CameraRotation;
 }
