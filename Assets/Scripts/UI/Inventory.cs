@@ -23,8 +23,6 @@ public class Inventory: MonoBehaviour
             _unused.Add(spell, 0);
         }
         _unused[spell]++;
-        
-        Debug.Log(_unused[spell]);
     }
 
     public void RemoveSpell<T>(T spell) where T : Spell
