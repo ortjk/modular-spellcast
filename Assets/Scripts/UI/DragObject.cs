@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public DragSlot slot = null;
+    public Type type;
     
     private DragManager _manager = null;
     private Image _image = null;

@@ -16,6 +16,17 @@ public class Inventory: MonoBehaviour
         _unused[t]++;
     }
 
+    public void AddSpell(Type spell)
+    {
+        if (!_unused.ContainsKey(spell))
+        {
+            _unused.Add(spell, 0);
+        }
+        _unused[spell]++;
+        
+        Debug.Log(_unused[spell]);
+    }
+
     public void RemoveSpell<T>(T spell) where T : Spell
     {
         Type t = spell.GetType();
@@ -36,5 +47,10 @@ public class Inventory: MonoBehaviour
         }
         
         return counts;
+    }
+
+    public void Reset()
+    {
+        _unused.Clear();
     }
 }
