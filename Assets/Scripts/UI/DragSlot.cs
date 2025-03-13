@@ -5,24 +5,24 @@ public class DragSlot: MonoBehaviour
 {
     public bool Occupied { get; private set; } = false;
 
-    [SerializeField] private DragObject _contained;
+    [SerializeField] public DragObject Contained { get; private set; }
 
     public void Assign(DragObject drag)
     {
-        if (_contained != null && _contained != drag)
+        if (Contained != null && Contained != drag)
         {
             Debug.LogError($"DragSlot is already occupied");
         }
         
         drag.slot = this;
-        _contained = drag;
+        Contained = drag;
         Occupied = true;
     }
 
     public void UnAssign(DragObject drag)
     {
         drag.slot = null;
-        _contained = null;
+        Contained = null;
         Occupied = false;
     }
 }

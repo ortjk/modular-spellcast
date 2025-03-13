@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TestMenu : MonoBehaviour
 {
@@ -8,6 +9,26 @@ public class TestMenu : MonoBehaviour
     public Wand wand;
 
     public Spell[] spells;
+
+    private bool _open = false;
+
+    private void OnInteract(InputValue value)
+    {
+        ToggleMenu();
+    }
+
+    private void ToggleMenu()
+    {
+        _open = !_open;
+        if (_open)
+        {
+            menu.Open(inventory, wand);
+        }
+        else
+        {
+            menu.Close(inventory, wand);
+        }
+    }
     
     private void Awake()
     {
@@ -15,10 +36,5 @@ public class TestMenu : MonoBehaviour
         {
             inventory.AddSpell(s);
         }
-    }
-
-    private void Start()
-    {
-        menu.Open(inventory, wand);
     }
 }

@@ -38,7 +38,6 @@ public class DragManager : MonoBehaviour
         bool found = false;
         foreach (GameObject h in hovered)
         {
-            Debug.Log(h.name);
             DragSlot slot = h.GetComponent<DragSlot>();
             if (slot != null)
             {
