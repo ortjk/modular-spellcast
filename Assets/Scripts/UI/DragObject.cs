@@ -6,10 +6,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
-public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public DragSlot slot = null;
     public Type type;
+    public Tooltip tooltip = null;
     
     private DragManager _manager = null;
     private Image _image = null;
@@ -42,5 +43,15 @@ public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     {
         _manager.UnregisterDraggedObject(this, eventData.hovered);
         _image.raycastTarget = true;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        
     }
 }
