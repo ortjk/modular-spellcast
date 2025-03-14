@@ -23,6 +23,8 @@ public class HUDController : MonoBehaviour
         _healthBar.SetMax(_player._maxHealth);
         _manaBar.SetMax(_player._maxMana);
         _cooldownBar.SetMax(1);
+        _rounds.text = $"Rounds: 1";
+        _coins.text = $"Coins: 0";
     }
 
     // Update is called once per frame
