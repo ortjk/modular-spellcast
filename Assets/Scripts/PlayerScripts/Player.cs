@@ -9,18 +9,12 @@ public class Player : MonoBehaviour
     private Transform _cameraFollowPoint;
     [SerializeField]
     private PlayerController _playerController;
-    [SerializeField]
-    private GameObject _pauseMenuUI;
 
-    private PlayerInput playerInput;
     private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
-    public GameObject[] _enemies;
 
     private void Start()
     {
-        playerInput = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerInput>();
-        _inputs.GameIsPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
     }
@@ -47,42 +41,21 @@ public class Player : MonoBehaviour
     {
         _inputs.JumpPressed = value.isPressed;
         _playerController.SetInputs(ref _inputs);
+        _inputs.JumpPressed = false;
     }
 
     private void OnPause(InputValue value)
     {
-        if(value.isPressed && !_inputs.GameIsPaused)
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-            _pauseMenuUI.SetActive(true);
-            Time.timeScale = 0f;
-            _enemies = GameObject.FindGameObjectsWithTag("EnemyNPC");
-            foreach (GameObject enemy in _enemies)
-            {
-                enemy.GetComponent<NPCController>().enabled = false;
-            }
-            playerInput.actions.FindActionMap("PlayerControls").Disable();
-            playerInput.actions.FindActionMap("UIControls").Enable();    
-            _inputs.GameIsPaused = true;
-        }
+        _inputs.PausePressed = value.isPressed;
+        _playerController.SetInputs(ref _inputs);
+        _inputs.PausePressed = false;
     } 
 
-    private void OnResume(InputValue value)
+    private void OnCast(InputValue value)
     {
-        if(value.isPressed && _inputs.GameIsPaused)
-        {
-             Cursor.lockState = CursorLockMode.Locked;
-            _pauseMenuUI.SetActive(false);
-            Time.timeScale = 1f;
-            _enemies = GameObject.FindGameObjectsWithTag("EnemyNPC");
-            foreach (GameObject enemy in _enemies)
-            {
-                enemy.GetComponent<NPCController>().enabled = true;
-            }
-            playerInput.actions.FindActionMap("PlayerControls").Enable();
-            playerInput.actions.FindActionMap("UIControls").Disable();
-            _inputs.GameIsPaused = false;
-        }
+        _inputs.SpellCastPressed = value.isPressed;
+        _playerController.SetInputs(ref _inputs);
+        _inputs.SpellCastPressed = false;
     }
 
     private void LateUpdate()
