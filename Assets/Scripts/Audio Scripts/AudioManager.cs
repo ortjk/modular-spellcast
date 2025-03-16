@@ -56,4 +56,14 @@ public class AudioManager : MonoBehaviour
             return effect._audio.length;
         }
     }
+
+    public void ToggleMusic()
+    {
+        _musicSource.mute = !_musicSource.mute;
+    }
+
+    public void ToggleSoundEffects()
+    {
+        _soundEffectSource.mute = !_soundEffectSource.mute;
+    }
 }
