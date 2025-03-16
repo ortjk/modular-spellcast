@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,11 +10,15 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject[] _enemies;
     private PlayerInput playerInput;
+    private Image _musicMuteIndicator;
+    private Image _SFXMuteIndicator;
     
 
     void Start()
     {
         playerInput = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerInput>();
+        _musicMuteIndicator = GameObject.Find("MusicMuteIndicator").GetComponent<Image>();
+        _SFXMuteIndicator = GameObject.Find("SFXMuteIndicator").GetComponent<Image>();
     }
 
     public void Pause()
@@ -55,10 +60,28 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);    
     }
 
-    public void Settings()
+    public void OpenSettingsMenu()
     {
         _settingMenuUI.SetActive(true);
         _pauseMenuUI.SetActive(false);
+    }
+
+    public void ToggleMusic()
+    {
+        //Add Toggle Music Funcition
+        _musicMuteIndicator.enabled = true;
+    }
+
+    public void ToggleSoundEffcts()
+    {
+        //Add Toggle SFX Funcition
+        _SFXMuteIndicator.enabled = true;
+    }
+
+    public void SettingsToPause()
+    {
+        _settingMenuUI.SetActive(false);
+        _pauseMenuUI.SetActive(true);
     }
 
 
