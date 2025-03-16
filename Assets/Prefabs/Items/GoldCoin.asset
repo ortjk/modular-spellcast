@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdae03523ff6e694db9479bd56ab5bb4, type: 3}
+  m_Name: GoldCoin
+  m_EditorClassIdentifier: 
+  _itemName: Gold Coin
+  _pickUpSound: {fileID: 2054838957869435749, guid: 2416837cdc3b05f4f8a144c4d1f85713, type: 3}
+  _valueRangeMin: 1
+  _valueRangeMax: 10
+  _isGold: 1
+  _isSpell: 0
+  _dropPercentage: 100
