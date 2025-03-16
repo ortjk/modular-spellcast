@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoldCoin
   m_EditorClassIdentifier: 
   _itemName: Gold Coin
-  _pickUpSound: {fileID: 2054838957869435749, guid: 2416837cdc3b05f4f8a144c4d1f85713, type: 3}
+  _pickUpSound: {fileID: 9016976608720679939, guid: ed4b1ccb60203d24bb410c1ecc7289d4, type: 3}
   _valueRangeMin: 1
   _valueRangeMax: 10
   _isGold: 1

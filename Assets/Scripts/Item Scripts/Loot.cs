@@ -34,15 +34,13 @@ public class Loot : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision");
         if(other.CompareTag("Player"))
         {
-            Debug.Log("player collision");
             //Add Spell Pick up logic 
-            // _player._inventory.append(_spell);
+            //_player._inventory.append(_spell);
             //_player._coins += _value;
-            _itemSO._pickUpSound.Play();
-            Destroy(_item, _itemSO._pickUpSound.clip.length);
+            AudioManager._audioManager.PlaySoundEffect(_itemSO._pickUpSound._name);
+            Destroy(_item);
         }
     }
 }

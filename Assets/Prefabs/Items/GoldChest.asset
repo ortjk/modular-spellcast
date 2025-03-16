@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoldChest
   m_EditorClassIdentifier: 
   _itemName: GoldChest
-  _pickUpSound: {fileID: 1180501436360413634, guid: f1343087152b5cb44be8af91a4b2208c, type: 3}
+  _pickUpSound: {fileID: 3366380232248649305, guid: aa7bf79ea6a047441ba6f8cd3087afdb, type: 3}
   _valueRangeMin: 100
   _valueRangeMax: 500
   _isGold: 1

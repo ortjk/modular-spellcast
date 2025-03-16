@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpellBook
   m_EditorClassIdentifier: 
   _itemName: SpellBook
-  _pickUpSound: {fileID: 2724804500077348985, guid: bdf070404a5e699458b272fbba9a2aa4, type: 3}
+  _pickUpSound: {fileID: 4934794359642124026, guid: 3efff4508e55a2348962d77f580faa6c, type: 3}
   _valueRangeMin: 0
   _valueRangeMax: 0
   _isGold: 0

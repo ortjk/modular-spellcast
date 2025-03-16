@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7289253664650083508}
   - component: {fileID: 6987458974717597412}
   - component: {fileID: 3939648803701633227}
-  - component: {fileID: 6807242913966114878}
+  - component: {fileID: 5856224081395273948}
   - component: {fileID: 9093672853551420931}
   m_Layer: 0
   m_Name: Coin.001
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 410024690475621770}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.47, y: 0, z: -2.81}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,7 +110,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0025622307, y: 0.0005218927, z: 0.0029586088}
   m_Center: {x: 0, y: 1.4551915e-11, z: -0.000000007450581}
---- !u!54 &6807242913966114878
+--- !u!54 &5856224081395273948
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
