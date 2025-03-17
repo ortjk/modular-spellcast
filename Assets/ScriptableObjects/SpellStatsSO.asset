@@ -37,7 +37,7 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 0}
-  - spellName: Speed Mod
+  - spellName: Speed Modifier
     damage: 0
     cooldown: 0
     mana: 5
