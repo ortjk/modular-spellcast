@@ -38,6 +38,7 @@ public abstract class ProjectileSpell: Spell
 
             if (projectile.Collided)
             {
+                Destroy(projectile.gameObject);
                 removeIndices.Push(i);
             }
         }
