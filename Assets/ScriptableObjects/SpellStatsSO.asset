@@ -15,8 +15,8 @@ MonoBehaviour:
   spellStats:
   - spellName: Cube
     damage: 0
-    cooldown: 1
-    mana: 75
+    cooldown: 0
+    mana: 0
     speed: 100
     range: 0.5
     area: 0
@@ -24,13 +24,11 @@ MonoBehaviour:
     prefab: {fileID: 7108546712052221166, guid: 8d63d6c0eb4036ab69269f221c8dd3b4, type: 3}
   - spellName: Count
     damage: 0
-    cooldown: 1
-    mana: 10
+    cooldown: 0
+    mana: 0
     speed: 100
     range: 0.5
     area: 0
-    isModifier: 0
-    prefab: {fileID: 0}
   - spellName: Double
     damage: 0
     cooldown: 0
@@ -40,12 +38,39 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 0}
-  - spellName: Speed Mod
+  - spellName: Speed Modifier
     damage: 0
     cooldown: 0
-    mana: 0
-    speed: 0
+    mana: 5
+    speed: 15
     range: 0
     area: 0
     isModifier: 1
+    prefab: {fileID: 0}
+  - spellName: Magic Bolt
+    damage: 8
+    cooldown: 0.5
+    mana: 6
+    speed: 0
+    range: 50
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 0}
+  - spellName: Fire Bolt
+    damage: 16
+    cooldown: 0.8
+    mana: 6
+    speed: 20
+    range: 0.1
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 9170809777318246701, guid: 6e2906baa86fbb613bb9c8de3f70c109, type: 3}
+  - spellName: Mana Reduction
+    damage: 0
+    cooldown: 0.5
+    mana: 20
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
     prefab: {fileID: 0}
