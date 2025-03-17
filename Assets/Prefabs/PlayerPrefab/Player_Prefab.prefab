@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCamera: {fileID: 2576454223999930357}
   _cameraFollowPoint: {fileID: 2438539365816661428}
-  _characterController: {fileID: 7787880594235437380}
+  _playerController: {fileID: 0}
 --- !u!1 &7438271873427616685
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,17 +347,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8644001598560605126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc679a7c977dec748a15eb422054579a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a328ffc7c71bc34a9c6191a6be63432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _motor: {fileID: 8147924685504361635}
-  _playerCamera: {fileID: 2576454223999930357}
   _gravity: {x: 0, y: -30, z: 0}
   _maxStableMoveSpeed: 10
   _stableMovementSharpness: 15
   _orientaionSharpness: 10
   _jumpSpeed: 10
-  _manaPool: 100
 --- !u!136 &4235033115764639958
 CapsuleCollider:
   m_ObjectHideFlags: 8
@@ -502,6 +500,14 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9d4dac896c5e9044b9bd79a967ae5408, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6596211829492566725, guid: 9d4dac896c5e9044b9bd79a967ae5408, type: 3}
+      propertyPath: m_CastShadows
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5601035353026988118, guid: 9d4dac896c5e9044b9bd79a967ae5408, type: 3}
+      propertyPath: m_CastShadows
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d4dac896c5e9044b9bd79a967ae5408, type: 3}
       propertyPath: m_Name
