@@ -49,17 +49,24 @@ public class Player : MonoBehaviour
     private void OnJump(InputValue value)
     {
         _inputs.JumpPressed = value.isPressed;
-        _playerController.SetInputs(ref _inputs); 
+        _playerController.SetInputs(ref _inputs);
+        _inputs.JumpPressed = false;
     }
 
-    private void ManaRegeneration()
+    private void OnPause(InputValue value)
     {
-        if(_currentMana < _maxMana)
-        {
-            _currentMana = _currentMana + (_manaPerSecond * Time.deltaTime);
-        }
-    }
+        _inputs.PausePressed = value.isPressed;
+        _playerController.SetInputs(ref _inputs);
+        _inputs.PausePressed = false;
+    } 
 
+    private void OnCast(InputValue value)
+    {
+        _inputs.SpellCastPressed = value.isPressed;
+        _playerController.SetInputs(ref _inputs);
+        _inputs.SpellCastPressed = false;
+    }
+    
     void Update()
     {
         ManaRegeneration();
@@ -68,5 +75,13 @@ public class Player : MonoBehaviour
     private void LateUpdate()
     {
         _playerCamera.UpdateWithInput(Time.deltaTime, _lookInputVector);
+    }
+    
+    private void ManaRegeneration()
+    {
+        if(_currentMana < _maxMana)
+        {
+            _currentMana = _currentMana + (_manaPerSecond * Time.deltaTime);
+        }
     }
 }
