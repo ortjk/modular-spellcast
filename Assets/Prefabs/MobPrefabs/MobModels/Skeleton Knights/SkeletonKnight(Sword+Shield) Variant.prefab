@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4992147676650743583
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.609186
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19999743
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.3356013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001949185483658169, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5616463823505092098, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      propertyPath: m_Name
+      value: SkeletonKnight(Sword+Shield) Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 7276080270134341092, guid: cd8624476a631d64889fea80878157cf, type: 3}
+    - {fileID: 3334803304634665556, guid: cd8624476a631d64889fea80878157cf, type: 3}
+    - {fileID: 9133125105779443699, guid: cd8624476a631d64889fea80878157cf, type: 3}
+    - {fileID: 2155813822115212653, guid: cd8624476a631d64889fea80878157cf, type: 3}
+    - {fileID: 82138355524387232, guid: cd8624476a631d64889fea80878157cf, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5616463823505092098, guid: cd8624476a631d64889fea80878157cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6864271551605413816}
+  m_SourcePrefab: {fileID: 100100000, guid: cd8624476a631d64889fea80878157cf, type: 3}
+--- !u!1 &627719760260712733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5616463823505092098, guid: cd8624476a631d64889fea80878157cf, type: 3}
+  m_PrefabInstance: {fileID: 4992147676650743583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &-6864271551605413816
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627719760260712733}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: bb736aa4b56249541be1d3a4ade73eac, type: 3}
+  m_Controller: {fileID: 9100000, guid: 45c62416cf8e93742a142619f1921653, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
