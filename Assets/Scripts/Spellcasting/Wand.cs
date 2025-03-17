@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Wand : MonoBehaviour
 {
@@ -13,22 +14,47 @@ public class Wand : MonoBehaviour
     private int _currentSlot = 0;
     private float _cooldown = 0f;
 
-    public void Use(Vector3 direction)
+    public void Use(Vector3 direction, Vector3 origin, ref int mana)
     {
         if (_cooldown > 0f || spells.Length == 0)
         {
-            Debug.Log("Reached " + _cooldown);
+            Debug.Log("Cooldown");
             return;
         }
         
         Spell spell = spells[_currentSlot];
-        spell.Cast(direction);
-        _cooldown += spell.Cooldown;
         
-        _currentSlot += 1;
+        Spell[] otherSpells = new Spell[spells.Length - 1];
+        SetOtherSpells(otherSpells);
+        
+        var sqresult = new Spell.QueryResult();
+        sqresult.ToCast = new Queue<Spell>();
+        spell.Query(otherSpells, sqresult);
+
+        if (sqresult.ManaCost > mana)
+        {
+            Debug.Log("Not enough mana: " + mana + " / " + sqresult.ManaCost);
+            
+            foreach (Spell s in spells)
+            {
+                s.Reset();
+            }
+            return;
+        }
+        
+        sqresult.ManaCost = Mathf.Clamp(sqresult.ManaCost, 0, sqresult.ManaCost);
+        mana -= sqresult.ManaCost;
+
+        _cooldown += sqresult.Cooldown;
+        while (sqresult.ToCast.Count > 0)
+        {
+            sqresult.ToCast.Dequeue().Cast(direction, origin);
+        }
+        
+        _currentSlot += sqresult.Count;
         if (_currentSlot >= spells.Length)
         {
-            _currentSlot = 0;
+            _currentSlot -= spells.Length;
             _cooldown += reloadTime;
         }
     }
@@ -49,14 +75,23 @@ public class Wand : MonoBehaviour
         _currentSlot = 0;
     }
 
-    public int GetManaForCast()
+    // gets all other spells than the current one in order of when they will be cast next
+    //
+    // e.g. for spells = [ A, B, C, D, E, F ], _currentSlot = 2
+    // returns [ D, E, F, A, B ]
+    private void SetOtherSpells(Spell[] otherSpells)
     {
-        if (spells.Length == 0)
+        int offset = spells.Length - _currentSlot - 1;
+        
+        for (int i = 0; i < offset; i++)
         {
-            return 0;
+            otherSpells[i] = spells[i + _currentSlot + 1];
         }
 
-        return spells[_currentSlot].Mana;
+        for (int i = 0; i < _currentSlot; i++)
+        {
+            otherSpells[i + offset] = spells[i];
+        }
     }
 
     private void Update()

@@ -13,13 +13,7 @@ public class TestWand : MonoBehaviour
     
     private void OnAttack()
     {
-        int mana = wand.GetManaForCast();
-        Debug.Log("Cost: " + mana + ", current: " + _currentMana);
-        if (mana <= _currentMana)
-        {
-            _currentMana -= mana;
-            wand.Use(Vector3.right);
-        }
+        wand.Use(Vector3.right, Vector3.zero, ref _currentMana);
     }
 
     private void OnInteract()
