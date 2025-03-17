@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 62a2c6791409ffc4884047698e445c65, type: 3}
       propertyPath: m_Name
-      value: Skeleton_Warrior(Axes})
+      value: Skeleton_Warrior(Axes)
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 62a2c6791409ffc4884047698e445c65, type: 3}
       propertyPath: m_Controller

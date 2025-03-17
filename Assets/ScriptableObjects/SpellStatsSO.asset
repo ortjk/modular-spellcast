@@ -13,6 +13,22 @@ MonoBehaviour:
   m_Name: SpellStatsSO
   m_EditorClassIdentifier: 
   spellStats:
+  - spellName: Cube
+    damage: 0
+    cooldown: 1
+    mana: 75
+    speed: 100
+    range: 0.5
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 7108546712052221166, guid: 8d63d6c0eb4036ab69269f221c8dd3b4, type: 3}
+  - spellName: Count
+    damage: 0
+    cooldown: 1
+    mana: 10
+    speed: 100
+    range: 0.5
+    area: 0
   - spellName: Double
     damage: 0
     cooldown: 0
@@ -22,7 +38,7 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 0}
-  - spellName: Speed Mod
+  - spellName: Speed Modifier
     damage: 0
     cooldown: 0
     mana: 5

@@ -17,6 +17,8 @@ public abstract class ProjectileSpell: Spell
     
     public override void Cast(Vector3 direction, Vector3 origin)
     {
+        PreCast?.Invoke(direction);
+        
         var projectile = GameObject.Instantiate(_spellStat.prefab, this.transform.position, Quaternion.identity, this.transform).GetComponent<Projectile>();
         projectile.Direction = direction;
         projectile.Speed = _spellStat.speed;
@@ -38,6 +40,7 @@ public abstract class ProjectileSpell: Spell
 
             if (projectile.Collided)
             {
+                Destroy(projectile.gameObject);
                 removeIndices.Push(i);
             }
         }
