@@ -9,14 +9,23 @@ public class Player : MonoBehaviour
     private Transform _cameraFollowPoint;
     [SerializeField]
     private PlayerController _playerController;
+    [SerializeField]
+    public float _maxMana = 100f, _maxHealth = 100f, _manaPerSecond = 1f;
 
     private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
+
+    public float _coins;
+    public float _currentMana;
+    public float _currentHealth;
+    
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
+        _currentHealth = _maxHealth;
+        _currentMana = _maxMana;
     }
 
     private void OnMove(InputValue value)
@@ -57,9 +66,22 @@ public class Player : MonoBehaviour
         _playerController.SetInputs(ref _inputs);
         _inputs.SpellCastPressed = false;
     }
+    
+    void Update()
+    {
+        ManaRegeneration();
+    }
 
     private void LateUpdate()
     {
         _playerCamera.UpdateWithInput(Time.deltaTime, _lookInputVector);
+    }
+    
+    private void ManaRegeneration()
+    {
+        if(_currentMana < _maxMana)
+        {
+            _currentMana = _currentMana + (_manaPerSecond * Time.deltaTime);
+        }
     }
 }
