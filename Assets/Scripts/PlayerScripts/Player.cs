@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -7,44 +8,80 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform _cameraFollowPoint;
     [SerializeField]
-    private CharacterController _characterController;
+    private PlayerController _playerController;
+    [SerializeField]
+    public float _maxMana = 100f, _maxHealth = 100f, _manaPerSecond = 1f;
 
+    private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
+
+    public float _coins;
+    public float _currentMana;
+    public float _currentHealth;
+    
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
+        _currentHealth = _maxHealth;
+        _currentMana = _maxMana;
     }
 
-    private void HandleCameraInput()
+    private void OnMove(InputValue value)
     {
-        float mouseUp = Input.GetAxisRaw("Mouse Y");
-        float mouseRight = Input.GetAxisRaw("Mouse X");
-        _lookInputVector = new Vector3(mouseRight, mouseUp, 0f);
-
-        _playerCamera.UpdateWithInput(Time.deltaTime, _lookInputVector);
+        var rawMove = value.Get<Vector2>();
+        _inputs.MoveAxisForward = rawMove.y;
+        _inputs.MoveAxisRight = rawMove.x;
+        
+        _playerController.SetInputs(ref _inputs);
     }
 
-    private void HandleCharacterInputs()
+    private void OnLook(InputValue value)
     {
-        PlayerInputs inputs = new PlayerInputs();
-        inputs.MoveAxisForward = Input.GetAxisRaw("Vertical");
-        inputs.MoveAxisRight = Input.GetAxisRaw("Horizontal");
-        inputs.CameraRotation = _playerCamera.transform.rotation;
-        inputs.JumpPressed = Input.GetKeyDown(KeyCode.Space);
-        inputs.SpellCastPressed = Input.GetKeyDown(KeyCode.Mouse0);
+        var rawLook = value.Get<Vector2>();
+        _lookInputVector = new Vector3(rawLook.x, rawLook.y, 0);
 
-        _characterController.SetInputs(ref inputs);
+        _inputs.CameraRotation = _playerCamera.transform.rotation;
+        _playerController.SetInputs(ref _inputs);
     }
 
-    private void Update()
+    private void OnJump(InputValue value)
     {
-        HandleCharacterInputs();
+        _inputs.JumpPressed = value.isPressed;
+        _playerController.SetInputs(ref _inputs);
+        _inputs.JumpPressed = false;
+    }
+
+    private void OnPause(InputValue value)
+    {
+        _inputs.PausePressed = value.isPressed;
+        _playerController.SetInputs(ref _inputs);
+        _inputs.PausePressed = false;
+    } 
+
+    private void OnCast(InputValue value)
+    {
+        _inputs.SpellCastPressed = value.isPressed;
+        _playerController.SetInputs(ref _inputs);
+        _inputs.SpellCastPressed = false;
+    }
+    
+    void Update()
+    {
+        ManaRegeneration();
     }
 
     private void LateUpdate()
     {
-        HandleCameraInput();
+        _playerCamera.UpdateWithInput(Time.deltaTime, _lookInputVector);
+    }
+    
+    private void ManaRegeneration()
+    {
+        if(_currentMana < _maxMana)
+        {
+            _currentMana = _currentMana + (_manaPerSecond * Time.deltaTime);
+        }
     }
 }
