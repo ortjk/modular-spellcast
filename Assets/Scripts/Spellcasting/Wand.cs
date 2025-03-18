@@ -12,11 +12,12 @@ public class Wand : MonoBehaviour
     public float reloadTime = 0f;
 
     private int _currentSlot = 0;
-    private float _cooldown = 0f;
+    public float _currentCooldown = 0f;
+    public float _maxCooldown = 0f;
 
     public void Use(Vector3 direction, Vector3 origin, ref int mana)
     {
-        if (_cooldown > 0f || spells.Length == 0)
+        if (_currentCooldown > 0f || spells.Length == 0)
         {
             Debug.Log("Cooldown");
             return;
@@ -45,7 +46,7 @@ public class Wand : MonoBehaviour
         sqresult.ManaCost = Mathf.Clamp(sqresult.ManaCost, 0, sqresult.ManaCost);
         mana -= sqresult.ManaCost;
 
-        _cooldown += sqresult.Cooldown;
+        _maxCooldown += sqresult.Cooldown;
         while (sqresult.ToCast.Count > 0)
         {
             sqresult.ToCast.Dequeue().Cast(direction, origin);
@@ -55,8 +56,9 @@ public class Wand : MonoBehaviour
         if (_currentSlot >= spells.Length)
         {
             _currentSlot -= spells.Length;
-            _cooldown += reloadTime;
+            _maxCooldown += reloadTime;
         }
+        _currentCooldown = _maxCooldown;
     }
 
     public void SetSpells(Spell[] newSpells)
@@ -96,9 +98,9 @@ public class Wand : MonoBehaviour
 
     private void Update()
     {
-        if (_cooldown > 0f)
+        if (_currentCooldown > 0f)
         {
-            _cooldown -= Time.deltaTime;
+            _currentCooldown -= Time.deltaTime;
         }
     }
 }

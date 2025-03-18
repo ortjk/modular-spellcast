@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8297163817283322133}
   - component: {fileID: 6562673179630277142}
   - component: {fileID: 6354862438451797645}
-  - component: {fileID: 2402000050849439823}
   m_Layer: 0
   m_Name: Skeleton_Mage(MageStaffwithKnightTexture)Prefab
   m_TagString: EnemyNPC
@@ -101,25 +100,6 @@ MonoBehaviour:
   CheckMovementInitialOverlaps: 1
   KillVelocityWhenExceedMaxMovementIterations: 1
   KillRemainingMovementWhenExceedMaxMovementIterations: 1
---- !u!114 &2402000050849439823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2363807696957390173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc679a7c977dec748a15eb422054579a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _motor: {fileID: 6354862438451797645}
-  _playerCamera: {fileID: 0}
-  _gravity: {x: 0, y: -30, z: 0}
-  _maxStableMoveSpeed: 10
-  _stableMovementSharpness: 15
-  _orientaionSharpness: 10
-  _jumpSpeed: 10
 --- !u!1 &3834104705708444151
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fd820cd911cff43839f6bd63d0b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCs:
-  - {fileID: 2402000050849439823}
+  _motor: {fileID: 6354862438451797645}
+  _gravity: {x: 0, y: -30, z: 0}
+  _maxStableMoveSpeed: 10
+  _stableMovementSharpness: 15
+  _orientaionSharpness: 10
+  _jumpSpeed: 10
 --- !u!1001 &8129444147594379362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,8 +237,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 215796249916880311, guid: 9d912b4f4dedc29479f3442415c2b3b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1246513920429662661}
   m_SourcePrefab: {fileID: 100100000, guid: 9d912b4f4dedc29479f3442415c2b3b7, type: 3}
+--- !u!95 &4103654507043748598 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -4025502931796608364, guid: 9d912b4f4dedc29479f3442415c2b3b7, type: 3}
+  m_PrefabInstance: {fileID: 8129444147594379362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8227865321346037205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 215796249916880311, guid: 9d912b4f4dedc29479f3442415c2b3b7, type: 3}
+  m_PrefabInstance: {fileID: 8129444147594379362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1246513920429662661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227865321346037205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ac339283c95fc4984977352df9a79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAnimator: {fileID: 4103654507043748598}
+  _motor: {fileID: 6354862438451797645}
 --- !u!4 &8747379460994871151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 699598527123713805, guid: 9d912b4f4dedc29479f3442415c2b3b7, type: 3}

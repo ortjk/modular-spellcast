@@ -17,11 +17,6 @@ public class Loot : MonoBehaviour
     {
         _player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         _value = 0;
-    }
-
-    private void OnValidate()
-    {
-        if(_itemSO == null) {return;}
         if(_itemSO._isGold)
         {
             _value = _randomInt.Next(_itemSO._valueRangeMin, _itemSO._valueRangeMax);
@@ -32,13 +27,18 @@ public class Loot : MonoBehaviour
         }
     }
 
+    private void OnValidate()
+    {
+        if(_itemSO == null) {return;}
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
             //Add Spell Pick up logic 
             //_player._inventory.append(_spell);
-            //_player._coins += _value;
+            _player._coins += _value;
             AudioManager._audioManager.PlaySoundEffect(_itemSO._pickUpSound._name);
             Destroy(_item);
         }

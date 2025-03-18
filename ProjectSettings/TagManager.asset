@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 3
   tags:
   - EnemyNPC
+  - FxTemporaire
+  - EnemyNPCController
+  - MusicMuteIndicator
+  - SFXMuteIndicator
+  - PlayerScript
+  - Undefined
+  - SpawnPoint
+  - Spawner
   layers:
   - Default
   - TransparentFX

@@ -5,18 +5,18 @@ public class Spawning : MonoBehaviour
 {
     [SerializeField]
     private float _minSpawnDelay = 3f, _maxSpawnDelay = 5f, _roundDelay = 120f;
-    public GameObject[] enemyNPCs;
-    public GameObject[] spawnpoints;
     public int _roundOneEnemyCapacity = 20, _currentRoundEnemyCapacity;
     public int _currentRound;
+    public GameObject[] enemyNPCs;
 
     private int _enemiesSpawned;
     private float _currentSpawnCooldown, _spawningFinishedCountdown;
-
+    private GameObject[] spawnpoints;
     private System.Random _randomInteger = new System.Random();
 
     void Start()
     {
+        spawnpoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         _currentRound = 1;
         _currentSpawnCooldown = 0f;
         _spawningFinishedCountdown = _roundDelay;

@@ -12,13 +12,14 @@ public class PauseMenu : MonoBehaviour
     private PlayerInput playerInput;
     private Image _musicMuteIndicator;
     private Image _SFXMuteIndicator;
+
+    private bool _musicIsMuted = false;
+    private bool _SFXIsMuted = false;
     
 
     void Start()
     {
         playerInput = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerInput>();
-        _musicMuteIndicator = GameObject.Find("MusicMuteIndicator").GetComponent<Image>();
-        _SFXMuteIndicator = GameObject.Find("SFXMuteIndicator").GetComponent<Image>();
     }
 
     public void Pause()
@@ -28,7 +29,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         playerInput.actions.FindActionMap("UIControls").Enable();
         playerInput.actions.FindActionMap("PlayerControls").Disable();  
-        _enemies = GameObject.FindGameObjectsWithTag("EnemyNPC");
+        _enemies = GameObject.FindGameObjectsWithTag("EnemyNPCController");
         foreach (GameObject enemy in _enemies)
         {
             enemy.GetComponent<NPCController>().enabled = false;
@@ -42,7 +43,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         playerInput.actions.FindActionMap("UIControls").Disable();
         playerInput.actions.FindActionMap("PlayerControls").Enable();
-        _enemies = GameObject.FindGameObjectsWithTag("EnemyNPC");
+        _enemies = GameObject.FindGameObjectsWithTag("EnemyNPCController");
         foreach (GameObject enemy in _enemies)
         {
             enemy.GetComponent<NPCController>().enabled = true;
@@ -64,18 +65,26 @@ public class PauseMenu : MonoBehaviour
     {
         _settingMenuUI.SetActive(true);
         _pauseMenuUI.SetActive(false);
+        _musicMuteIndicator = GameObject.FindGameObjectsWithTag("MusicMuteIndicator")[0].GetComponent<Image>();
+        _musicMuteIndicator.enabled = false;
+        _SFXMuteIndicator = GameObject.FindGameObjectsWithTag("SFXMuteIndicator")[0].GetComponent<Image>();
+        _SFXMuteIndicator.enabled = false;
     }
 
     public void ToggleMusic()
     {
-        //Add Toggle Music Funcition
-        _musicMuteIndicator.enabled = true;
+        AudioManager._audioManager.ToggleMusic();
+        _musicIsMuted = !_musicIsMuted;
+        _musicMuteIndicator.enabled = _musicIsMuted;
+        
     }
 
     public void ToggleSoundEffcts()
     {
-        //Add Toggle SFX Funcition
-        _SFXMuteIndicator.enabled = true;
+        AudioManager._audioManager.ToggleSoundEffects();
+        _SFXIsMuted = !_SFXIsMuted;
+        _SFXMuteIndicator.enabled = _SFXIsMuted;
+        
     }
 
     public void SettingsToPause()

@@ -5,21 +5,22 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
     [SerializeField]
+    private TextMeshProUGUI _coins, _rounds;
+    [SerializeField]
+    private StatBar _manaBar, _healthBar, _cooldownBar;
     private Player _player;
     private Spawning _spawner;
     private Wand _wand;
-    private StatBar _manaBar;
-    private StatBar _healthBar;
-    private StatBar _cooldownBar;
     private Image _crosshair;
-    private TextMeshProUGUI _coins;
-    private TextMeshProUGUI _rounds;
+
 
     
 
     
     void Start()
     {
+        _player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        _spawner = GameObject.FindGameObjectsWithTag("Spawner")[0].GetComponent<Spawning>();
         _healthBar.SetMax(_player._maxHealth);
         _manaBar.SetMax(_player._maxMana);
         _cooldownBar.SetMax(1);
@@ -32,11 +33,11 @@ public class HUDController : MonoBehaviour
     {
         _healthBar.SetFill(_player._currentHealth);
         _manaBar.SetFill(_player._currentMana);
-        _cooldownBar.SetMax(_wand._maxCooldown);
-        _cooldownBar.SetFill(_wand._maxCooldown-_wand._currentCooldown);
+        //_cooldownBar.SetMax(_wand._maxCooldown);
+        //_cooldownBar.SetFill(_wand._maxCooldown-_wand._currentCooldown);
         _rounds.text = $"Rounds: {_spawner._currentRound}";
         _coins.text = $"Coins: {_player._coins}";
-        CursorState();
+        //CursorState();
     }
 
     void CursorState()

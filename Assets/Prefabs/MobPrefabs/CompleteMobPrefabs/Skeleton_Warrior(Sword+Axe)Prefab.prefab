@@ -76,8 +76,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fd820cd911cff43839f6bd63d0b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCs:
-  - {fileID: 703487636927063304}
+  _motor: {fileID: 3422311581644738918}
+  _gravity: {x: 0, y: -30, z: 0}
+  _maxStableMoveSpeed: 10
+  _stableMovementSharpness: 15
+  _orientaionSharpness: 10
+  _jumpSpeed: 10
 --- !u!1 &7859413226732981867
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +93,6 @@ GameObject:
   - component: {fileID: 4916991068338529879}
   - component: {fileID: 3786812995148527863}
   - component: {fileID: 3422311581644738918}
-  - component: {fileID: 703487636927063304}
   m_Layer: 0
   m_Name: Skeleton_Warrior(Sword+Axe)Prefab
   m_TagString: EnemyNPC
@@ -179,25 +182,6 @@ MonoBehaviour:
   CheckMovementInitialOverlaps: 1
   KillVelocityWhenExceedMaxMovementIterations: 1
   KillRemainingMovementWhenExceedMaxMovementIterations: 1
---- !u!114 &703487636927063304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7859413226732981867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc679a7c977dec748a15eb422054579a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _motor: {fileID: 3422311581644738918}
-  _playerCamera: {fileID: 0}
-  _gravity: {x: 0, y: -30, z: 0}
-  _maxStableMoveSpeed: 10
-  _stableMovementSharpness: 15
-  _orientaionSharpness: 10
-  _jumpSpeed: 10
 --- !u!1001 &2546835522816605215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,8 +237,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8202442909538547648, guid: 53416e72ca5e9a149abde6795124acbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2888502164493451880}
   m_SourcePrefab: {fileID: 100100000, guid: 53416e72ca5e9a149abde6795124acbd, type: 3}
+--- !u!95 &1091911031257467679 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3206301415047362304, guid: 53416e72ca5e9a149abde6795124acbd, type: 3}
+  m_PrefabInstance: {fileID: 2546835522816605215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5948343836620295135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8202442909538547648, guid: 53416e72ca5e9a149abde6795124acbd, type: 3}
+  m_PrefabInstance: {fileID: 2546835522816605215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2888502164493451880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948343836620295135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ac339283c95fc4984977352df9a79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAnimator: {fileID: 1091911031257467679}
+  _motor: {fileID: 3422311581644738918}
 --- !u!4 &6469160936469123429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8835850206043385210, guid: 53416e72ca5e9a149abde6795124acbd, type: 3}
