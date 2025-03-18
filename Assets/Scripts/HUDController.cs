@@ -8,10 +8,12 @@ public class HUDController : MonoBehaviour
     private TextMeshProUGUI _coins, _rounds;
     [SerializeField]
     private StatBar _manaBar, _healthBar, _cooldownBar;
+    [SerializeField]
+    private Image _crosshair;
     private Player _player;
     private Spawning _spawner;
     private Wand _wand;
-    private Image _crosshair;
+    
 
 
     
@@ -33,16 +35,16 @@ public class HUDController : MonoBehaviour
     {
         _healthBar.SetFill(_player._currentHealth);
         _manaBar.SetFill(_player._currentMana);
-        //_cooldownBar.SetMax(_wand._maxCooldown);
-        //_cooldownBar.SetFill(_wand._maxCooldown-_wand._currentCooldown);
+        _cooldownBar.SetMax(_wand._maxCooldown);
+        _cooldownBar.SetFill(_wand._maxCooldown-_wand._currentCooldown);
         _rounds.text = $"Rounds: {_spawner._currentRound}";
         _coins.text = $"Coins: {_player._coins}";
-        //CursorState();
+        CursorState();
     }
 
     void CursorState()
     {
-        if(_wand._currentCooldown > 0)
+        if(_wand.Cooldown > 0)
         {
             _crosshair.color = new Color32(255,0,0,100);
         }

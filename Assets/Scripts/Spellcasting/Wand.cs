@@ -11,6 +11,8 @@ public class Wand : MonoBehaviour
     [Header("Wand Stats")]
     public float reloadTime = 0f;
 
+    public float Cooldown { get; private set; } = 0f;
+
     private int _currentSlot = 0;
     public float _currentCooldown = 0f;
     public float _maxCooldown = 0f;
