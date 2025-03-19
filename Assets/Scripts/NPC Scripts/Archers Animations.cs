@@ -8,11 +8,13 @@ public class ArchersAnimations : MonoBehaviour
     private Animator mAnimator;
     [SerializeField]
     private KinematicCharacterMotor _motor;
+    [SerializeField]
+    private Enemy _enemy;
     private bool _newlySpawned = true;
     void Start()
     {
         mAnimator = GetComponent<Animator>();
-        
+        _enemy = GetComponentInParent<Enemy>();
     }
 
     void Update()
@@ -22,6 +24,10 @@ public class ArchersAnimations : MonoBehaviour
             {
                 mAnimator.SetTrigger("Spawn");
                 _newlySpawned = false;
+            }
+            else if(!_enemy.Alive)//Add Death Condition to trigger
+            {
+                mAnimator.SetTrigger("Death");
             }
             else if(false)//Add Attack Conditions to trigger
             {
@@ -38,10 +44,6 @@ public class ArchersAnimations : MonoBehaviour
             else if(!_motor.GroundingStatus.IsStableOnGround)
             {
                 mAnimator.SetTrigger("Falling");
-            }
-            else if(false)//Add Death Condition to trigger
-            {
-                mAnimator.SetTrigger("Death");
             }
         }
     }

@@ -2,7 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private PlayerCamera _playerCamera;
@@ -30,7 +30,11 @@ public class Player : MonoBehaviour
 
     public int _coins;
     public float _currentMana, _currentHealth;
-    
+
+    public void Damage(DamageInfo info)
+    {
+        
+    }
 
     private void Start()
     {

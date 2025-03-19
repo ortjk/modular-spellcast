@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1260b9b9339bd4c8785a28db1feb50, type: 3}
   m_Name: SkeletonHeroSO
   m_EditorClassIdentifier: 
-  _health: 20
+  _health: 10
   _attackPower: 4
   _attackSpeed: 3
   _attackRange: 2
   _drops:
   - {fileID: 3637487979914005319, guid: f2407dc61cfd81947954969cdc8229c8, type: 3}
-  - {fileID: 2201815949851781890, guid: 07693b16be4e54d4ab67e4e9e6d20c92, type: 3}
   _isBoss: 0

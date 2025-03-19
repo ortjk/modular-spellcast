@@ -5,7 +5,6 @@ using UnityEngine.Rendering.Universal;
 public class Loot : MonoBehaviour
 {
     public ItemSO _itemSO;
-    public GameObject _item;
     public int _value;
     [SerializeField]
     public Wand _wand;
@@ -17,11 +16,11 @@ public class Loot : MonoBehaviour
     void Start()
     {
         _value = 0;
-        if(_item.CompareTag("Gold"))
+        if(CompareTag("Gold"))
         {
             _value = _randomInt.Next(_itemSO._valueRangeMin, _itemSO._valueRangeMax);
         }
-        if(_item.CompareTag("Spell"))
+        if(CompareTag("Spell"))
         {
             //_spell = _spells[_randomInt.Next(0, _spells.Length-1)];
         }
@@ -37,7 +36,7 @@ public class Loot : MonoBehaviour
         if(other.CompareTag("Player"))
         {          
             AudioManager._audioManager.PlaySoundEffect(_itemSO._pickUpSound._name);
-            Destroy(_item);
+            Destroy(gameObject);
         }
     }
 }

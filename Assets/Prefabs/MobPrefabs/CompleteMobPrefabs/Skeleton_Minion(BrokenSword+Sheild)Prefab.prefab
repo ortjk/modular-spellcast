@@ -93,6 +93,8 @@ GameObject:
   - component: {fileID: 6644186256367533590}
   - component: {fileID: 7987525549646197266}
   - component: {fileID: 1651359761748615985}
+  - component: {fileID: 1357528982735234780}
+  - component: {fileID: 3524076265217678245}
   m_Layer: 0
   m_Name: Skeleton_Minion(BrokenSword+Sheild)Prefab
   m_TagString: EnemyNPC
@@ -182,6 +184,46 @@ MonoBehaviour:
   CheckMovementInitialOverlaps: 1
   KillVelocityWhenExceedMaxMovementIterations: 1
   KillRemainingMovementWhenExceedMaxMovementIterations: 1
+--- !u!114 &1357528982735234780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144751398692693494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8a3bee2d8c5c3499f826203b0763e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _npcStats: {fileID: 11400000, guid: 28707733202cc3243ab7cbc933efd560, type: 2}
+--- !u!54 &3524076265217678245
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144751398692693494}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &3106999494431157671
 PrefabInstance:
   m_ObjectHideFlags: 0

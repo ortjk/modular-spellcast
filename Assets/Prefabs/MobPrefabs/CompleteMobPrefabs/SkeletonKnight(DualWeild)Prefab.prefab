@@ -61,6 +61,8 @@ GameObject:
   - component: {fileID: 1984869112402950280}
   - component: {fileID: 1042890538283818326}
   - component: {fileID: 871204381664273078}
+  - component: {fileID: -1921302297761328021}
+  - component: {fileID: 7660189084780499771}
   m_Layer: 0
   m_Name: SkeletonKnight(DualWeild)Prefab
   m_TagString: EnemyNPC
@@ -150,6 +152,46 @@ MonoBehaviour:
   CheckMovementInitialOverlaps: 1
   KillVelocityWhenExceedMaxMovementIterations: 1
   KillRemainingMovementWhenExceedMaxMovementIterations: 1
+--- !u!114 &-1921302297761328021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7182668114560088833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8a3bee2d8c5c3499f826203b0763e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _npcStats: {fileID: 11400000, guid: 28707733202cc3243ab7cbc933efd560, type: 2}
+--- !u!54 &7660189084780499771
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7182668114560088833}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8678425505897013997
 GameObject:
   m_ObjectHideFlags: 0

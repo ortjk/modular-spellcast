@@ -23,7 +23,6 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("Ignore Collision"))
         {
-            Debug.Log(other.gameObject.name);
             Collided = true;
         }
     }

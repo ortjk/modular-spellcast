@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemSO: {fileID: 11400000, guid: 8a8e206ae10c6cd4c94da7530d92d2f8, type: 2}
-  _item: {fileID: 3637487979914005319}
   _value: 0
   _wand: {fileID: 0}
 --- !u!1 &3637487979914005319
@@ -134,6 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8562103368742324718}
+  - component: {fileID: 3619793974691343419}
   m_Layer: 0
   m_Name: ItemCoin
   m_TagString: Gold
@@ -150,10 +150,25 @@ Transform:
   m_GameObject: {fileID: 3637487979914005319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.17, y: 1.899, z: 18.51}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8925152262112830621}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3619793974691343419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637487979914005319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759adcaed5dbf8842b15efbb12935e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemSO: {fileID: 11400000, guid: 8a8e206ae10c6cd4c94da7530d92d2f8, type: 2}
+  _value: 0
+  _wand: {fileID: 0}
