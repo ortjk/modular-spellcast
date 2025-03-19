@@ -18107,7 +18107,7 @@ GameObject:
   - component: {fileID: 273355939}
   - component: {fileID: 273355938}
   - component: {fileID: 273355937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19510,7 +19510,7 @@ GameObject:
   - component: {fileID: 294503861}
   - component: {fileID: 294503860}
   - component: {fileID: 294503859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19860,7 +19860,7 @@ GameObject:
   - component: {fileID: 296468580}
   - component: {fileID: 296468583}
   - component: {fileID: 296468581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20413,7 +20413,7 @@ GameObject:
   - component: {fileID: 305645246}
   - component: {fileID: 305645245}
   - component: {fileID: 305645244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21403,7 +21403,7 @@ GameObject:
   - component: {fileID: 320670951}
   - component: {fileID: 320670950}
   - component: {fileID: 320670949}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25487,7 +25487,7 @@ GameObject:
   - component: {fileID: 379889692}
   - component: {fileID: 379889691}
   - component: {fileID: 379889690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27175,7 +27175,7 @@ GameObject:
   - component: {fileID: 403150527}
   - component: {fileID: 403150529}
   - component: {fileID: 403150528}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33332,7 +33332,7 @@ GameObject:
   - component: {fileID: 500587718}
   - component: {fileID: 500587717}
   - component: {fileID: 500587716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37215,7 +37215,7 @@ GameObject:
   - component: {fileID: 558103844}
   - component: {fileID: 558103843}
   - component: {fileID: 558103842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50630,7 +50630,7 @@ GameObject:
   - component: {fileID: 769188653}
   - component: {fileID: 769188652}
   - component: {fileID: 769188651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65493,7 +65493,7 @@ GameObject:
   - component: {fileID: 1001094814}
   - component: {fileID: 1001094813}
   - component: {fileID: 1001094812}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67016,7 +67016,7 @@ GameObject:
   - component: {fileID: 1027910678}
   - component: {fileID: 1027910677}
   - component: {fileID: 1027910676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86911,7 +86911,7 @@ GameObject:
   - component: {fileID: 1346257021}
   - component: {fileID: 1346257020}
   - component: {fileID: 1346257019}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89012,7 +89012,7 @@ GameObject:
   - component: {fileID: 1379959779}
   - component: {fileID: 1379959781}
   - component: {fileID: 1379959780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89738,7 +89738,7 @@ GameObject:
   - component: {fileID: 1389163854}
   - component: {fileID: 1389163853}
   - component: {fileID: 1389163852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91740,7 +91740,7 @@ GameObject:
   - component: {fileID: 1423187484}
   - component: {fileID: 1423187486}
   - component: {fileID: 1423187485}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104394,7 +104394,7 @@ GameObject:
   - component: {fileID: 1587069415}
   - component: {fileID: 1587069414}
   - component: {fileID: 1587069413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114201,7 +114201,7 @@ GameObject:
   - component: {fileID: 1728898791}
   - component: {fileID: 1728898790}
   - component: {fileID: 1728898789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128428,7 +128428,7 @@ GameObject:
   - component: {fileID: 1928785311}
   - component: {fileID: 1928785313}
   - component: {fileID: 1928785312}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139504,6 +139504,10 @@ PrefabInstance:
     - target: {fileID: 7438271873427616685, guid: db7eb3bfba12bc64da3bd7e6d7de0e4f, type: 3}
       propertyPath: m_Name
       value: Player_Prefab 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438271873427616685, guid: db7eb3bfba12bc64da3bd7e6d7de0e4f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

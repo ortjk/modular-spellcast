@@ -21,6 +21,10 @@ public class Projectile : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Collided = true;
+        if (other.gameObject.layer != LayerMask.NameToLayer("Ignore Collision"))
+        {
+            Debug.Log(other.gameObject.name);
+            Collided = true;
+        }
     }
 }

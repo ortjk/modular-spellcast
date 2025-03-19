@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
     private void OnCast(InputValue value)
     {
-        _wand.Use(Vector3.right, Vector3.zero, ref _currentMana);
+        _wand.Use(_playerCamera.transform.forward, _cameraFollowPoint.position, ref _currentMana);
     }
 
     private void OnInteract(InputValue value)
@@ -95,6 +95,7 @@ public class Player : MonoBehaviour
             _wand.wandGameObject = Instantiate(other.gameObject.GetComponent<Loot>()._wand.wandGameObject, _wandTransform.position, _wandTransform.rotation, _wandTransform);
             _wand.wandGameObject.transform.SetParent(_wandTransform);
             _wand.tag = "PlayerWandModel";
+            _wand.wandGameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 

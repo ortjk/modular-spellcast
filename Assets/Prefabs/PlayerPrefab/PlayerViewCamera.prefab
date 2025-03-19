@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _distanceMovementSpeed: 5
   _distanceMovementSharpness: 10
-  _rotationSpeed: 10
+  _rotationSpeed: 1
   _rotationSharpness: 10000
   _followSharpness: 10000
   _minVerticleAngle: -70
