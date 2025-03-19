@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Wand : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject wandGameObject;
+    
     [Header("Spell Data")]
     public Spell[] spells;
     public int numSlots = 1;
@@ -14,12 +17,22 @@ public class Wand : MonoBehaviour
     public float Cooldown { get; private set; } = 0f;
 
     private int _currentSlot = 0;
+    public float _currentCooldown;
+    public float _maxCooldown;
+    
 
-    public void Use(Vector3 direction, Vector3 origin, ref int mana)
+    void Start()
     {
-        if (Cooldown > 0f || spells.Length == 0)
+        _currentCooldown = 0f;
+        _maxCooldown = 1f;
+    }
+
+    public void Use(Vector3 direction, Vector3 origin, ref float mana)
+    {
+        if (_currentCooldown > 0f || spells.Length == 0)
         {
             Debug.Log("Cooldown");
+            AudioManager._audioManager.PlaySoundEffect("SpellFail");
             return;
         }
         
@@ -46,7 +59,7 @@ public class Wand : MonoBehaviour
         sqresult.ManaCost = Mathf.Clamp(sqresult.ManaCost, 0, sqresult.ManaCost);
         mana -= sqresult.ManaCost;
 
-        Cooldown += sqresult.Cooldown;
+        _maxCooldown += sqresult.Cooldown;
         while (sqresult.ToCast.Count > 0)
         {
             sqresult.ToCast.Dequeue().Cast(direction, origin);
@@ -56,8 +69,9 @@ public class Wand : MonoBehaviour
         if (_currentSlot >= spells.Length)
         {
             _currentSlot -= spells.Length;
-            Cooldown += reloadTime;
+            _maxCooldown += reloadTime;
         }
+        _currentCooldown = _maxCooldown;
     }
 
     public void SetSpells(Spell[] newSpells)
@@ -97,9 +111,9 @@ public class Wand : MonoBehaviour
 
     private void Update()
     {
-        if (Cooldown > 0f)
+        if (_currentCooldown > 0f)
         {
-            Cooldown -= Time.deltaTime;
+            _currentCooldown -= Time.deltaTime;
         }
     }
 }

@@ -6263,8 +6263,8 @@ MonoBehaviour:
   menu: {fileID: 2004770285}
   wand: {fileID: 1753454373}
   spells:
-  - {fileID: 2447369604535611494, guid: 869273f1c9e7100269ba19c371abe4c8, type: 3}
-  - {fileID: 2447369604535611494, guid: 869273f1c9e7100269ba19c371abe4c8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6299724353493196906, guid: 59992b5d52313290eaf79c56d30ccc0d, type: 3}
   - {fileID: 5570100024292235093, guid: 5277f0b19a5ad0d0891c3da7b3d36934, type: 3}
   - {fileID: 5570100024292235093, guid: 5277f0b19a5ad0d0891c3da7b3d36934, type: 3}
@@ -6315,7 +6315,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: PlayerControls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &741951641
@@ -8359,8 +8359,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -12492,6 +12492,8 @@ MonoBehaviour:
   spells: []
   numSlots: 5
   reloadTime: 0
+  _currentCooldown: 0
+  _maxCooldown: 1
 --- !u!4 &1753454374
 Transform:
   m_ObjectHideFlags: 0

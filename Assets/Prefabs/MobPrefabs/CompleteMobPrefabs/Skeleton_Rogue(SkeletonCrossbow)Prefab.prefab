@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2773352639147401438}
   - component: {fileID: 1545148254997404082}
   - component: {fileID: 125815578569977699}
-  - component: {fileID: 4463440472104841139}
   m_Layer: 0
   m_Name: Skeleton_Rogue(SkeletonCrossbow)Prefab
   m_TagString: EnemyNPC
@@ -101,25 +100,6 @@ MonoBehaviour:
   CheckMovementInitialOverlaps: 1
   KillVelocityWhenExceedMaxMovementIterations: 1
   KillRemainingMovementWhenExceedMaxMovementIterations: 1
---- !u!114 &4463440472104841139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343291606671915218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc679a7c977dec748a15eb422054579a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _motor: {fileID: 125815578569977699}
-  _playerCamera: {fileID: 0}
-  _gravity: {x: 0, y: -30, z: 0}
-  _maxStableMoveSpeed: 10
-  _stableMovementSharpness: 15
-  _orientaionSharpness: 10
-  _jumpSpeed: 10
 --- !u!1 &3823884541713821438
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,8 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fd820cd911cff43839f6bd63d0b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCs:
-  - {fileID: 4463440472104841139}
+  _motor: {fileID: 125815578569977699}
+  _gravity: {x: 0, y: -30, z: 0}
+  _maxStableMoveSpeed: 10
+  _stableMovementSharpness: 15
+  _orientaionSharpness: 10
+  _jumpSpeed: 10
 --- !u!1 &8162028822158332932
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,10 +237,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8342211144795475106, guid: 20b2245328c43ff4085f071c195bcdf6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1919263847193096215}
   m_SourcePrefab: {fileID: 100100000, guid: 20b2245328c43ff4085f071c195bcdf6, type: 3}
 --- !u!4 &2493137826792413671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8687070374659528216, guid: 20b2245328c43ff4085f071c195bcdf6, type: 3}
+  m_PrefabInstance: {fileID: 6491881542798512127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3013672347610465117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8342211144795475106, guid: 20b2245328c43ff4085f071c195bcdf6, type: 3}
+  m_PrefabInstance: {fileID: 6491881542798512127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1919263847193096215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3013672347610465117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ee5f23f4c58fe449ad471efa34d3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAnimator: {fileID: 8392822326792602525}
+  _motor: {fileID: 125815578569977699}
+--- !u!95 &8392822326792602525 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3345753059222047842, guid: 20b2245328c43ff4085f071c195bcdf6, type: 3}
   m_PrefabInstance: {fileID: 6491881542798512127}
   m_PrefabAsset: {fileID: 0}
