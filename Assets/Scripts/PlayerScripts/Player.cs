@@ -43,6 +43,15 @@ public class Player : MonoBehaviour, IDamageable
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
         _currentHealth = _maxHealth;
         _currentMana = _maxMana;
+
+        for (int i = 0; i < 5; i++)
+        {
+            _inventory.AddSpell(typeof(DoubleSpell));
+            _inventory.AddSpell(typeof(FireBolt));
+            _inventory.AddSpell(typeof(MagicBolt));
+            _inventory.AddSpell(typeof(ManaModifier));
+            _inventory.AddSpell(typeof(SpeedModifierSpell));
+        }
     }
 
     private void OnMove(InputValue value)
