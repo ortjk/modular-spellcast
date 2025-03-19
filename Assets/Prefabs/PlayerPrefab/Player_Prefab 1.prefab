@@ -189,10 +189,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1944849361775828774}
   - component: {fileID: 4845706374930330726}
-  - component: {fileID: 9008959628899634575}
-  - component: {fileID: 3238761391034028052}
   - component: {fileID: 87322578097791669}
   - component: {fileID: 1373231433855158134}
+  - component: {fileID: 9008959628899634575}
+  - component: {fileID: 3238761391034028052}
   - component: {fileID: -7362717833837776348}
   m_Layer: 0
   m_Name: Player_Prefab 1
@@ -244,6 +244,50 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &87322578097791669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7438271873427616685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35755f55ca9e84d408f90e211f0d2d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCamera: {fileID: 0}
+  _cameraFollowPoint: {fileID: 2438539365816661428}
+  _playerController: {fileID: 1373231433855158134}
+  _maxMana: 100
+  _maxHealth: 100
+  _manaPerSecond: 1
+  _wand: {fileID: 2662221865175984521}
+  _inventory: {fileID: 2467224229497021024}
+  _pauseMenu: {fileID: 0}
+  _spellMenu: {fileID: 0}
+  _coins: 0
+  _currentMana: 0
+  _currentHealth: 0
+--- !u!114 &1373231433855158134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7438271873427616685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5aca42ce2a13df48bc655d7f061d155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _motor: {fileID: 9008959628899634575}
+  _gravity: {x: 0, y: -30, z: 0}
+  _maxStableMoveSpeed: 10
+  _stableMovementSharpness: 15
+  _orientaionSharpness: 10
+  _jumpSpeed: 10
+  _playerCamera: {fileID: 0}
 --- !u!114 &9008959628899634575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,48 +357,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &87322578097791669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438271873427616685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35755f55ca9e84d408f90e211f0d2d0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerCamera: {fileID: 0}
-  _cameraFollowPoint: {fileID: 2438539365816661428}
-  _playerController: {fileID: 1373231433855158134}
-  _maxMana: 100
-  _maxHealth: 100
-  _manaPerSecond: 1
-  _wand: {fileID: 2662221865175984521}
-  _coins: 0
-  _currentMana: 0
-  _currentHealth: 0
---- !u!114 &1373231433855158134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438271873427616685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5aca42ce2a13df48bc655d7f061d155, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _motor: {fileID: 9008959628899634575}
-  _gravity: {x: 0, y: -30, z: 0}
-  _maxStableMoveSpeed: 10
-  _stableMovementSharpness: 15
-  _orientaionSharpness: 10
-  _jumpSpeed: 10
-  _playerCamera: {fileID: 0}
-  _pauseMenu: {fileID: 0}
 --- !u!114 &-7362717833837776348
 MonoBehaviour:
   m_ObjectHideFlags: 0

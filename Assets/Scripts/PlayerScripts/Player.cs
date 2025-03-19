@@ -15,7 +15,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Wand _wand;
     private Transform _wandTransform;
+    [SerializeField]
+    private Inventory _inventory;
 
+    [SerializeField] 
+    private PauseMenu _pauseMenu;
+    [SerializeField] 
+    private SpellMenu _spellMenu;
+    
 
     private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
@@ -61,10 +68,24 @@ public class Player : MonoBehaviour
 
     private void OnPause(InputValue value)
     {
-        _inputs.PausePressed = value.isPressed;
-        _playerController.SetInputs(ref _inputs);
-        _inputs.PausePressed = false;
-    } 
+        _pauseMenu.Pause();
+    }
+
+    private void OnResume(InputValue value)
+    {
+        if (_spellMenu.IsOpen)
+        {
+            _spellMenu.Close(_inventory, _wand);
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            GetComponent<PlayerInput>().actions.FindActionMap("UIControls").Disable();
+            GetComponent<PlayerInput>().actions.FindActionMap("PlayerControls").Enable();
+        }
+        else
+        {
+            _pauseMenu.Resume();
+        }
+    }
 
     private void OnCast(InputValue value)
     {
@@ -73,10 +94,11 @@ public class Player : MonoBehaviour
 
     private void OnInteract(InputValue value)
     {
-        _inputs.SpellMenuPressed = value.isPressed;
-        _playerController.SetInputs(ref _inputs);
-        _inputs.SpellMenuPressed = false;
-        _wand.SetSpells(_spells);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Confined;
+        GetComponent<PlayerInput>().actions.FindActionMap("UIControls").Enable();
+        GetComponent<PlayerInput>().actions.FindActionMap("PlayerControls").Disable();  
+        _spellMenu.Open(_inventory, _wand);
     }
 
     void OnTriggerEnter(Collider other)
