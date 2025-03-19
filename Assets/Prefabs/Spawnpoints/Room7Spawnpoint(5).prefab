@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2232881268833730586}
   m_Layer: 0
   m_Name: Room7Spawnpoint(5)
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -76,8 +76,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fd820cd911cff43839f6bd63d0b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCs:
-  - {fileID: 2214548651104476580}
+  _motor: {fileID: 1651359761748615985}
+  _gravity: {x: 0, y: -30, z: 0}
+  _maxStableMoveSpeed: 10
+  _stableMovementSharpness: 15
+  _orientaionSharpness: 10
+  _jumpSpeed: 10
 --- !u!1 &8144751398692693494
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +93,6 @@ GameObject:
   - component: {fileID: 6644186256367533590}
   - component: {fileID: 7987525549646197266}
   - component: {fileID: 1651359761748615985}
-  - component: {fileID: 2214548651104476580}
   m_Layer: 0
   m_Name: Skeleton_Minion(BrokenSword+Sheild)Prefab
   m_TagString: EnemyNPC
@@ -179,25 +182,6 @@ MonoBehaviour:
   CheckMovementInitialOverlaps: 1
   KillVelocityWhenExceedMaxMovementIterations: 1
   KillRemainingMovementWhenExceedMaxMovementIterations: 1
---- !u!114 &2214548651104476580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8144751398692693494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc679a7c977dec748a15eb422054579a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _motor: {fileID: 1651359761748615985}
-  _playerCamera: {fileID: 0}
-  _gravity: {x: 0, y: -30, z: 0}
-  _maxStableMoveSpeed: 10
-  _stableMovementSharpness: 15
-  _orientaionSharpness: 10
-  _jumpSpeed: 10
 --- !u!1001 &3106999494431157671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,10 +237,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2964219268443538991, guid: 242357e61b1002b4d8ef63fefe7a58db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8855937208351576506}
   m_SourcePrefab: {fileID: 100100000, guid: 242357e61b1002b4d8ef63fefe7a58db, type: 3}
+--- !u!1 &161357919157300104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2964219268443538991, guid: 242357e61b1002b4d8ef63fefe7a58db, type: 3}
+  m_PrefabInstance: {fileID: 3106999494431157671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8855937208351576506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161357919157300104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ac339283c95fc4984977352df9a79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAnimator: {fileID: 6887901948949605192}
+  _motor: {fileID: 1651359761748615985}
 --- !u!4 &681893475127488818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2479465879583218837, guid: 242357e61b1002b4d8ef63fefe7a58db, type: 3}
+  m_PrefabInstance: {fileID: 3106999494431157671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6887901948949605192 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8397236109003687663, guid: 242357e61b1002b4d8ef63fefe7a58db, type: 3}
   m_PrefabInstance: {fileID: 3106999494431157671}
   m_PrefabAsset: {fileID: 0}
