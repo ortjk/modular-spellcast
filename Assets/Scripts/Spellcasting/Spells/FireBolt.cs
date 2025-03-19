@@ -7,7 +7,7 @@ public class FireBolt: ProjectileSpell
     public void ExplosionHit(GameObject target)
     {
         var hit = target.GetComponent<IDamageable>();
-        if (hit != null)
+        if (hit != null && !target.CompareTag("Player"))
         {
             DamageInfo dmgInfo = new DamageInfo();
             dmgInfo.amount = _spellStat.damage;
