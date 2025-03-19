@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8734747530165761145}
   m_Layer: 0
   m_Name: ItemGoldChest
-  m_TagString: Untagged
+  m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +47,10 @@ PrefabInstance:
     - target: {fileID: 3124186079776379618, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
       propertyPath: m_Name
       value: chest bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124186079776379618, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
+      propertyPath: m_TagString
+      value: Gold
       objectReference: {fileID: 0}
     - target: {fileID: 3365817704038010250, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
       propertyPath: m_IsActive
@@ -144,6 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemSO: {fileID: 11400000, guid: 07018cd914ae42b4590aa9941710ddb1, type: 2}
   _item: {fileID: 3863701573942838950}
+  _value: 0
+  _wand: {fileID: 0}
 --- !u!4 &5043096430763891889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6182282817264901631, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}

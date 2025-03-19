@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Round: 1'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 605e9d063293ee44c9f69a72cf7a0015, type: 2}
   m_sharedMaterial: {fileID: 7922001258476987913, guid: 605e9d063293ee44c9f69a72cf7a0015, type: 2}
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Coins: 0'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 605e9d063293ee44c9f69a72cf7a0015, type: 2}
   m_sharedMaterial: {fileID: 7922001258476987913, guid: 605e9d063293ee44c9f69a72cf7a0015, type: 2}
@@ -691,7 +691,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -753,6 +753,7 @@ MonoBehaviour:
   _manaBar: {fileID: 8290969471056724850}
   _healthBar: {fileID: 5807713246843717091}
   _cooldownBar: {fileID: 4361807518847318332}
+  _crosshair: {fileID: 8307284254506322085}
 --- !u!1 &4052953318996611149
 GameObject:
   m_ObjectHideFlags: 0

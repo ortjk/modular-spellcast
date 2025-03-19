@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9093672853551420931}
   m_Layer: 0
   m_Name: Coin.001
-  m_TagString: Untagged
+  m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,6 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemSO: {fileID: 11400000, guid: 8a8e206ae10c6cd4c94da7530d92d2f8, type: 2}
   _item: {fileID: 3637487979914005319}
+  _value: 0
+  _wand: {fileID: 0}
 --- !u!1 &3637487979914005319
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +136,7 @@ GameObject:
   - component: {fileID: 8562103368742324718}
   m_Layer: 0
   m_Name: ItemCoin
-  m_TagString: Untagged
+  m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

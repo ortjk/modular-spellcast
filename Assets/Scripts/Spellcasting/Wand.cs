@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Wand : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject wandGameObject;
+    
     [Header("Spell Data")]
     public Spell[] spells;
     public int numSlots = 1;
@@ -14,14 +17,22 @@ public class Wand : MonoBehaviour
     public float Cooldown { get; private set; } = 0f;
 
     private int _currentSlot = 0;
-    public float _currentCooldown = 0f;
-    public float _maxCooldown = 0f;
+    public float _currentCooldown;
+    public float _maxCooldown;
+    
 
-    public void Use(Vector3 direction, Vector3 origin, ref int mana)
+    void Start()
+    {
+        _currentCooldown = 0f;
+        _maxCooldown = 1f;
+    }
+
+    public void Use(Vector3 direction, Vector3 origin, ref float mana)
     {
         if (_currentCooldown > 0f || spells.Length == 0)
         {
             Debug.Log("Cooldown");
+            AudioManager._audioManager.PlaySoundEffect("SpellFail");
             return;
         }
         

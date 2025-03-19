@@ -14,15 +14,11 @@ public class HUDController : MonoBehaviour
     private Spawning _spawner;
     private Wand _wand;
     
-
-
-    
-
-    
     void Start()
     {
         _player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         _spawner = GameObject.FindGameObjectsWithTag("Spawner")[0].GetComponent<Spawning>();
+        _wand = GameObject.FindGameObjectsWithTag("PlayerWand")[0].GetComponent<Wand>();
         _healthBar.SetMax(_player._maxHealth);
         _manaBar.SetMax(_player._maxMana);
         _cooldownBar.SetMax(1);
@@ -44,13 +40,13 @@ public class HUDController : MonoBehaviour
 
     void CursorState()
     {
-        if(_wand.Cooldown > 0)
+        if(_wand._currentCooldown > 0)
         {
             _crosshair.color = new Color32(255,0,0,100);
         }
         else
         {
-            _crosshair.color = new Color32(0,0,0,100);
+            _crosshair.color = new Color32(0,0,0,255);
         }
     }
 }

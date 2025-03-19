@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6868446692222675760}
   m_Layer: 0
   m_Name: ItemSpell
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spellbook_closed
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7bd454f0bfe0bc64880f486375ca7720, type: 3}
+      propertyPath: m_TagString
+      value: Spell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -139,6 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemSO: {fileID: 11400000, guid: a64852cc446a28c459410842741e59a1, type: 2}
   _item: {fileID: 2201815949851781890}
+  _value: 0
+  _wand: {fileID: 0}
 --- !u!4 &7837921863961462602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7bd454f0bfe0bc64880f486375ca7720, type: 3}

@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
                 Instantiate(drop, gameObject.transform);
             }
         } 
+        AudioManager._audioManager.PlaySoundEffect("EnemyDeath");
         Destroy(gameObject, 2);
     }
 

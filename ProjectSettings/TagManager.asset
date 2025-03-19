@@ -13,6 +13,12 @@ TagManager:
   - Undefined
   - SpawnPoint
   - Spawner
+  - PlayerWand
+  - WandTransform
+  - Wand
+  - Gold
+  - Spell
+  - PlayerWandModel
   layers:
   - Default
   - TransparentFX

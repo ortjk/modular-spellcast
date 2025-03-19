@@ -6,24 +6,24 @@ public class Loot : MonoBehaviour
 {
     public ItemSO _itemSO;
     public GameObject _item;
+    public int _value;
+    [SerializeField]
+    public Wand _wand;
 
-    private int _value;
     private GameObject[] _spells;
     private GameObject _spell;
     private System.Random _randomInt = new System.Random();
-    private Player _player;
 
     void Start()
     {
-        _player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         _value = 0;
-        if(_itemSO._isGold)
+        if(_item.CompareTag("Gold"))
         {
             _value = _randomInt.Next(_itemSO._valueRangeMin, _itemSO._valueRangeMax);
         }
-        if(_itemSO._isSpell)
+        if(_item.CompareTag("Spell"))
         {
-            //_spell = _spells[_randomInt.Next(0, _spells.Length-1)];;
+            //_spell = _spells[_randomInt.Next(0, _spells.Length-1)];
         }
     }
 
@@ -35,10 +35,7 @@ public class Loot : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
-        {
-            //Add Spell Pick up logic 
-            //_player._inventory.append(_spell);
-            _player._coins += _value;
+        {          
             AudioManager._audioManager.PlaySoundEffect(_itemSO._pickUpSound._name);
             Destroy(_item);
         }

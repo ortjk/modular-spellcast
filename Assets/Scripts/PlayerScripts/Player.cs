@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,18 +11,23 @@ public class Player : MonoBehaviour
     [SerializeField]
     private PlayerController _playerController;
     [SerializeField]
-    public float _maxMana = 100f, _maxHealth = 100f, _manaPerSecond = 1f;
+    public int _maxMana = 100, _maxHealth = 100, _manaPerSecond = 1;
+    [SerializeField]
+    private Wand _wand;
+    private Transform _wandTransform;
+
 
     private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
+    private Spell[] _spells;
 
-    public float _coins;
-    public float _currentMana;
-    public float _currentHealth;
+    public int _coins;
+    public float _currentMana, _currentHealth;
     
 
     private void Start()
     {
+        _wandTransform = GameObject.FindGameObjectsWithTag("WandTransform")[0].GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
         _currentHealth = _maxHealth;
@@ -62,11 +68,36 @@ public class Player : MonoBehaviour
 
     private void OnCast(InputValue value)
     {
-        _inputs.SpellCastPressed = value.isPressed;
-        _playerController.SetInputs(ref _inputs);
-        _inputs.SpellCastPressed = false;
+        _wand.Use(Vector3.right, Vector3.zero, ref _currentMana);
     }
-    
+
+    private void OnInteract(InputValue value)
+    {
+        _inputs.SpellMenuPressed = value.isPressed;
+        _playerController.SetInputs(ref _inputs);
+        _inputs.SpellMenuPressed = false;
+        _wand.SetSpells(_spells);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Gold"))
+        {
+            _coins += other.gameObject.GetComponent<Loot>()._value;
+        }
+        else if(other.CompareTag("Spell"))
+        {
+            
+        }
+        else if(other.CompareTag("Wand"))
+        {
+            Destroy(GameObject.FindGameObjectsWithTag("PlayerWandModel")[0]);
+            _wand.wandGameObject = Instantiate(other.gameObject.GetComponent<Loot>()._wand.wandGameObject, _wandTransform.position, _wandTransform.rotation, _wandTransform);
+            _wand.wandGameObject.transform.SetParent(_wandTransform);
+            _wand.tag = "PlayerWandModel";
+        }
+    }
+
     void Update()
     {
         ManaRegeneration();

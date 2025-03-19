@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _pauseMenuUI, _spellMenuUI, _settingMenuUI;
-
+    private GameObject _pauseMenuUI, _settingMenuUI;
+    public SpellMenu _spellMenu;
+    public Inventory _inventory;
+    public Wand _wand;
+    public Spell[] _spells;
     public GameObject[] _enemies;
     private PlayerInput playerInput;
     private Image _musicMuteIndicator;
@@ -15,6 +18,7 @@ public class PauseMenu : MonoBehaviour
 
     private bool _musicIsMuted = false;
     private bool _SFXIsMuted = false;
+
     
 
     void Start()
@@ -24,36 +28,33 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0f;
         _pauseMenuUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.Confined;
-        playerInput.actions.FindActionMap("UIControls").Enable();
-        playerInput.actions.FindActionMap("PlayerControls").Disable();  
-        _enemies = GameObject.FindGameObjectsWithTag("EnemyNPCController");
-        foreach (GameObject enemy in _enemies)
-        {
-            enemy.GetComponent<NPCController>().enabled = false;
-        }
+        StopTime();
     }
 
     public void Resume()
     {
-        Time.timeScale = 1f;
-        _pauseMenuUI.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        playerInput.actions.FindActionMap("UIControls").Disable();
-        playerInput.actions.FindActionMap("PlayerControls").Enable();
-        _enemies = GameObject.FindGameObjectsWithTag("EnemyNPCController");
-        foreach (GameObject enemy in _enemies)
-        {
-            enemy.GetComponent<NPCController>().enabled = true;
-        }    
+        _pauseMenuUI.SetActive(false);   
+        ResumeTime();
     }
 
-    public void OpenSpellMenu()
+    public void ToggleSpellMenu(bool _isOpen)
     {
-        _spellMenuUI.SetActive(true);
-        _pauseMenuUI.SetActive(false);
+        if (!_isOpen)
+        {
+            _spellMenu.Open(_inventory, _wand);
+            StopTime();
+            foreach (var s in _spells)
+            {
+                _inventory.AddSpell(s);
+            }
+
+        }
+        else
+        {
+            _spellMenu.Close(_inventory, _wand);
+            ResumeTime();
+        }
     }
 
     public void Quit()
@@ -93,5 +94,28 @@ public class PauseMenu : MonoBehaviour
         _pauseMenuUI.SetActive(true);
     }
 
-
+    public void StopTime()
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Confined;
+        playerInput.actions.FindActionMap("UIControls").Enable();
+        playerInput.actions.FindActionMap("PlayerControls").Disable();  
+        _enemies = GameObject.FindGameObjectsWithTag("EnemyNPCController");
+        foreach (GameObject enemy in _enemies)
+        {
+            enemy.GetComponent<NPCController>().enabled = false;
+        }
+    }
+    public void ResumeTime()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        playerInput.actions.FindActionMap("UIControls").Disable();
+        playerInput.actions.FindActionMap("PlayerControls").Enable();
+        _enemies = GameObject.FindGameObjectsWithTag("EnemyNPCController");
+        foreach (GameObject enemy in _enemies)
+        {
+            enemy.GetComponent<NPCController>().enabled = true;
+        }
+    }
 }
