@@ -21330,6 +21330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2848609254080909716, guid: 26deb7a6ff07fba438b6b769353f7f19, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 503444847}
     - target: {fileID: 9061038227962771890, guid: 26deb7a6ff07fba438b6b769353f7f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -33787,6 +33791,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4496170371346747588, guid: 16371e6942926427da861c3a8efa6db4, type: 3}
   m_PrefabInstance: {fileID: 503306661}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &503444847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 87322578097791669, guid: db7eb3bfba12bc64da3bd7e6d7de0e4f, type: 3}
+  m_PrefabInstance: {fileID: 2108297921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35755f55ca9e84d408f90e211f0d2d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &503506778
 GameObject:
   m_ObjectHideFlags: 0

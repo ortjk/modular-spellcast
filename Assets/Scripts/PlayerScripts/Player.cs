@@ -33,7 +33,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Damage(DamageInfo info)
     {
-        
+        _currentHealth -= (int)info.amount;
     }
 
     private void Start()

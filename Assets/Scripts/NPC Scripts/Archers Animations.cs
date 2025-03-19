@@ -29,7 +29,7 @@ public class ArchersAnimations : MonoBehaviour
             {
                 mAnimator.SetTrigger("Death");
             }
-            else if(false)//Add Attack Conditions to trigger
+            else if(_enemy.Attacking)//Add Attack Conditions to trigger
             {
                 mAnimator.SetTrigger("Attack");
             }

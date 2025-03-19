@@ -8,6 +8,7 @@ public class Spawning : MonoBehaviour
     public int _roundOneEnemyCapacity = 20, _currentRoundEnemyCapacity;
     public int _currentRound;
     public GameObject[] enemyNPCs;
+    public Player player;
 
     private int _enemiesSpawned;
     private float _currentSpawnCooldown, _spawningFinishedCountdown;
@@ -43,7 +44,8 @@ public class Spawning : MonoBehaviour
     {
         GameObject enemy = enemyNPCs[_randomInteger.Next(0, enemyNPCs.Length-1)];
         Vector3 spawnpoint = PickSpawnPoint();
-        Instantiate(enemy, spawnpoint, Quaternion.identity);
+        var e = Instantiate(enemy, spawnpoint, Quaternion.identity).GetComponent<Enemy>();
+        e.target = player.transform;
     }
 
     void Update()
