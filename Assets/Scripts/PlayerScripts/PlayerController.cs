@@ -6,7 +6,6 @@ public struct PlayerInputs
     public float MoveAxisRight;
     public float MoveAxisUp;
     public bool JumpPressed;
-    public bool PausePressed;
     public bool SpellCastPressed;
     public Quaternion CameraRotation;
 }
@@ -15,8 +14,6 @@ public class PlayerController : CharacterController
 {
     [SerializeField]
     protected PlayerCamera _playerCamera;
-    [SerializeField]
-    protected PauseMenu _pauseMenu;
 
     public void SetInputs(ref PlayerInputs inputs)
     {
@@ -41,10 +38,6 @@ public class PlayerController : CharacterController
         if(inputs.SpellCastPressed)
         {
             _spellCastRequested = true;
-        }
-        if(inputs.PausePressed)
-        {
-            _pauseMenu.Pause();
         }
     }
 }

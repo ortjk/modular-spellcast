@@ -8,7 +8,7 @@ public class TestWand : MonoBehaviour
     public int maxMana;
     public int regen;
     
-    private int _currentMana;
+    private float _currentMana;
     private float _regenTimer;
     
     private void OnAttack()

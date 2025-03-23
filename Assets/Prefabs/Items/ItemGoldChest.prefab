@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8734747530165761145}
+  - component: {fileID: 7213917217684607687}
   m_Layer: 0
   m_Name: ItemGoldChest
-  m_TagString: Untagged
+  m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,13 +26,28 @@ Transform:
   m_GameObject: {fileID: 3863701573942838950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.94, y: 1.36, z: 19.03}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5043096430763891889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7213917217684607687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3863701573942838950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759adcaed5dbf8842b15efbb12935e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemSO: {fileID: 11400000, guid: 07018cd914ae42b4590aa9941710ddb1, type: 2}
+  _value: 0
+  _wand: {fileID: 0}
 --- !u!1001 &1168486244421435726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 3124186079776379618, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
       propertyPath: m_Name
       value: chest bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124186079776379618, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
+      propertyPath: m_TagString
+      value: Gold
       objectReference: {fileID: 0}
     - target: {fileID: 3365817704038010250, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
       propertyPath: m_IsActive
@@ -102,9 +122,6 @@ PrefabInstance:
       addedObject: {fileID: 3388214143815506220}
     - targetCorrespondingSourceObject: {fileID: 3124186079776379618, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1415580943850363279}
-    - targetCorrespondingSourceObject: {fileID: 3124186079776379618, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4611162851106205577}
   m_SourcePrefab: {fileID: 100100000, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}
 --- !u!1 &4281826636239803308 stripped
@@ -133,33 +150,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012828454, y: 0.00932234, z: 0.0041849106}
   m_Center: {x: -0.0000000020954758, y: 0.0006617146, z: -0.0022500905}
---- !u!54 &1415580943850363279
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4281826636239803308}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &4611162851106205577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemSO: {fileID: 11400000, guid: 07018cd914ae42b4590aa9941710ddb1, type: 2}
-  _item: {fileID: 3863701573942838950}
+  _value: 0
+  _wand: {fileID: 0}
 --- !u!4 &5043096430763891889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6182282817264901631, guid: b3810c68dc5465d47bdf7c741cda87ba, type: 3}

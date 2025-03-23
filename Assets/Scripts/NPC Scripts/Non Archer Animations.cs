@@ -8,6 +8,8 @@ public class NonArchersAnimations : MonoBehaviour
     private Animator mAnimator;
     [SerializeField]
     private KinematicCharacterMotor _motor;
+    [SerializeField]
+    private Enemy _enemy;
     
     private System.Random _randomNumber = new System.Random();
     private bool _newlySpawned = true;
@@ -15,6 +17,7 @@ public class NonArchersAnimations : MonoBehaviour
     void Start()
     {
         mAnimator = GetComponent<Animator>();
+        _enemy = GetComponentInParent<Enemy>();
     }
 
     void Update()
@@ -26,7 +29,11 @@ public class NonArchersAnimations : MonoBehaviour
                 mAnimator.SetTrigger("Spawn");
                 _newlySpawned = false;
             }
-            else if(false)//Add Attack Conditions to trigger
+            else if(!_enemy.Alive)//Add Death Condition to trigger
+            {
+                mAnimator.SetTrigger("Death");
+            }
+            else if(_enemy.Attacking)//Add Attack Conditions to trigger
             {
                 mAnimator.SetTrigger("Attack");
                 int AttackChoice = _randomNumber.Next(3);
@@ -54,10 +61,6 @@ public class NonArchersAnimations : MonoBehaviour
             else if(!_motor.GroundingStatus.IsStableOnGround)
             {
                 mAnimator.SetTrigger("Falling");
-            }
-            else if(false)//Add Death Condition to trigger
-            {
-                mAnimator.SetTrigger("Death");
             }
         }
     }

@@ -5,6 +5,20 @@ TagManager:
   serializedVersion: 3
   tags:
   - EnemyNPC
+  - FxTemporaire
+  - EnemyNPCController
+  - MusicMuteIndicator
+  - SFXMuteIndicator
+  - PlayerScript
+  - Undefined
+  - SpawnPoint
+  - Spawner
+  - PlayerWand
+  - WandTransform
+  - Wand
+  - Gold
+  - Spell
+  - PlayerWandModel
   layers:
   - Default
   - TransparentFX
@@ -12,7 +26,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ignore Collision
   - 
   - 
   - 

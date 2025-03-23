@@ -1,20 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: c0a2ef9d8c40415b79984ec815c5e8d7
-=======
-guid: 85517e787809d9348b4419efccc94d26
->>>>>>> 9b046011119d6e7d56803309a4bf1d9386ea213b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-<<<<<<< HEAD
     enableMipMap: 1
-=======
-    enableMipMap: 0
->>>>>>> 9b046011119d6e7d56803309a4bf1d9386ea213b
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -48,17 +40,10 @@ TextureImporter:
     wrapU: 0
     wrapV: 0
     wrapW: 0
-<<<<<<< HEAD
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
-=======
-  nPOTScale: 0
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 1
->>>>>>> 9b046011119d6e7d56803309a4bf1d9386ea213b
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,15 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-<<<<<<< HEAD
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
-=======
-  alphaIsTransparency: 1
-  spriteTessellationDetail: -1
-  textureType: 8
->>>>>>> 9b046011119d6e7d56803309a4bf1d9386ea213b
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -84,20 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-<<<<<<< HEAD
     maxTextureSize: 2048
-=======
-    maxTextureSize: 8192
->>>>>>> 9b046011119d6e7d56803309a4bf1d9386ea213b
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,11 +100,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-<<<<<<< HEAD
     spriteID: 
-=======
-    spriteID: 5e97eb03825dee720800000000000000
->>>>>>> 9b046011119d6e7d56803309a4bf1d9386ea213b
     internalID: 0
     vertices: []
     indices: 

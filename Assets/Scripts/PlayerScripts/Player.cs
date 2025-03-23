@@ -1,7 +1,8 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private PlayerCamera _playerCamera;
@@ -10,22 +11,47 @@ public class Player : MonoBehaviour
     [SerializeField]
     private PlayerController _playerController;
     [SerializeField]
-    public float _maxMana = 100f, _maxHealth = 100f, _manaPerSecond = 1f;
+    public int _maxMana = 100, _maxHealth = 100, _manaPerSecond = 1;
+    [SerializeField]
+    private Wand _wand;
+    private Transform _wandTransform;
+    [SerializeField]
+    private Inventory _inventory;
+
+    [SerializeField] 
+    private PauseMenu _pauseMenu;
+    [SerializeField] 
+    private SpellMenu _spellMenu;
+    
 
     private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
+    private Spell[] _spells;
 
-    public float _coins;
-    public float _currentMana;
-    public float _currentHealth;
-    
+    public int _coins;
+    public float _currentMana, _currentHealth;
+
+    public void Damage(DamageInfo info)
+    {
+        _currentHealth -= (int)info.amount;
+    }
 
     private void Start()
     {
+        _wandTransform = GameObject.FindGameObjectsWithTag("WandTransform")[0].GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
         _currentHealth = _maxHealth;
         _currentMana = _maxMana;
+
+        for (int i = 0; i < 5; i++)
+        {
+            _inventory.AddSpell(typeof(DoubleSpell));
+            _inventory.AddSpell(typeof(FireBolt));
+            _inventory.AddSpell(typeof(MagicBolt));
+            _inventory.AddSpell(typeof(ManaModifier));
+            _inventory.AddSpell(typeof(SpeedModifierSpell));
+        }
     }
 
     private void OnMove(InputValue value)
@@ -55,18 +81,59 @@ public class Player : MonoBehaviour
 
     private void OnPause(InputValue value)
     {
-        _inputs.PausePressed = value.isPressed;
-        _playerController.SetInputs(ref _inputs);
-        _inputs.PausePressed = false;
-    } 
+        _pauseMenu.Pause();
+    }
+
+    private void OnResume(InputValue value)
+    {
+        if (_spellMenu.IsOpen)
+        {
+            _spellMenu.Close(_inventory, _wand);
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            GetComponent<PlayerInput>().actions.FindActionMap("UIControls").Disable();
+            GetComponent<PlayerInput>().actions.FindActionMap("PlayerControls").Enable();
+        }
+        else
+        {
+            _pauseMenu.Resume();
+        }
+    }
 
     private void OnCast(InputValue value)
     {
-        _inputs.SpellCastPressed = value.isPressed;
-        _playerController.SetInputs(ref _inputs);
-        _inputs.SpellCastPressed = false;
+        _wand.Use(_playerCamera.transform.forward, _cameraFollowPoint.position, ref _currentMana);
     }
-    
+
+    private void OnInteract(InputValue value)
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Confined;
+        GetComponent<PlayerInput>().actions.FindActionMap("UIControls").Enable();
+        GetComponent<PlayerInput>().actions.FindActionMap("PlayerControls").Disable();  
+        _spellMenu.Open(_inventory, _wand);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Gold"))
+        {
+            _coins += other.gameObject.GetComponent<Loot>()._value;
+        }
+        else if(other.CompareTag("Spell"))
+        {
+            
+        }
+        else if(other.CompareTag("Wand"))
+        {
+            Destroy(GameObject.FindGameObjectsWithTag("PlayerWandModel")[0]);
+            _wand.wandGameObject = Instantiate(other.gameObject.GetComponent<Loot>()._wand.wandGameObject, _wandTransform.position, _wandTransform.rotation, _wandTransform);
+            _wand.wandGameObject.transform.SetParent(_wandTransform);
+            _wand.tag = "PlayerWandModel";
+            _wand.wandGameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+
     void Update()
     {
         ManaRegeneration();
