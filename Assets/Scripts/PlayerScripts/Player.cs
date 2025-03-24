@@ -14,6 +14,7 @@ public class Player : MonoBehaviour, IDamageable
     public int _maxMana = 100, _maxHealth = 100, _manaPerSecond = 1;
     [SerializeField]
     private Wand _wand;
+    private GameObject _equippedWand;
     private Transform _wandTransform;
     [SerializeField]
     private Inventory _inventory;
@@ -89,12 +90,14 @@ public class Player : MonoBehaviour, IDamageable
         if (_spellMenu.IsOpen)
         {
             _spellMenu.Close(_inventory, _wand);
-            Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked;
-            GetComponent<PlayerInput>().actions.FindActionMap("UIControls").Disable();
-            GetComponent<PlayerInput>().actions.FindActionMap("PlayerControls").Enable();
+            _pauseMenu.ResumeTime();
         }
-        else
+        else if(_pauseMenu._settingMenuUI.activeSelf)
+        {
+            _pauseMenu._settingMenuUI.SetActive(false);
+            _pauseMenu.ResumeTime();
+        }
+        else if(_pauseMenu._pauseMenuUI.activeSelf)
         {
             _pauseMenu.Resume();
         }
@@ -107,10 +110,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void OnInteract(InputValue value)
     {
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.Confined;
-        GetComponent<PlayerInput>().actions.FindActionMap("UIControls").Enable();
-        GetComponent<PlayerInput>().actions.FindActionMap("PlayerControls").Disable();  
+        _pauseMenu.StopTime(); 
         _spellMenu.Open(_inventory, _wand);
     }
 
@@ -127,10 +127,11 @@ public class Player : MonoBehaviour, IDamageable
         else if(other.CompareTag("Wand"))
         {
             Destroy(GameObject.FindGameObjectsWithTag("PlayerWandModel")[0]);
-            _wand.wandGameObject = Instantiate(other.gameObject.GetComponent<Loot>()._wand.wandGameObject, _wandTransform.position, _wandTransform.rotation, _wandTransform);
-            _wand.wandGameObject.transform.SetParent(_wandTransform);
-            _wand.tag = "PlayerWandModel";
-            _wand.wandGameObject.GetComponent<BoxCollider>().enabled = false;
+            _equippedWand = Instantiate(other.gameObject.GetComponent<Loot>()._itemSO._wandGameObject, _wandTransform.position, _wandTransform.rotation, _wandTransform);
+            _equippedWand.transform.SetParent(_wandTransform);
+            _wand.numSlots = other.gameObject.GetComponent<Loot>()._itemSO._wandSlots;
+            _wand.reloadTime = other.gameObject.GetComponent<Loot>()._itemSO._reloadTime;
+            _equippedWand.tag = "PlayerWandModel";
         }
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _pauseMenuUI, _settingMenuUI;
+    public GameObject _pauseMenuUI, _settingMenuUI;
     public SpellMenu _spellMenu;
     public Inventory _inventory;
     public Wand _wand;
@@ -48,7 +48,6 @@ public class PauseMenu : MonoBehaviour
             {
                 _inventory.AddSpell(s);
             }
-
         }
         else
         {
@@ -67,17 +66,16 @@ public class PauseMenu : MonoBehaviour
         _settingMenuUI.SetActive(true);
         _pauseMenuUI.SetActive(false);
         _musicMuteIndicator = GameObject.FindGameObjectsWithTag("MusicMuteIndicator")[0].GetComponent<Image>();
-        _musicMuteIndicator.enabled = false;
+        _musicMuteIndicator.enabled = _musicIsMuted;
         _SFXMuteIndicator = GameObject.FindGameObjectsWithTag("SFXMuteIndicator")[0].GetComponent<Image>();
-        _SFXMuteIndicator.enabled = false;
+        _SFXMuteIndicator.enabled = _SFXIsMuted;
     }
 
     public void ToggleMusic()
     {
         AudioManager._audioManager.ToggleMusic();
         _musicIsMuted = !_musicIsMuted;
-        _musicMuteIndicator.enabled = _musicIsMuted;
-        
+        _musicMuteIndicator.enabled = _musicIsMuted; 
     }
 
     public void ToggleSoundEffcts()
@@ -85,7 +83,6 @@ public class PauseMenu : MonoBehaviour
         AudioManager._audioManager.ToggleSoundEffects();
         _SFXIsMuted = !_SFXIsMuted;
         _SFXMuteIndicator.enabled = _SFXIsMuted;
-        
     }
 
     public void SettingsToPause()
