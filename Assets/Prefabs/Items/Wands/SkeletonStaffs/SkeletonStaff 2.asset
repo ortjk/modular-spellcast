@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: SkeletonStaff 2
   _pickUpSound: {fileID: 5992714642739015012, guid: ad4beaf626c2660478a6b352f171c1cf, type: 3}
-  _dropPercentage: 100
+  _dropPercentage: 20
   _valueRangeMin: 0
   _valueRangeMax: 0
   _reloadTime: 2

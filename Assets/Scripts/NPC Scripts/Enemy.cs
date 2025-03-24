@@ -47,16 +47,18 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Death()
     {
         Alive = false;
-        int rand = _randomInteger.Next(1, 100);
         foreach (GameObject drop in _enemyDrops)
         {
+            int rand = _randomInteger.Next(1, 100);
             if (drop.GetComponent<Loot>()._itemSO._dropPercentage >= rand)
             {
                 Instantiate(drop, gameObject.transform.position + (Vector3.up * 0.25f), Quaternion.identity);
             }
         } 
-        AudioManager._audioManager.PlaySoundEffect("EnemyDeath");
-        Destroy(gameObject, 1);
+        AudioManager._audioManager.PlaySoundEffect(_npcStats._deathSound.GetComponent<Sound>()._name);
+        Destroy(gameObject);
+        GameObject deathPloom = Instantiate(_npcStats._deathPloom, transform.position, transform.rotation); 
+        Destroy(deathPloom, 1f);
     }
 
     void Update()
