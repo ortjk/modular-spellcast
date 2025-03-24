@@ -42,7 +42,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7bd454f0bfe0bc64880f486375ca7720, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7bd454f0bfe0bc64880f486375ca7720, type: 3}
       propertyPath: m_LocalPosition.y
@@ -142,9 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemSO: {fileID: 11400000, guid: a64852cc446a28c459410842741e59a1, type: 2}
-  _item: {fileID: 2201815949851781890}
   _value: 0
-  _wand: {fileID: 0}
 --- !u!4 &7837921863961462602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7bd454f0bfe0bc64880f486375ca7720, type: 3}

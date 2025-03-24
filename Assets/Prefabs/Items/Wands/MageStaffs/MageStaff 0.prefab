@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4839694981528463703}
   m_Layer: 0
-  m_Name: MageStaff
+  m_Name: MageStaff 0
   m_TagString: Wand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 551454e52acf47d42be50366c6096a2b, type: 3}
       propertyPath: m_Name
-      value: staff
+      value: staff 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 551454e52acf47d42be50366c6096a2b, type: 3}
       propertyPath: m_TagString
@@ -98,9 +98,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 551454e52acf47d42be50366c6096a2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7533078284308710771}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 551454e52acf47d42be50366c6096a2b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3361568299427724446}
   m_SourcePrefab: {fileID: 100100000, guid: 551454e52acf47d42be50366c6096a2b, type: 3}
 --- !u!1 &7285106639064102070 stripped
 GameObject:
@@ -141,27 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemSO: {fileID: 11400000, guid: e137d55bfa7cad548adb2ad9efcbc47f, type: 2}
-  _item: {fileID: 7285106639064102070}
   _value: 0
-  _wand: {fileID: 3361568299427724446}
---- !u!114 &3361568299427724446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7285106639064102070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f479fd8cd3690049a7daf6d85651be3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wandGameObject: {fileID: 7285106639064102070}
-  spells: []
-  numSlots: 5
-  reloadTime: 0
-  _currentCooldown: 0
-  _maxCooldown: 0
 --- !u!4 &7949474906871246348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 551454e52acf47d42be50366c6096a2b, type: 3}

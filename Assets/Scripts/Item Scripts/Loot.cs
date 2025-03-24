@@ -6,9 +6,6 @@ public class Loot : MonoBehaviour
 {
     public ItemSO _itemSO;
     public int _value;
-    [SerializeField]
-    public Wand _wand;
-
     private GameObject[] _spells;
     private GameObject _spell;
     private System.Random _randomInt = new System.Random();
@@ -36,7 +33,7 @@ public class Loot : MonoBehaviour
         if(other.CompareTag("Player"))
         {          
             AudioManager._audioManager.PlaySoundEffect(_itemSO._pickUpSound._name);
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 }

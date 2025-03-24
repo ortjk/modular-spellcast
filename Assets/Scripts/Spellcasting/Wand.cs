@@ -3,10 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class Wand : MonoBehaviour
-{
-    [SerializeField]
-    public GameObject wandGameObject;
-    
+{   
     [Header("Spell Data")]
     public Spell[] spells;
     public int numSlots = 1;
