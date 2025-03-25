@@ -181,6 +181,8 @@ MonoBehaviour:
   - {fileID: 4934794359642124026, guid: 3efff4508e55a2348962d77f580faa6c, type: 3}
   - {fileID: 2326031295254475944, guid: f0c7940660c32fb4ea5ac07c4fa084b1, type: 3}
   - {fileID: 5992714642739015012, guid: ad4beaf626c2660478a6b352f171c1cf, type: 3}
+  - {fileID: 5289812736199453982, guid: e59fefc400caf3a4b8da56db19bf775f, type: 3}
+  - {fileID: 3968070405199142470, guid: ba19b1f76e15e424d82c329977b0a73a, type: 3}
   _music:
   - {fileID: 7446778064732088117, guid: 568699cd7f2337c4ab60df1ad831fc70, type: 3}
   _soundEffectSource: {fileID: 433768774257087531}
