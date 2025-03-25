@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCController : MonoBehaviour
+public struct NPCInputs
 {
-    public List<CharacterController> NPCs = new List<CharacterController>();
+    public Vector3 MoveVector;
+    public Vector3 LookVector;
+    public bool Attack;
+}
 
-    private void Update()
+public class NPCController : CharacterController
+{
+    public void SetInputs(ref NPCInputs inputs)
     {
-        NPCInputs inputs = new NPCInputs();
-        inputs.MoveVector = Vector3.zero;
-        inputs.LookVector = Vector3.zero;
-        inputs.Attack = false;
-        for(int i = 0; i < NPCs.Count; i++)
+        _moveInputVector = inputs.MoveVector;
+        _lookInputVector = inputs.LookVector;
+        if(inputs.Attack)
         {
-        NPCs[i].SetInputs(ref inputs);
+            _attackRequested = true;
         }
     }
 }

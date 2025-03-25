@@ -29,7 +29,7 @@ public class PlayerAnimations : MonoBehaviour
             {
                 mAnimator.SetTrigger("Casting");
             }
-            else if(_inMotion && _motor.GroundingStatus.IsStableOnGround)
+            if(_inMotion && _motor.GroundingStatus.IsStableOnGround)
             {
                 mAnimator.SetTrigger("Walking");
             }

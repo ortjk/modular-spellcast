@@ -7,12 +7,18 @@ public class SpawnTrigger : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        for(int i = 0; i < spawnpoints.Length; i++)
-        spawnpoints[i].SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            for (int i = 0; i < spawnpoints.Length; i++)
+                spawnpoints[i].SetActive(false);
+        }
     }
     void OnTriggerExit(Collider other)
     {
-        for(int i = 0; i < spawnpoints.Length; i++)
-        spawnpoints[i].SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            for (int i = 0; i < spawnpoints.Length; i++)
+                spawnpoints[i].SetActive(true);
+        }
     }
 }

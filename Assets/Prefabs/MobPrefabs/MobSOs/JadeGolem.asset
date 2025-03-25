@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1260b9b9339bd4c8785a28db1feb50, type: 3}
+  m_Name: JadeGolem
+  m_EditorClassIdentifier: 
+  _health: 20
+  _attackPower: 20
+  _attackSpeed: 1
+  _attackRange: 4
+  _drops:
+  - {fileID: 3863701573942838950, guid: fe5b9549a0eeac648b2c33c1748cc709, type: 3}
+  - {fileID: 2604005157022205833, guid: 99869a92771c79f498334f06ad918adb, type: 3}
+  - {fileID: 2604005157022205833, guid: ffce4762efbe0f34aa741b9f766a87c5, type: 3}
+  - {fileID: 2604005157022205833, guid: 2f7024cdcfeb32742a6ce0f96b505a8e, type: 3}
+  - {fileID: 2604005157022205833, guid: 2aef6e65c74e3e646b6f224fff56f807, type: 3}
+  _isBoss: 1
+  _deathSound: {fileID: 2321823247017408080, guid: ba19b1f76e15e424d82c329977b0a73a, type: 3}
+  _deathPloom: {fileID: 3224230420393475811, guid: 0f2f307b198832e4b8fa215ff3d30745, type: 3}
