@@ -50,9 +50,10 @@ public class Enemy : MonoBehaviour, IDamageable
         foreach (GameObject drop in _enemyDrops)
         {
             int rand = _randomInteger.Next(1, 100);
+            float _dropOffset = Random.Range(-2.0f, 2.0f);
             if (drop.GetComponent<Loot>()._itemSO._dropPercentage >= rand)
             {
-                Instantiate(drop, gameObject.transform.position + (Vector3.up * 0.25f), Quaternion.identity);
+                Instantiate(drop, gameObject.transform.position + (Vector3.up * 0.25f) + (Vector3.forward * _dropOffset) + (Vector3.right * _dropOffset), Quaternion.identity);
             }
         } 
         AudioManager._audioManager.PlaySoundEffect(_npcStats._deathSound.GetComponent<Sound>()._name);

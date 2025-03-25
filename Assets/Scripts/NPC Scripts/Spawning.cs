@@ -8,6 +8,7 @@ public class Spawning : MonoBehaviour
     public int _roundOneEnemyCapacity = 20, _currentRoundEnemyCapacity;
     public int _currentRound;
     public GameObject[] enemyNPCs;
+    public GameObject[] bossNPCs;
     public Player player;
 
     private int _enemiesSpawned;
@@ -48,6 +49,14 @@ public class Spawning : MonoBehaviour
         e.target = player.transform;
     }
 
+    private void SpawnBoss()
+    {
+        GameObject boss = bossNPCs[_randomInteger.Next(0, bossNPCs.Length-1)];
+        Vector3 spawnpoint = PickSpawnPoint();
+        var b = Instantiate(boss, spawnpoint, Quaternion.identity).GetComponent<Enemy>();
+        b.target = player.transform;
+    }
+
     void Update()
     {
         _currentSpawnCooldown -= Time.deltaTime;
@@ -58,9 +67,16 @@ public class Spawning : MonoBehaviour
             _enemiesSpawned++;
             _currentSpawnCooldown = Random.Range(_minSpawnDelay, _maxSpawnDelay);
         }
+        //Spawns a boos enemy as the final enemy of the round
+        else if(_enemiesSpawned == _currentRoundEnemyCapacity && _currentSpawnCooldown <= 0 )
+        {
+            SpawnBoss();
+            _enemiesSpawned++;
+            _currentSpawnCooldown = Random.Range(_minSpawnDelay, _maxSpawnDelay);
+        }
 
         //Counts 120 seconds after all enemies are spawned so that another round can be started at the end of the timer
-        if(_enemiesSpawned >= _currentRoundEnemyCapacity)
+        if(_enemiesSpawned > _currentRoundEnemyCapacity)
         {
             _spawningFinishedCountdown -= Time.deltaTime;
         }
