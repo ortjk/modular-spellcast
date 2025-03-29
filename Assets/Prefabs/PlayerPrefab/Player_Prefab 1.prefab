@@ -287,7 +287,7 @@ MonoBehaviour:
   _stableMovementSharpness: 15
   _orientaionSharpness: 10
   _jumpSpeed: 10
-  _playerCamera: {fileID: 0}
+  _playerCamera: {fileID: 5732037573429925042}
 --- !u!114 &9008959628899634575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: PlayerControls
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 8365096764455803330}
 --- !u!1 &7831516906084907545
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +778,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ff7ea463ba4c240abbb5d07263f088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &8365096764455803330 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5716293008807581704, guid: 8b19e96856cd02fc58edb5a43d377a22, type: 3}
+  m_PrefabInstance: {fileID: 4270134943648973258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6999390546320270837
 PrefabInstance:
   m_ObjectHideFlags: 0
