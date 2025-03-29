@@ -315,4 +315,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 3994569580369517731}
   _motor: {fileID: 1056939680477115566}
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 4053835240976390620}

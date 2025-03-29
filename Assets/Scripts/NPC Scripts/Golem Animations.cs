@@ -1,7 +1,7 @@
 using UnityEngine;
 using KinematicCharacterController;
 
-public class ArchersAnimations : MonoBehaviour
+public class GolemAnimations : MonoBehaviour
 {
     [SerializeField]
     private Animator mAnimator;
@@ -18,13 +18,9 @@ public class ArchersAnimations : MonoBehaviour
 
     void Update()
     {
-        if(mAnimator != null){
-            if(_newlySpawned)
-            {
-                mAnimator.SetTrigger("Spawn");
-                _newlySpawned = false;
-            }
-            else if(_enemy.Damaged)
+        if(mAnimator != null)
+        {
+            if(_enemy.Damaged)
             {
                 mAnimator.SetTrigger("Damage");
             }

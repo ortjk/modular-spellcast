@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 6746626152197412980}
   _motor: {fileID: 2619066408784750188}
-  _enemy: {fileID: 0}
+  _enemy: {fileID: -1724088641172206399}
 --- !u!95 &6746626152197412980 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1889909932371052030, guid: 284e8b745bef2704c8e1c61b03bdc921, type: 3}

@@ -107,6 +107,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b3681b15fa0a0ad4e936d65ce5c2a0fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6549792329954689782}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b3681b15fa0a0ad4e936d65ce5c2a0fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1357198941154951552}
   m_SourcePrefab: {fileID: 100100000, guid: b3681b15fa0a0ad4e936d65ce5c2a0fb, type: 3}
 --- !u!1 &2089175767782186101 stripped
 GameObject:
@@ -238,3 +241,23 @@ MonoBehaviour:
   attack: {fileID: 8370638059378211830, guid: 2c06770cefda1d1f795f2f3eb8447b54, type: 3}
   target: {fileID: 0}
   _npcStats: {fileID: 11400000, guid: a9d085869c2ca1748a532dcdc7199825, type: 2}
+--- !u!114 &-1357198941154951552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089175767782186101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b179ee9ac337c42b63646229d0ce7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAnimator: {fileID: 4707882508305259701}
+  _motor: {fileID: 2693812423116149634}
+  _enemy: {fileID: 6549792329954689782}
+--- !u!95 &4707882508305259701 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: b3681b15fa0a0ad4e936d65ce5c2a0fb, type: 3}
+  m_PrefabInstance: {fileID: 1170750752915710244}
+  m_PrefabAsset: {fileID: 0}

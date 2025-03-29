@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public Transform target;
     public bool Alive { get; private set; } = true;
     public bool Attacking { get; private set; } = false;
+    public bool Damaged { get; private set; } = false;
 
     [SerializeField]
     private NPCSO _npcStats;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Damage(DamageInfo info)
     {
+        Damaged = true;
         _currentHealth -= info.amount;
         if (_currentHealth <= 0)
         {
@@ -74,5 +76,6 @@ public class Enemy : MonoBehaviour, IDamageable
                 this.Attack();
             }
         }
+        Damaged = false;
     }
 }
