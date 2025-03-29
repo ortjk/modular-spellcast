@@ -17,12 +17,17 @@ public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
     private Vector2 _centerPoint;
     private Vector2 _worldCenterPoint => transform.TransformPoint(_centerPoint);
+    private Transform _tooltipContainer;
 
     public void Init()
     {
         _manager = GetComponentInParent<DragManager>();
         _image = GetComponent<Image>();
         _centerPoint = (transform as RectTransform).rect.center;
+
+        _tooltipContainer = transform.parent.parent.GetChild(transform.parent.parent.childCount - 1);
+        tooltip = Instantiate(tooltip, _tooltipContainer);
+        tooltip.gameObject.SetActive(false);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -47,11 +52,30 @@ public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        if (!tooltip.gameObject.activeInHierarchy && _manager.CurrentDraggedObject == null)
+        {
+            tooltip.gameObject.SetActive(true);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        
+        if (tooltip.gameObject.activeInHierarchy)
+        {
+            tooltip.gameObject.SetActive(false);
+        }
+    }
+
+    public void OnDisable()
+    {
+        tooltip.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (tooltip.gameObject.activeInHierarchy)
+        {
+            tooltip.transform.position = Input.mousePosition;
+        }
     }
 }

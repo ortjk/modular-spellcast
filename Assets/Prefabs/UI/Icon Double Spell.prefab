@@ -89,3 +89,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
+  tooltip: {fileID: 7584666508837532561, guid: 6d930194a5c650e8c8f941e91ae50895, type: 3}
