@@ -1,6 +1,5 @@
 using UnityEngine;
 using KinematicCharacterController;
-using UnityEditor.Experimental.GraphView;
 
 public class ArchersAnimations : MonoBehaviour
 {
@@ -8,11 +7,13 @@ public class ArchersAnimations : MonoBehaviour
     private Animator mAnimator;
     [SerializeField]
     private KinematicCharacterMotor _motor;
+    [SerializeField]
+    private Enemy _enemy;
     private bool _newlySpawned = true;
     void Start()
     {
         mAnimator = GetComponent<Animator>();
-        
+        _enemy = GetComponentInParent<Enemy>();
     }
 
     void Update()
@@ -23,25 +24,17 @@ public class ArchersAnimations : MonoBehaviour
                 mAnimator.SetTrigger("Spawn");
                 _newlySpawned = false;
             }
-            else if(false)//Add Attack Conditions to trigger
+            else if(_enemy.Damaged)
+            {
+                mAnimator.SetTrigger("Damage");
+            }
+            else if(_enemy.Attacking)
             {
                 mAnimator.SetTrigger("Attack");
             }
-            else if(_motor.GroundingStatus.IsStableOnGround && true)//Add Motion detected to trigger
+            else
             {
                 mAnimator.SetTrigger("Walking");
-            }
-            else if(_motor.GroundingStatus.IsStableOnGround && true)//Add No Motion detected to trigger
-            {
-                mAnimator.SetTrigger("Idle");
-            }
-            else if(!_motor.GroundingStatus.IsStableOnGround)
-            {
-                mAnimator.SetTrigger("Falling");
-            }
-            else if(false)//Add Death Condition to trigger
-            {
-                mAnimator.SetTrigger("Death");
             }
         }
     }

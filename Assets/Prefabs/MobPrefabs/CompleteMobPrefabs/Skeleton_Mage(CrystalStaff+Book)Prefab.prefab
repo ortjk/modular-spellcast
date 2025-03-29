@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5403841115188901204}
   - component: {fileID: 7138527234929730249}
   - component: {fileID: 7048139593231260261}
-  - component: {fileID: 7436810634429909915}
+  - component: {fileID: -3855155545496057018}
+  - component: {fileID: -733536124561663903}
   m_Layer: 0
   m_Name: Skeleton_Mage(CrystalStaff+Book)Prefab
   m_TagString: EnemyNPC
@@ -55,8 +56,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 1
+  m_Height: 2.01
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &7048139593231260261
@@ -72,8 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Capsule: {fileID: 7138527234929730249}
-  CapsuleRadius: 0.5
-  CapsuleHeight: 2
+  CapsuleRadius: 1
+  CapsuleHeight: 2.01
   CapsuleYOffset: 1
   CapsulePhysicsMaterial: {fileID: 0}
   GroundDetectionExtraDistance: 0
@@ -101,7 +102,7 @@ MonoBehaviour:
   CheckMovementInitialOverlaps: 1
   KillVelocityWhenExceedMaxMovementIterations: 1
   KillRemainingMovementWhenExceedMaxMovementIterations: 1
---- !u!114 &7436810634429909915
+--- !u!114 &-3855155545496057018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,16 +111,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 2313094675320639944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc679a7c977dec748a15eb422054579a, type: 3}
+  m_Script: {fileID: 11500000, guid: ae8a3bee2d8c5c3499f826203b0763e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _motor: {fileID: 7048139593231260261}
-  _playerCamera: {fileID: 0}
-  _gravity: {x: 0, y: -30, z: 0}
-  _maxStableMoveSpeed: 10
-  _stableMovementSharpness: 15
-  _orientaionSharpness: 10
-  _jumpSpeed: 10
+  attack: {fileID: 8370638059378211830, guid: 2c06770cefda1d1f795f2f3eb8447b54, type: 3}
+  target: {fileID: 0}
+  _npcStats: {fileID: 11400000, guid: 28707733202cc3243ab7cbc933efd560, type: 2}
+--- !u!54 &-733536124561663903
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313094675320639944}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6816150832219784660
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +188,7 @@ GameObject:
   - component: {fileID: 2921968495481412092}
   m_Layer: 0
   m_Name: Controller
-  m_TagString: Untagged
+  m_TagString: Undefined
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,8 +220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fd820cd911cff43839f6bd63d0b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCs:
-  - {fileID: 7436810634429909915}
+  _motor: {fileID: 7048139593231260261}
+  _gravity: {x: 0, y: -30, z: 0}
+  _maxStableMoveSpeed: 10
+  _stableMovementSharpness: 15
+  _orientaionSharpness: 10
+  _jumpSpeed: 10
 --- !u!1001 &8847038429275622617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,10 +281,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8704727544018512852, guid: 1146a9940f1f620409596bc4e33d96f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2142321111265142959}
   m_SourcePrefab: {fileID: 100100000, guid: 1146a9940f1f620409596bc4e33d96f0, type: 3}
+--- !u!1 &147379668381345549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8704727544018512852, guid: 1146a9940f1f620409596bc4e33d96f0, type: 3}
+  m_PrefabInstance: {fileID: 8847038429275622617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2142321111265142959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147379668381345549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ac339283c95fc4984977352df9a79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAnimator: {fileID: 8181755254527682451}
+  _motor: {fileID: 7048139593231260261}
+  _enemy: {fileID: -3855155545496057018}
 --- !u!4 &666613746160663991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8324542414492037486, guid: 1146a9940f1f620409596bc4e33d96f0, type: 3}
+  m_PrefabInstance: {fileID: 8847038429275622617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8181755254527682451 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -8408904822337901750, guid: 1146a9940f1f620409596bc4e33d96f0, type: 3}
   m_PrefabInstance: {fileID: 8847038429275622617}
   m_PrefabAsset: {fileID: 0}

@@ -1,6 +1,5 @@
 using UnityEngine;
 using KinematicCharacterController;
-using UnityEngine.Timeline;
 
 public class NonArchersAnimations : MonoBehaviour
 {
@@ -8,6 +7,8 @@ public class NonArchersAnimations : MonoBehaviour
     private Animator mAnimator;
     [SerializeField]
     private KinematicCharacterMotor _motor;
+    [SerializeField]
+    private Enemy _enemy;
     
     private System.Random _randomNumber = new System.Random();
     private bool _newlySpawned = true;
@@ -15,6 +16,7 @@ public class NonArchersAnimations : MonoBehaviour
     void Start()
     {
         mAnimator = GetComponent<Animator>();
+        _enemy = GetComponentInParent<Enemy>();
     }
 
     void Update()
@@ -26,7 +28,11 @@ public class NonArchersAnimations : MonoBehaviour
                 mAnimator.SetTrigger("Spawn");
                 _newlySpawned = false;
             }
-            else if(false)//Add Attack Conditions to trigger
+            else if(_enemy.Damaged)
+            {
+                mAnimator.SetTrigger("Damage");
+            }
+            else if(_enemy.Attacking)
             {
                 mAnimator.SetTrigger("Attack");
                 int AttackChoice = _randomNumber.Next(3);
@@ -43,21 +49,9 @@ public class NonArchersAnimations : MonoBehaviour
                     mAnimator.SetTrigger("Attack_C");
                 }
             }
-            else if(_motor.GroundingStatus.IsStableOnGround && true)//Add Motion detected to trigger
+            else
             {
                 mAnimator.SetTrigger("Walking");
-            }
-            else if(_motor.GroundingStatus.IsStableOnGround && true)//Add No Motion detected to trigger
-            {
-                mAnimator.SetTrigger("Idle");
-            }
-            else if(!_motor.GroundingStatus.IsStableOnGround)
-            {
-                mAnimator.SetTrigger("Falling");
-            }
-            else if(false)//Add Death Condition to trigger
-            {
-                mAnimator.SetTrigger("Death");
             }
         }
     }

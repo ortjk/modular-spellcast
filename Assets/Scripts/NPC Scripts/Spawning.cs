@@ -5,18 +5,20 @@ public class Spawning : MonoBehaviour
 {
     [SerializeField]
     private float _minSpawnDelay = 3f, _maxSpawnDelay = 5f, _roundDelay = 120f;
-    public GameObject[] enemyNPCs;
-    public GameObject[] spawnpoints;
     public int _roundOneEnemyCapacity = 20, _currentRoundEnemyCapacity;
     public int _currentRound;
+    public GameObject[] enemyNPCs;
+    public GameObject[] bossNPCs;
+    public Player player;
 
     private int _enemiesSpawned;
     private float _currentSpawnCooldown, _spawningFinishedCountdown;
-
+    private GameObject[] spawnpoints;
     private System.Random _randomInteger = new System.Random();
 
     void Start()
     {
+        spawnpoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         _currentRound = 1;
         _currentSpawnCooldown = 0f;
         _spawningFinishedCountdown = _roundDelay;
@@ -43,7 +45,16 @@ public class Spawning : MonoBehaviour
     {
         GameObject enemy = enemyNPCs[_randomInteger.Next(0, enemyNPCs.Length-1)];
         Vector3 spawnpoint = PickSpawnPoint();
-        Instantiate(enemy, spawnpoint, Quaternion.identity);
+        var e = Instantiate(enemy, spawnpoint, Quaternion.identity).GetComponent<Enemy>();
+        e.target = player.transform;
+    }
+
+    private void SpawnBoss()
+    {
+        GameObject boss = bossNPCs[_randomInteger.Next(0, bossNPCs.Length-1)];
+        Vector3 spawnpoint = PickSpawnPoint();
+        var b = Instantiate(boss, spawnpoint, Quaternion.identity).GetComponent<Enemy>();
+        b.target = player.transform;
     }
 
     void Update()
@@ -56,9 +67,16 @@ public class Spawning : MonoBehaviour
             _enemiesSpawned++;
             _currentSpawnCooldown = Random.Range(_minSpawnDelay, _maxSpawnDelay);
         }
+        //Spawns a boos enemy as the final enemy of the round
+        else if(_enemiesSpawned == _currentRoundEnemyCapacity && _currentSpawnCooldown <= 0 )
+        {
+            SpawnBoss();
+            _enemiesSpawned++;
+            _currentSpawnCooldown = Random.Range(_minSpawnDelay, _maxSpawnDelay);
+        }
 
         //Counts 120 seconds after all enemies are spawned so that another round can be started at the end of the timer
-        if(_enemiesSpawned >= _currentRoundEnemyCapacity)
+        if(_enemiesSpawned > _currentRoundEnemyCapacity)
         {
             _spawningFinishedCountdown -= Time.deltaTime;
         }
