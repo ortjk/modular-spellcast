@@ -21,7 +21,7 @@ public class Wand : MonoBehaviour
     void Start()
     {
         _currentCooldown = 0f;
-        _maxCooldown = 1f;
+        _maxCooldown = 0.01f;
     }
 
     public void Use(Vector3 direction, Vector3 origin, ref float mana)
@@ -29,10 +29,13 @@ public class Wand : MonoBehaviour
         if (_currentCooldown > 0f || spells.Length == 0)
         {
             Debug.Log("Cooldown");
-            AudioManager._audioManager.PlaySoundEffect("SpellFail");
+            AudioManager._audioManager.PlayPlayerSound("SpellFail");
             return;
         }
-        
+        if (_currentCooldown < 0f)
+        {
+            _maxCooldown = 0.01f;
+        }
         Spell spell = spells[_currentSlot];
         
         Spell[] otherSpells = new Spell[spells.Length - 1];

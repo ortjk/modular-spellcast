@@ -51,6 +51,7 @@ public class Spawning : MonoBehaviour
 
     private void SpawnBoss()
     {
+        AudioManager._audioManager.PlayMusic("BossMusic");
         GameObject boss = bossNPCs[_randomInteger.Next(0, bossNPCs.Length-1)];
         Vector3 spawnpoint = PickSpawnPoint();
         var b = Instantiate(boss, spawnpoint, Quaternion.identity).GetComponent<Enemy>();
@@ -84,6 +85,7 @@ public class Spawning : MonoBehaviour
         //Moves the game into the next round and resetting values that need reseting
         if(_enemiesSpawned >= _currentRoundEnemyCapacity && ((GameObject.FindGameObjectsWithTag("EnemyNPC").Length == 0) || _spawningFinishedCountdown <= 0))
         {
+            AudioManager._audioManager.PlayEnvironmentalSound("RoundChange");
             _currentRound++;
             _spawningFinishedCountdown = _roundDelay;
             SetRoundEnemyCapacity();

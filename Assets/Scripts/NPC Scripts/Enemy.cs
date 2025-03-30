@@ -57,8 +57,12 @@ public class Enemy : MonoBehaviour, IDamageable
             {
                 Instantiate(drop, gameObject.transform.position + (Vector3.up * 0.25f) + (Vector3.forward * _dropOffset) + (Vector3.right * _dropOffset), Quaternion.identity);
             }
+        }
+        if(_npcStats._isBoss)
+        {
+            AudioManager._audioManager.PlayMusic("BackgroundMusic");
         } 
-        AudioManager._audioManager.PlaySoundEffect(_npcStats._deathSound.GetComponent<Sound>()._name);
+        AudioManager._audioManager.PlayEnemySound(_npcStats._deathSound.GetComponent<Sound>()._name);
         Destroy(gameObject);
         GameObject deathPloom = Instantiate(_npcStats._deathPloom, transform.position, transform.rotation); 
         Destroy(deathPloom, 1f);

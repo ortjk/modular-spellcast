@@ -3,19 +3,21 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     [SerializeField]
-    public GameObject _pauseMenuUI, _settingMenuUI;
+    public GameObject _pauseMenuUI, _settingMenuUI, _wandPopUpUI, _deathScreenUI;
     public SpellMenu _spellMenu;
     public Inventory _inventory;
     public Wand _wand;
     public Spell[] _spells;
     public GameObject[] _enemies;
     private PlayerInput playerInput;
+    private Player player;
+    private GameObject _newWand;
     private Image _musicMuteIndicator;
     private Image _SFXMuteIndicator;
-
+    private WandPopUp _wandPopUp;
     private bool _musicIsMuted = false;
     private bool _SFXIsMuted = false;
 
@@ -24,6 +26,8 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         playerInput = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerInput>();
+        player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        _wandPopUp = _wandPopUpUI.GetComponent<WandPopUp>();
     }
 
     public void Pause()
@@ -56,9 +60,29 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        AudioManager._audioManager.PlayMusic("BackgroundMusic");
+        SceneManager.LoadSceneAsync("Map", LoadSceneMode.Single);
+        ResumeTime();
+    }
+
     public void Quit()
     {
+        AudioManager._audioManager.PlayMusic("MainMenuMusic");
         SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);    
+        StopTime();
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void GameOver()
+    {
+        _deathScreenUI.SetActive(true);
+        StopTime();
     }
 
     public void OpenSettingsMenu()
@@ -103,6 +127,7 @@ public class PauseMenu : MonoBehaviour
             enemy.GetComponent<NPCController>().enabled = false;
         }
     }
+
     public void ResumeTime()
     {
         Time.timeScale = 1f;
@@ -114,5 +139,31 @@ public class PauseMenu : MonoBehaviour
         {
             enemy.GetComponent<NPCController>().enabled = true;
         }
+    }
+
+    public void WandPopUp(float currenWandReload, float newWandReload, int currentWandSlots, int newWandSlots, GameObject newWand)
+    {
+        _wandPopUpUI.SetActive(true);
+        _wandPopUp.currenWandReload.text = $"Reload: {currenWandReload}";
+        _wandPopUp.currentWandSlots.text = $"Slots: {currentWandSlots}";
+        _wandPopUp.newWandReload.text = $"Reload: {newWandReload}";
+        _wandPopUp.newWandSlots.text = $"Slots: {newWandSlots}";
+        _newWand = newWand;
+        StopTime();
+    }
+
+    public void TakeWand()
+    {
+        _wandPopUpUI.SetActive(false);
+        ResumeTime();
+        player.EquipWand(_newWand);
+        
+    }
+
+    public void LeaveWand()
+    {
+        _wandPopUpUI.SetActive(false);
+        Destroy(_newWand);
+        ResumeTime();
     }
 }
