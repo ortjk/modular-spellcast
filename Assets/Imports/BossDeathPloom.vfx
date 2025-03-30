@@ -569,7 +569,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2959467708922500008,"guid":"cfbfb95b5f2b90949be0b5faab2775fb","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2959467708922500008,"guid":"372c85ea46a01004f8054f7db2941abc","type":3}}'
     m_Space: -1
   m_Property:
     name: mesh
@@ -606,7 +606,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.25,"y":1.25,"z":1.25}}'
     m_Space: 0
   m_Property:
     name: transform

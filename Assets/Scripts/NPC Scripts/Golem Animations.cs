@@ -9,7 +9,6 @@ public class GolemAnimations : MonoBehaviour
     private KinematicCharacterMotor _motor;
     [SerializeField]
     private Enemy _enemy;
-    private bool _newlySpawned = true;
     void Start()
     {
         mAnimator = GetComponent<Animator>();

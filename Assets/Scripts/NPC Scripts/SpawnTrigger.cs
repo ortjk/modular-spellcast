@@ -9,16 +9,20 @@ public class SpawnTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            for (int i = 0; i < spawnpoints.Length; i++)
-                spawnpoints[i].SetActive(false);
+            foreach(GameObject spawnpoint in spawnpoints)
+            {
+                spawnpoint.SetActive(false);
+            }
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            for (int i = 0; i < spawnpoints.Length; i++)
-                spawnpoints[i].SetActive(true);
+            foreach(GameObject spawnpoint in spawnpoints)
+            {
+                spawnpoint.SetActive(true);
+            }
         }
     }
 }

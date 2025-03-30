@@ -20,7 +20,7 @@ public class Player : MonoBehaviour, IDamageable
     private Inventory _inventory;
 
     [SerializeField] 
-    private PauseMenu _pauseMenu;
+    private MenuController _menuController;
     [SerializeField] 
     private SpellMenu _spellMenu;
     
@@ -34,7 +34,13 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Damage(DamageInfo info)
     {
+        AudioManager._audioManager.PlayPlayerSound("PlayerHurt");
+        Debug.Log("ouch");
         _currentHealth -= (int)info.amount;
+        if(_currentHealth <= 0)
+        {
+            _menuController.GameOver();
+        }
     }
 
     private void Start()
@@ -82,7 +88,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void OnPause(InputValue value)
     {
-        _pauseMenu.Pause();
+        _menuController.Pause();
     }
 
     private void OnResume(InputValue value)
@@ -90,16 +96,16 @@ public class Player : MonoBehaviour, IDamageable
         if (_spellMenu.IsOpen)
         {
             _spellMenu.Close(_inventory, _wand);
-            _pauseMenu.ResumeTime();
+            _menuController.ResumeTime();
         }
-        else if(_pauseMenu._settingMenuUI.activeSelf)
+        else if(_menuController._settingMenuUI.activeSelf)
         {
-            _pauseMenu._settingMenuUI.SetActive(false);
-            _pauseMenu.ResumeTime();
+            _menuController._settingMenuUI.SetActive(false);
+            _menuController.ResumeTime();
         }
-        else if(_pauseMenu._pauseMenuUI.activeSelf)
+        else if(_menuController._pauseMenuUI.activeSelf)
         {
-            _pauseMenu.Resume();
+            _menuController.Resume();
         }
     }
 
@@ -110,7 +116,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void OnInteract(InputValue value)
     {
-        _pauseMenu.StopTime(); 
+        _menuController.StopTime(); 
         _spellMenu.Open(_inventory, _wand);
     }
 
@@ -126,13 +132,19 @@ public class Player : MonoBehaviour, IDamageable
         }
         else if(other.CompareTag("Wand"))
         {
-            Destroy(GameObject.FindGameObjectsWithTag("PlayerWandModel")[0]);
-            _equippedWand = Instantiate(other.gameObject.GetComponent<Loot>()._itemSO._wandGameObject, _wandTransform.position, _wandTransform.rotation, _wandTransform);
-            _equippedWand.transform.SetParent(_wandTransform);
-            _wand.numSlots = other.gameObject.GetComponent<Loot>()._itemSO._wandSlots;
-            _wand.reloadTime = other.gameObject.GetComponent<Loot>()._itemSO._reloadTime;
-            _equippedWand.tag = "PlayerWandModel";
+            _menuController.WandPopUp(_wand.reloadTime, other.gameObject.GetComponent<Loot>()._itemSO._reloadTime, _wand.numSlots, other.gameObject.GetComponent<Loot>()._itemSO._wandSlots, other.gameObject);
         }
+    }
+
+    public void EquipWand(GameObject newWand)
+    {
+        Destroy(GameObject.FindGameObjectsWithTag("PlayerWandModel")[0]);
+        _equippedWand = Instantiate(newWand.GetComponent<Loot>()._itemSO._wandGameObject, _wandTransform.position, _wandTransform.rotation, _wandTransform);
+        _equippedWand.transform.SetParent(_wandTransform);
+        _wand.numSlots = newWand.GetComponent<Loot>()._itemSO._wandSlots;
+        _wand.reloadTime = newWand.GetComponent<Loot>()._itemSO._reloadTime;
+        _equippedWand.tag = "PlayerWandModel";
+        Destroy(newWand);
     }
 
     void Update()

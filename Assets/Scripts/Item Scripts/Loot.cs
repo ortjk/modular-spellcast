@@ -33,7 +33,10 @@ public class Loot : MonoBehaviour
         if(other.CompareTag("Player"))
         {          
             AudioManager._audioManager.PlaySoundEffect(_itemSO._pickUpSound._name);
-            Destroy(gameObject.transform.parent.gameObject);
+            if(!gameObject.CompareTag("Wand"))
+            {
+                Destroy(gameObject.transform.parent.gameObject);
+            }
         }
     }
 }
