@@ -4,8 +4,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager _audioManager;
-    public Sound[] _soundEffects, _music;
-    public AudioSource _soundEffectSource, _musicSource;
+    public Sound[] _soundEffects, _music, _player, _enemy, _environmental;
+    public AudioSource _soundEffectSource, _musicSource, _playerSource, _enemySource, _environmentalSource;
 
     void Awake()
     {
@@ -18,11 +18,6 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
-        PlayMusic("BackgroundMusic");
     }
 
     public void PlayMusic(string name)
@@ -44,6 +39,39 @@ public class AudioManager : MonoBehaviour
         {
             _soundEffectSource.clip = effect._audio;
             _soundEffectSource.Play();
+        }
+    }
+
+    public void PlayPlayerSound(string name)
+    {
+        Sound effect = Array.Find(_player, track => track._name == name);
+        if(effect == null) { return; }
+        else
+        {
+            _playerSource.clip = effect._audio;
+            _playerSource.Play();
+        }
+    }
+
+    public void PlayEnemySound(string name)
+    {
+        Sound effect = Array.Find(_enemy, track => track._name == name);
+        if(effect == null) { return; }
+        else
+        {
+            _enemySource.clip = effect._audio;
+            _enemySource.Play();
+        }
+    }
+
+    public void PlayEnvironmentalSound(string name)
+    {
+        Sound effect = Array.Find(_environmental, track => track._name == name);
+        if(effect == null) { return; }
+        else
+        {
+            _environmentalSource.clip = effect._audio;
+            _environmentalSource.Play();
         }
     }
 
