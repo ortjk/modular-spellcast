@@ -18,9 +18,12 @@ public class Projectile : MonoBehaviour
         // move
         this.transform.Translate(Direction * (Speed * dt));
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        Collided = true;
+        if (other.gameObject.layer != LayerMask.NameToLayer("Ignore Collision"))
+        {
+            Collided = true;
+        }
     }
 }

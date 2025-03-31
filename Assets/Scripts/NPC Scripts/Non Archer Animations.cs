@@ -1,0 +1,58 @@
+using UnityEngine;
+using KinematicCharacterController;
+
+public class NonArchersAnimations : MonoBehaviour
+{
+    [SerializeField]
+    private Animator mAnimator;
+    [SerializeField]
+    private KinematicCharacterMotor _motor;
+    [SerializeField]
+    private Enemy _enemy;
+    
+    private System.Random _randomNumber = new System.Random();
+    private bool _newlySpawned = true;
+    
+    void Start()
+    {
+        mAnimator = GetComponent<Animator>();
+        _enemy = GetComponentInParent<Enemy>();
+    }
+
+    void Update()
+    {
+        
+        if(mAnimator != null){
+            if(_newlySpawned)
+            {
+                mAnimator.SetTrigger("Spawn");
+                _newlySpawned = false;
+            }
+            else if(_enemy.Damaged)
+            {
+                mAnimator.SetTrigger("Damage");
+            }
+            else if(_enemy.Attacking)
+            {
+                mAnimator.SetTrigger("Attack");
+                int AttackChoice = _randomNumber.Next(3);
+                if(AttackChoice == 0)
+                {
+                    mAnimator.SetTrigger("Attack_A");
+                }
+                else if(AttackChoice == 1)
+                {
+                    mAnimator.SetTrigger("Attack_B");
+                }
+                else if(AttackChoice == 2)
+                {
+                    mAnimator.SetTrigger("Attack_C");
+                }
+            }
+            else
+            {
+                mAnimator.SetTrigger("Walking");
+            }
+        }
+    }
+}

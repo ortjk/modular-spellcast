@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class Wand : MonoBehaviour
-{
+{   
     [Header("Spell Data")]
     public Spell[] spells;
     public int numSlots = 1;
@@ -11,17 +11,31 @@ public class Wand : MonoBehaviour
     [Header("Wand Stats")]
     public float reloadTime = 0f;
 
-    private int _currentSlot = 0;
-    private float _cooldown = 0f;
+    public float Cooldown { get; private set; } = 0f;
 
-    public void Use(Vector3 direction, Vector3 origin, ref int mana)
+    private int _currentSlot = 0;
+    public float _currentCooldown;
+    public float _maxCooldown;
+    
+
+    void Start()
     {
-        if (_cooldown > 0f || spells.Length == 0)
+        _currentCooldown = 0f;
+        _maxCooldown = 0.01f;
+    }
+
+    public void Use(Vector3 direction, Vector3 origin, ref float mana)
+    {
+        if (_currentCooldown > 0f || spells.Length == 0)
         {
             Debug.Log("Cooldown");
+            AudioManager._audioManager.PlayPlayerSound("SpellFail");
             return;
         }
-        
+        if (_currentCooldown < 0f)
+        {
+            _maxCooldown = 0.01f;
+        }
         Spell spell = spells[_currentSlot];
         
         Spell[] otherSpells = new Spell[spells.Length - 1];
@@ -45,7 +59,7 @@ public class Wand : MonoBehaviour
         sqresult.ManaCost = Mathf.Clamp(sqresult.ManaCost, 0, sqresult.ManaCost);
         mana -= sqresult.ManaCost;
 
-        _cooldown += sqresult.Cooldown;
+        _maxCooldown += sqresult.Cooldown;
         while (sqresult.ToCast.Count > 0)
         {
             sqresult.ToCast.Dequeue().Cast(direction, origin);
@@ -55,8 +69,9 @@ public class Wand : MonoBehaviour
         if (_currentSlot >= spells.Length)
         {
             _currentSlot -= spells.Length;
-            _cooldown += reloadTime;
+            _maxCooldown += reloadTime;
         }
+        _currentCooldown = _maxCooldown;
     }
 
     public void SetSpells(Spell[] newSpells)
@@ -96,9 +111,9 @@ public class Wand : MonoBehaviour
 
     private void Update()
     {
-        if (_cooldown > 0f)
+        if (_currentCooldown > 0f)
         {
-            _cooldown -= Time.deltaTime;
+            _currentCooldown -= Time.deltaTime;
         }
     }
 }
