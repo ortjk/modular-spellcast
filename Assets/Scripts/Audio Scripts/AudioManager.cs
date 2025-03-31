@@ -4,8 +4,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager _audioManager;
-    public Sound[] _soundEffects, _music, _player, _enemy, _environmental;
-    public AudioSource _soundEffectSource, _musicSource, _playerSource, _enemySource, _environmentalSource;
+    public Sound[] _soundEffects, _music, _player, _enemy, _environmental, _spell;
+    public AudioSource _soundEffectSource, _musicSource, _playerSource, _enemySource, _environmentalSource, _spellSource;
 
     void Awake()
     {
@@ -72,6 +72,17 @@ public class AudioManager : MonoBehaviour
         {
             _environmentalSource.clip = effect._audio;
             _environmentalSource.Play();
+        }
+    }
+
+    public void PlaySpellSound(string name)
+    {
+        Sound effect = Array.Find(_spell, track => track._name == name);
+        if(effect == null) { return; }
+        else
+        {
+            _spellSource.clip = effect._audio;
+            _spellSource.Play();
         }
     }
 

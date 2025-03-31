@@ -1,6 +1,8 @@
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -14,6 +16,8 @@ public class Player : MonoBehaviour, IDamageable
     public int _maxMana = 100, _maxHealth = 100, _manaPerSecond = 1;
     [SerializeField]
     private Wand _wand;
+    [SerializeField]
+    private SpellList _spells;
     private GameObject _equippedWand;
     private Transform _wandTransform;
     [SerializeField]
@@ -27,7 +31,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private PlayerInputs _inputs = new PlayerInputs();
     private Vector3 _lookInputVector;
-    private Spell[] _spells;
+    
 
     public int _coins;
     public float _currentMana, _currentHealth;
@@ -35,7 +39,6 @@ public class Player : MonoBehaviour, IDamageable
     public void Damage(DamageInfo info)
     {
         AudioManager._audioManager.PlayPlayerSound("PlayerHurt");
-        Debug.Log("ouch");
         _currentHealth -= (int)info.amount;
         if(_currentHealth <= 0)
         {
@@ -50,7 +53,6 @@ public class Player : MonoBehaviour, IDamageable
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
         _currentHealth = _maxHealth;
         _currentMana = _maxMana;
-
         for (int i = 0; i < 5; i++)
         {
             _inventory.AddSpell(typeof(DoubleSpell));
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour, IDamageable
             _inventory.AddSpell(typeof(MagicBolt));
             _inventory.AddSpell(typeof(ManaModifier));
             _inventory.AddSpell(typeof(SpeedModifierSpell));
+            _inventory.AddSpell(typeof(MagicSpark));
         }
     }
 
@@ -128,7 +131,7 @@ public class Player : MonoBehaviour, IDamageable
         }
         else if(other.CompareTag("Spell"))
         {
-            
+            _menuController.SpellPopUp(Convert.ToUInt32(other.gameObject.GetComponent<Loot>()._spellindex), other.gameObject);
         }
         else if(other.CompareTag("Wand"))
         {
@@ -145,6 +148,12 @@ public class Player : MonoBehaviour, IDamageable
         _wand.reloadTime = newWand.GetComponent<Loot>()._itemSO._reloadTime;
         _equippedWand.tag = "PlayerWandModel";
         Destroy(newWand);
+    }
+
+    public void PickUpSpell(int index)
+    {
+        _inventory.AddSpell(_spells.spellList[index]);
+        Destroy(_menuController._spellbook);
     }
 
     void Update()

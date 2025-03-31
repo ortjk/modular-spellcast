@@ -1,14 +1,14 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Rendering.Universal;
+using System;
 
 public class Loot : MonoBehaviour
 {
     public ItemSO _itemSO;
     public int _value;
-    private GameObject[] _spells;
-    private GameObject _spell;
+    public int _spellindex;
+    public SpellList _spells;
     private System.Random _randomInt = new System.Random();
+   
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class Loot : MonoBehaviour
         }
         if(CompareTag("Spell"))
         {
-            //_spell = _spells[_randomInt.Next(0, _spells.Length-1)];
+            _spellindex = _randomInt.Next(0, _spells.spellList.Count-1);;
         }
     }
 
@@ -33,7 +33,7 @@ public class Loot : MonoBehaviour
         if(other.CompareTag("Player"))
         {          
             AudioManager._audioManager.PlaySoundEffect(_itemSO._pickUpSound._name);
-            if(!gameObject.CompareTag("Wand"))
+            if(gameObject.CompareTag("Gold"))
             {
                 Destroy(gameObject.transform.parent.gameObject);
             }

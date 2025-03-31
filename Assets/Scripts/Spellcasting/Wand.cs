@@ -29,13 +29,10 @@ public class Wand : MonoBehaviour
         if (_currentCooldown > 0f || spells.Length == 0)
         {
             Debug.Log("Cooldown");
-            AudioManager._audioManager.PlayPlayerSound("SpellFail");
+            AudioManager._audioManager.PlaySpellSound("SpellFail");
             return;
         }
-        if (_currentCooldown < 0f)
-        {
-            _maxCooldown = 0.01f;
-        }
+        
         Spell spell = spells[_currentSlot];
         
         Spell[] otherSpells = new Spell[spells.Length - 1];
@@ -48,12 +45,16 @@ public class Wand : MonoBehaviour
         if (sqresult.ManaCost > mana)
         {
             Debug.Log("Not enough mana: " + mana + " / " + sqresult.ManaCost);
-            
+            AudioManager._audioManager.PlaySpellSound("SpellFail");   
             foreach (Spell s in spells)
             {
                 s.Reset();
             }
             return;
+        }
+        if (_currentCooldown < 0f)
+        {
+            _maxCooldown = 0.01f;
         }
         
         sqresult.ManaCost = Mathf.Clamp(sqresult.ManaCost, 0, sqresult.ManaCost);

@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class MenuController : MonoBehaviour
 {
     [SerializeField]
-    public GameObject _pauseMenuUI, _settingMenuUI, _wandPopUpUI, _deathScreenUI;
+    public GameObject _pauseMenuUI, _settingMenuUI, _wandPopUpUI, _spellPopUpUI, _deathScreenUI;
     public SpellMenu _spellMenu;
     public Inventory _inventory;
     public Wand _wand;
@@ -14,10 +15,11 @@ public class MenuController : MonoBehaviour
     public GameObject[] _enemies;
     private PlayerInput playerInput;
     private Player player;
-    private GameObject _newWand;
+    public GameObject _newWand, _spellbook;
     private Image _musicMuteIndicator;
     private Image _SFXMuteIndicator;
     private WandPopUp _wandPopUp;
+    public SpellPopUp _spellPopUp;
     private bool _musicIsMuted = false;
     private bool _SFXIsMuted = false;
 
@@ -28,6 +30,7 @@ public class MenuController : MonoBehaviour
         playerInput = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerInput>();
         player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         _wandPopUp = _wandPopUpUI.GetComponent<WandPopUp>();
+        _spellPopUp = _spellPopUpUI.GetComponent<SpellPopUp>();
     }
 
     public void Pause()
@@ -164,6 +167,28 @@ public class MenuController : MonoBehaviour
     {
         _wandPopUpUI.SetActive(false);
         Destroy(_newWand);
+        ResumeTime();
+    }
+
+    public void SpellPopUp(uint index, GameObject spellbook)
+    {
+        _spellbook = spellbook;
+        _spellPopUpUI.SetActive(true);
+        _spellPopUp.SetIndex(index);
+        StopTime();
+    }
+
+    public void TakeSpell()
+    {
+        _spellPopUpUI.SetActive(false);
+        ResumeTime();
+        player.PickUpSpell(Convert.ToInt32(_spellPopUp.index));
+    }
+
+    public void LeaveSpell()
+    {
+        _spellPopUpUI.SetActive(false);
+        Destroy(_spellbook);
         ResumeTime();
     }
 }

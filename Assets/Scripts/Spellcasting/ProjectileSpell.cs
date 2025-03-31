@@ -22,8 +22,11 @@ public abstract class ProjectileSpell: Spell
         projectile.Speed = _spellStat.speed;
         projectile.Gravity = _spellStat.range;
         projectileInstances.Add(projectile);
-        
         PreCast?.Invoke(direction);
+        if(_spellStat.spellSound != null)
+            {
+                AudioManager._audioManager.PlaySpellSound(_spellStat.spellSound._name);
+            }
     }
 
     protected virtual void TraverseProjectiles(float dt)

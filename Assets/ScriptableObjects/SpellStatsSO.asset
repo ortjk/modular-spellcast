@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellStats:
   - spellName: Double
+    spellTier: 4
+    spellSound: {fileID: 0}
     damage: 0
     cooldown: 0
     mana: 0
@@ -23,6 +25,8 @@ MonoBehaviour:
     isModifier: 0
     prefab: {fileID: 0}
   - spellName: Speed Modifier
+    spellTier: 4
+    spellSound: {fileID: 0}
     damage: 0
     cooldown: 0
     mana: 5
@@ -32,6 +36,8 @@ MonoBehaviour:
     isModifier: 1
     prefab: {fileID: 0}
   - spellName: Magic Bolt
+    spellTier: 5
+    spellSound: {fileID: 7609704601677307022, guid: 6c982a1d1170fcb43aba93090799cebb, type: 3}
     damage: 8
     cooldown: 0.5
     mana: 6
@@ -41,6 +47,8 @@ MonoBehaviour:
     isModifier: 0
     prefab: {fileID: 0}
   - spellName: Fire Bolt
+    spellTier: 5
+    spellSound: {fileID: 5657787078672746030, guid: 15341398fae19cb4d968c52656e23c51, type: 3}
     damage: 16
     cooldown: 0.8
     mana: 6
@@ -50,6 +58,8 @@ MonoBehaviour:
     isModifier: 0
     prefab: {fileID: 9170809777318246701, guid: 6e2906baa86fbb613bb9c8de3f70c109, type: 3}
   - spellName: Mana Reduction
+    spellTier: 4
+    spellSound: {fileID: 0}
     damage: 0
     cooldown: 0.5
     mana: 20
@@ -58,3 +68,14 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 0}
+  - spellName: MagicSpark
+    spellTier: 5
+    spellSound: {fileID: 2852528443737916619, guid: 35c6d68db5802f847be427442a02b754, type: 3}
+    damage: 8
+    cooldown: 0.4
+    mana: 3
+    speed: 10
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 436069025593736437, guid: b871fd73929f102508e25cf6c2272f6b, type: 3}

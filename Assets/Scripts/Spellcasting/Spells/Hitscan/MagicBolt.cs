@@ -28,6 +28,10 @@ public class MagicBolt: Spell
                 d.Damage(dmgInfo);
             }
         }
+        if(_spellStat.spellSound != null)
+            {
+                AudioManager._audioManager.PlaySpellSound(_spellStat.spellSound._name);
+            }
     }
 
     public override void Reset()

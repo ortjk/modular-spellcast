@@ -18,6 +18,7 @@ MonoBehaviour:
   _attackRange: 3
   _drops:
   - {fileID: 3637487979914005319, guid: f2407dc61cfd81947954969cdc8229c8, type: 3}
+  - {fileID: 2201815949851781890, guid: 07693b16be4e54d4ab67e4e9e6d20c92, type: 3}
   _isBoss: 0
   _deathSound: {fileID: 6219038307625386051, guid: e59fefc400caf3a4b8da56db19bf775f, type: 3}
   _deathPloom: {fileID: 3753302996510797737, guid: 95b3ae587a0e8a145b24e68a646722f2, type: 3}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1260b9b9339bd4c8785a28db1feb50, type: 3}
+  m_Name: CasterSO
+  m_EditorClassIdentifier: 
+  _health: 0
+  _attackPower: 0
+  _attackSpeed: 0
+  _attackRange: 0
+  _drops: []
+  _isBoss: 0
+  _deathSound: {fileID: 0}
+  _deathPloom: {fileID: 0}

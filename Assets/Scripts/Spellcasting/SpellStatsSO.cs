@@ -1,10 +1,17 @@
 using System;
 using UnityEngine;
 
+public enum SpellTier
+{
+    S,A,B,C,D,F
+}
+
 [Serializable]
 public struct SpellStat
 {
     public string spellName;
+    public SpellTier spellTier;
+    public Sound spellSound;
     public float damage;
     public float cooldown;
     public int mana;
