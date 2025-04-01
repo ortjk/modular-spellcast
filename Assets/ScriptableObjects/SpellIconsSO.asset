@@ -17,7 +17,7 @@ MonoBehaviour:
     spellType: {fileID: 6299724353493196906, guid: 59992b5d52313290eaf79c56d30ccc0d, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: 12f591a08d66968c39eab9973d46b8a8, type: 3}
   - spellName: Double Spell
-    spellType: {fileID: -1956828166999229447, guid: 01dcd3c7f0f842fb9b90240fa915c61d, type: 3}
+    spellType: {fileID: 2447369604535611494, guid: 869273f1c9e7100269ba19c371abe4c8, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: 40c5e34e3d0fe5dfcab28732b1af72e4, type: 3}
   - spellName: Magic Bolt
     spellType: {fileID: 5570100024292235093, guid: 5277f0b19a5ad0d0891c3da7b3d36934, type: 3}

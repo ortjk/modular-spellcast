@@ -5812,6 +5812,7 @@ Transform:
   m_Children:
   - {fileID: 1648008914}
   - {fileID: 455922032}
+  - {fileID: 1329834533}
   m_Father: {fileID: 2004770284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &711432593
@@ -6263,8 +6264,8 @@ MonoBehaviour:
   menu: {fileID: 2004770285}
   wand: {fileID: 1753454373}
   spells:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2447369604535611494, guid: 869273f1c9e7100269ba19c371abe4c8, type: 3}
+  - {fileID: 2447369604535611494, guid: 869273f1c9e7100269ba19c371abe4c8, type: 3}
   - {fileID: 6299724353493196906, guid: 59992b5d52313290eaf79c56d30ccc0d, type: 3}
   - {fileID: 5570100024292235093, guid: 5277f0b19a5ad0d0891c3da7b3d36934, type: 3}
   - {fileID: 5570100024292235093, guid: 5277f0b19a5ad0d0891c3da7b3d36934, type: 3}
@@ -6315,7 +6316,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerControls
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &741951641
@@ -8359,8 +8360,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -8773,6 +8774,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318830178}
   m_CullTransparentMesh: 1
+--- !u!1 &1329834532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329834533}
+  m_Layer: 5
+  m_Name: Tooltips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1329834533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329834532}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 711432592}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1335851893
 GameObject:
   m_ObjectHideFlags: 0
@@ -12492,8 +12524,6 @@ MonoBehaviour:
   spells: []
   numSlots: 5
   reloadTime: 0
-  _currentCooldown: 0
-  _maxCooldown: 1
 --- !u!4 &1753454374
 Transform:
   m_ObjectHideFlags: 0
