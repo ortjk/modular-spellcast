@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Field: MonoBehaviour
 {
-    public delegate void ApplyEffect(GameObject target);
+    public delegate void ApplyEffect(Vector3 origin, GameObject target);
     public ApplyEffect EffectCallback;
 
     [SerializeField] private float duration;
@@ -12,7 +12,7 @@ public class Field: MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        EffectCallback?.Invoke(other.gameObject);
+        EffectCallback?.Invoke(transform.position, other.gameObject);
     }
 
     public void Init()

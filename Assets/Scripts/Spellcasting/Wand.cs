@@ -29,7 +29,7 @@ public class Wand : MonoBehaviour
         if (_currentCooldown > 0f || spells.Length == 0)
         {
             Debug.Log("Cooldown");
-            AudioManager._audioManager.PlaySpellSound("SpellFail");
+            // AudioManager._audioManager.PlaySpellSound("SpellFail");
             return;
         }
         
