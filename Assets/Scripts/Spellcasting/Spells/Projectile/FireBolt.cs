@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FireBolt: ProjectileSpell
@@ -15,10 +16,15 @@ public class FireBolt: ProjectileSpell
         }
     }
     
-    protected override void OnHit(Vector3 position, Vector3 direction, IDamageable entity)
+    protected override void OnHit(Projectile projectile)
     {
-        Field explosion = Instantiate(_explosionPrefab, position, Quaternion.identity).GetComponent<Field>();
+        Field explosion = Instantiate(_explosionPrefab, projectile.transform.position, Quaternion.identity).GetComponent<Field>();
         explosion.EffectCallback += ExplosionHit;
         explosion.Init();
+    }
+
+    protected override void HandleHitIndices(Stack<int> hitIndices)
+    {
+        DestroyHitIndices(hitIndices);
     }
 }

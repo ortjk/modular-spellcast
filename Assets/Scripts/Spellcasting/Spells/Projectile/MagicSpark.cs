@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MagicSpark: ProjectileSpell
@@ -15,10 +16,15 @@ public class MagicSpark: ProjectileSpell
         }
     }
     
-    protected override void OnHit(Vector3 position, Vector3 direction, IDamageable entity)
+    protected override void OnHit(Projectile projectile)
     {
-        Field impact = Instantiate(_spellImpact, position, Quaternion.identity).GetComponent<Field>();
+        Field impact = Instantiate(_spellImpact, projectile.transform.position, Quaternion.identity).GetComponent<Field>();
         impact.EffectCallback += SpellLand;
         impact.Init();
+    }
+
+    protected override void HandleHitIndices(Stack<int> hitIndices)
+    {
+        DestroyHitIndices(hitIndices);
     }
 }

@@ -25,7 +25,7 @@ public abstract class Spell: MonoBehaviour
     public bool Queried { get; protected set; } = false;
     public bool IsModifier { get; private set; }
     
-    public SpellStat _spellStat;
+    protected SpellStat _spellStat;
     protected int _mana;
     protected float _cooldown;
 

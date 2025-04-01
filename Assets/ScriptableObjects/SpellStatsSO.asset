@@ -112,3 +112,14 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 436069025593736437, guid: eaa6a7d6f7dd95e4692c2b83b85c1d7b, type: 3}
+  - spellName: BouncingBolt
+    spellTier: 5
+    spellSound: {fileID: 7807541084118287886, guid: c877e7e8692260f49b2f82fa198ad702, type: 3}
+    damage: 9
+    cooldown: 0.8
+    mana: 5
+    speed: 14
+    range: 0.05
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 436069025593736437, guid: eaa6a7d6f7dd95e4692c2b83b85c1d7b, type: 3}

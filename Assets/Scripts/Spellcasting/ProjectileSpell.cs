@@ -25,13 +25,13 @@ public abstract class ProjectileSpell: Spell
         PreCast?.Invoke(direction);
         if(_spellStat.spellSound != null)
             {
-                AudioManager._audioManager.PlaySpellSound(_spellStat.spellSound._name);
+                // AudioManager._audioManager.PlaySpellSound(_spellStat.spellSound._name);
             }
     }
 
-    protected virtual void TraverseProjectiles(float dt)
+    protected void TraverseProjectiles(float dt)
     {
-        Stack<int> removeIndices = new Stack<int>();
+        Stack<int> hitIndices = new Stack<int>();
         
         for (int i = 0; i < projectileInstances.Count; i++)
         {
@@ -41,19 +41,11 @@ public abstract class ProjectileSpell: Spell
 
             if (projectile.Collided)
             {
-                Destroy(projectile.gameObject);
-                removeIndices.Push(i);
+                hitIndices.Push(i);
             }
         }
-
-        while (removeIndices.Count > 0)
-        {
-            int i = removeIndices.Pop();
-            var projectile = projectileInstances[i];
-            OnHit(projectile.transform.position, projectile.Direction, projectile.HitEntity);
-            Destroy(projectile.gameObject);
-            projectileInstances.RemoveAt(i);
-        }
+        
+        HandleHitIndices(hitIndices);
     }
 
     public override void Reset()
@@ -66,10 +58,24 @@ public abstract class ProjectileSpell: Spell
         modifiers.Clear();
     }
 
-    protected abstract void OnHit(Vector3 position, Vector3 direction, IDamageable entity);
+    protected void DestroyHitIndices(Stack<int> hitIndices)
+    {
+        while (hitIndices.Count > 0)
+        {
+            int i = hitIndices.Pop();
+            var projectile = projectileInstances[i];
+            OnHit(projectile);
+            Destroy(projectile.gameObject);
+            projectileInstances.RemoveAt(i);
+        }
+    }
+
+    protected abstract void OnHit(Projectile projectile);
+
+    protected abstract void HandleHitIndices(Stack<int> hitIndices);
 
     protected virtual void Update()
     {
-        this.TraverseProjectiles(Time.deltaTime);
+        TraverseProjectiles(Time.deltaTime);
     }
 }
