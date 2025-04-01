@@ -130,7 +130,18 @@ MonoBehaviour:
     cooldown: 1.5
     mana: 10
     speed: 14
-    range: 0.05
+    range: 50
     area: 0
     isModifier: 0
     prefab: {fileID: 530015802437465588, guid: 1c1f5d7cdf7f80ed3a88bdb17ad1a8db, type: 3}
+  - spellName: PiercingBolt
+    spellTier: 3
+    spellSound: {fileID: 7807541084118287886, guid: c877e7e8692260f49b2f82fa198ad702, type: 3}
+    damage: 20
+    cooldown: 1
+    mana: 10
+    speed: 14
+    range: 0.05
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 5349488142887110459, guid: c7fb0a8fd4da43c6592eea753f868a92, type: 3}
