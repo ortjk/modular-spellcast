@@ -5,7 +5,7 @@ public class FireBolt: ProjectileSpell
 {
     [SerializeField] private GameObject _explosionPrefab;
 
-    public void ExplosionHit(GameObject target)
+    public void ExplosionHit(Vector3 origin, GameObject target)
     {
         var hit = target.GetComponent<IDamageable>();
         if (hit != null && !target.CompareTag("Player"))

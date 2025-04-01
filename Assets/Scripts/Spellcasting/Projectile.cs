@@ -27,11 +27,7 @@ public class Projectile : MonoBehaviour
             Collided = true;
             HitNormal = (transform.position - other.ClosestPoint(transform.position)).normalized;
             
-            var hit = other.GetComponent<IDamageable>();
-            if (hit != null)
-            {
-                HitEntity = hit;
-            }
+            HitEntity = other.GetComponent<IDamageable>();
         }
     }
 }

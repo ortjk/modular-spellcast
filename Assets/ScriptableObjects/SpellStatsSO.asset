@@ -45,7 +45,7 @@ MonoBehaviour:
     range: 50
     area: 0
     isModifier: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 530015802437465588, guid: 67df10bc7eb0ea9d6908f90b89048861, type: 3}
   - spellName: Fire Bolt
     spellTier: 5
     spellSound: {fileID: 5657787078672746030, guid: 15341398fae19cb4d968c52656e23c51, type: 3}
@@ -156,3 +156,47 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 7854519291198397793, guid: c0bc50a80c0436fe6add77a8c2fedb9a, type: 3}
+  - spellName: ChainLightning
+    spellTier: 4
+    spellSound: {fileID: 7807541084118287886, guid: c877e7e8692260f49b2f82fa198ad702, type: 3}
+    damage: 25
+    cooldown: 1.5
+    mana: 10
+    speed: 14
+    range: 50
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 530015802437465588, guid: 1c1f5d7cdf7f80ed3a88bdb17ad1a8db, type: 3}
+  - spellName: PiercingBolt
+    spellTier: 3
+    spellSound: {fileID: 7807541084118287886, guid: c877e7e8692260f49b2f82fa198ad702, type: 3}
+    damage: 20
+    cooldown: 1
+    mana: 10
+    speed: 14
+    range: 0.05
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 5349488142887110459, guid: c7fb0a8fd4da43c6592eea753f868a92, type: 3}
+  - spellName: TripleSpell
+    spellTier: 3
+    spellSound: {fileID: 0}
+    damage: 0
+    cooldown: 0
+    mana: 0
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 0}
+  - spellName: QuadSpell
+    spellTier: 2
+    spellSound: {fileID: 0}
+    damage: 0
+    cooldown: 0
+    mana: 0
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 0}

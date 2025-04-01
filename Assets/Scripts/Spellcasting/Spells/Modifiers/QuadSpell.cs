@@ -1,11 +1,10 @@
 using UnityEngine;
-using System;
 
-public class DoubleSpell: MultiSpell
+public class QuadSpell: MultiSpell
 {
     protected override uint _max
     {
-        get { return 2; }
+        get { return 4; }
         set { }
     }
 }
