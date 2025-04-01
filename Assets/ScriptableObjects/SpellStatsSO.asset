@@ -122,4 +122,4 @@ MonoBehaviour:
     range: 0.05
     area: 0
     isModifier: 0
-    prefab: {fileID: 436069025593736437, guid: eaa6a7d6f7dd95e4692c2b83b85c1d7b, type: 3}
+    prefab: {fileID: 7854519291198397793, guid: c0bc50a80c0436fe6add77a8c2fedb9a, type: 3}
