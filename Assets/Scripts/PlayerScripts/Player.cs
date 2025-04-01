@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField]
     private PlayerController _playerController;
     [SerializeField]
-    public int _maxMana = 100, _maxHealth = 100, _manaPerSecond = 1;
+    public int _maxMana = 100, _maxHealth = 100, _manaPerSecond = 1, _healthPerSecond = 2;
     [SerializeField]
     private Wand _wand;
     [SerializeField]
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour, IDamageable
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
         _currentHealth = _maxHealth;
         _currentMana = _maxMana;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             _inventory.AddSpell(typeof(DoubleSpell));
             _inventory.AddSpell(typeof(FireBolt));
@@ -61,6 +61,9 @@ public class Player : MonoBehaviour, IDamageable
             _inventory.AddSpell(typeof(ManaModifier));
             _inventory.AddSpell(typeof(SpeedModifierSpell));
             _inventory.AddSpell(typeof(MagicSpark));
+            _inventory.AddSpell(typeof(RockThrow));
+            _inventory.AddSpell(typeof(MinorHeal));
+            _inventory.AddSpell(typeof(IceShard));
         }
     }
 
@@ -159,6 +162,7 @@ public class Player : MonoBehaviour, IDamageable
     void Update()
     {
         ManaRegeneration();
+        HealthRegeneration();
     }
 
     private void LateUpdate()
@@ -170,7 +174,15 @@ public class Player : MonoBehaviour, IDamageable
     {
         if(_currentMana < _maxMana)
         {
-            _currentMana = _currentMana + (_manaPerSecond * Time.deltaTime);
+            _currentMana += _manaPerSecond * Time.deltaTime;
+        }
+    }
+
+    private void HealthRegeneration()
+    {
+        if(_currentHealth < _maxHealth)
+        {
+            _currentHealth += _manaPerSecond * Time.deltaTime;
         }
     }
 }

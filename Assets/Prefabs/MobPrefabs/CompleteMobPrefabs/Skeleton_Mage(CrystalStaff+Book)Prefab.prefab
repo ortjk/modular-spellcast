@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: 8370638059378211830, guid: 2c06770cefda1d1f795f2f3eb8447b54, type: 3}
   target: {fileID: 0}
-  _npcStats: {fileID: 11400000, guid: 28707733202cc3243ab7cbc933efd560, type: 2}
+  _npcStats: {fileID: 11400000, guid: c86c728d37b7bf74eacd9e2e87d82d26, type: 2}
 --- !u!54 &-733536124561663903
 Rigidbody:
   m_ObjectHideFlags: 0

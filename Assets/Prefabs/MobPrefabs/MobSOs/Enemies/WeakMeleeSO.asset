@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1260b9b9339bd4c8785a28db1feb50, type: 3}
   m_Name: WeakMeleeSO
   m_EditorClassIdentifier: 
-  _health: 0
-  _attackPower: 0
-  _attackSpeed: 0
-  _attackRange: 0
-  _drops: []
+  _health: 10
+  _attackPower: 4
+  _attackSpeed: 2
+  _attackRange: 2
+  _drops:
+  - {fileID: 3637487979914005319, guid: f2407dc61cfd81947954969cdc8229c8, type: 3}
+  - {fileID: 2201815949851781890, guid: 07693b16be4e54d4ab67e4e9e6d20c92, type: 3}
   _isBoss: 0
-  _deathSound: {fileID: 0}
-  _deathPloom: {fileID: 0}
+  _deathSound: {fileID: 6219038307625386051, guid: e59fefc400caf3a4b8da56db19bf775f, type: 3}
+  _deathPloom: {fileID: 3753302996510797737, guid: 95b3ae587a0e8a145b24e68a646722f2, type: 3}

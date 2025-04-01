@@ -31,3 +31,12 @@ MonoBehaviour:
   - spellName: Magic Spark
     spellType: {fileID: 17580707466202172, guid: 838b7c709becbf84a99d66ea75f4d37f, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: 0c60da5a23201894d84d3fe76313a3f1, type: 3}
+  - spellName: Rock Throw
+    spellType: {fileID: 3867827999175942316, guid: 12a195bbe85d16b41884ae4436a59927, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 347b256866cc83d4c8a252ac7b57087c, type: 3}
+  - spellName: Minor Heal
+    spellType: {fileID: 6957342288800865472, guid: 3dfcceb54391f17428e4d212139244f7, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 0cce25ea8e8115b4b816f9758bd4a246, type: 3}
+  - spellName: Ice Shard
+    spellType: {fileID: 5749786944769019907, guid: 620c161a3c3a12d43af445fd807adf95, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: d57e47b384878964e84910ba8bcb09a6, type: 3}

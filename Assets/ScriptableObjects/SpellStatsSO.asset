@@ -69,7 +69,7 @@ MonoBehaviour:
     isModifier: 0
     prefab: {fileID: 0}
   - spellName: MagicSpark
-    spellTier: 5
+    spellTier: 4
     spellSound: {fileID: 2852528443737916619, guid: 35c6d68db5802f847be427442a02b754, type: 3}
     damage: 8
     cooldown: 0.4
@@ -79,3 +79,36 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 436069025593736437, guid: b871fd73929f102508e25cf6c2272f6b, type: 3}
+  - spellName: RockThrow
+    spellTier: 3
+    spellSound: {fileID: 8892085842095504325, guid: b9a3bc9e4387db3478f9913ba5793ea6, type: 3}
+    damage: 24
+    cooldown: 1.2
+    mana: 9
+    speed: 5
+    range: 0.1
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 436069025593736437, guid: c62f4e9a042fdd44ca9ada2bde75fccf, type: 3}
+  - spellName: MinorHeal
+    spellTier: 4
+    spellSound: {fileID: 2438097163015023706, guid: ff3cf1bbb5a830e4fb18fe0e37d995b4, type: 3}
+    damage: 0
+    cooldown: 0.8
+    mana: 4
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 0}
+  - spellName: IceShard
+    spellTier: 5
+    spellSound: {fileID: 7807541084118287886, guid: c877e7e8692260f49b2f82fa198ad702, type: 3}
+    damage: 9
+    cooldown: 0.8
+    mana: 4
+    speed: 10
+    range: 0.1
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 436069025593736437, guid: eaa6a7d6f7dd95e4692c2b83b85c1d7b, type: 3}

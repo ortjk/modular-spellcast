@@ -21,5 +21,6 @@ public class SpellList : MonoBehaviour
         spellList.Add(typeof(MagicSpark));
         spellList.Add(typeof(SpeedModifierSpell));
         spellList.Add(typeof(ManaModifier));
+        spellList.Add(typeof(RockThrow));
     }
 }
