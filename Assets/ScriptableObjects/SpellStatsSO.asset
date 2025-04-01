@@ -112,8 +112,41 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 436069025593736437, guid: eaa6a7d6f7dd95e4692c2b83b85c1d7b, type: 3}
+  - spellName: Meteor Blast
+    spellTier: 1
+    spellSound: {fileID: 8892085842095504325, guid: b9a3bc9e4387db3478f9913ba5793ea6, type: 3}
+    damage: 80
+    cooldown: 2
+    mana: 15
+    speed: 15
+    range: 0.1
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 436069025593736437, guid: 66c327cffd218234488cf9baf0b70202, type: 3}
+  - spellName: Magic Shotgun
+    spellTier: 3
+    spellSound: {fileID: 0}
+    damage: 0
+    cooldown: 0.8
+    mana: 3
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 436069025593736437, guid: eaa6a7d6f7dd95e4692c2b83b85c1d7b, type: 3}
+  - spellName: Dash
+    spellTier: 3
+    spellSound: {fileID: 2438097163015023706, guid: ff3cf1bbb5a830e4fb18fe0e37d995b4, type: 3}
+    damage: 0
+    cooldown: 1.2
+    mana: 7
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 0}
   - spellName: BouncingBolt
-    spellTier: 5
+    spellTier: 4
     spellSound: {fileID: 7807541084118287886, guid: c877e7e8692260f49b2f82fa198ad702, type: 3}
     damage: 9
     cooldown: 0.8

@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 4300298483782618402}
   - component: {fileID: 6053744292914205292}
   m_Layer: 0
-  m_Name: Tooltip Minor Heal
+  m_Name: Tooltip Meteor Blast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsSO: {fileID: 11400000, guid: 3e25aab5415065a9283e3d651d529a66, type: 2}
-  index: 7
+  index: 9
   titleText: {fileID: 3652464371673171562}
   damageText: {fileID: 1268740452243047679}
   cooldownText: {fileID: 284522812350678379}

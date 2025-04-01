@@ -49,7 +49,15 @@ public abstract class Spell: MonoBehaviour
         IsModifier = _spellStat.isModifier;
         _cooldown = _spellStat.cooldown;
         _mana = _spellStat.mana;
-
+        Debug.Log("awake");
         PreCast += (Vector3 direction) => { Queried = false; };
+    }
+
+    public virtual void SetStats()
+    {
+        _spellStat = _spellStats.spellStats[_spellID];
+        IsModifier = _spellStat.isModifier;
+        _cooldown = _spellStat.cooldown;
+        _mana = _spellStat.mana;
     }
 }

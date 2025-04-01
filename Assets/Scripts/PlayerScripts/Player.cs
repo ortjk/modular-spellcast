@@ -64,6 +64,8 @@ public class Player : MonoBehaviour, IDamageable
             _inventory.AddSpell(typeof(RockThrow));
             _inventory.AddSpell(typeof(MinorHeal));
             _inventory.AddSpell(typeof(IceShard));
+            _inventory.AddSpell(typeof(MeteorBlast));
+            _inventory.AddSpell(typeof(Dash));  
         }
     }
 

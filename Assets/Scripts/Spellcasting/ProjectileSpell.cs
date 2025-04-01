@@ -24,9 +24,9 @@ public abstract class ProjectileSpell: Spell
         projectileInstances.Add(projectile);
         PreCast?.Invoke(direction);
         if(_spellStat.spellSound != null)
-            {
-                // AudioManager._audioManager.PlaySpellSound(_spellStat.spellSound._name);
-            }
+        {
+            AudioManager._audioManager.PlaySpellSound(_spellStat.spellSound._name);
+        }
     }
 
     protected void TraverseProjectiles(float dt)

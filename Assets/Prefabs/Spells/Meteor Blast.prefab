@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6466488607858538205}
-  - component: {fileID: 3867827999175942316}
+  - component: {fileID: 4121502760359690571}
   m_Layer: 0
-  m_Name: Rock Throw
+  m_Name: Meteor Blast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3867827999175942316
+--- !u!114 &4121502760359690571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3339725947710148574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a649504b24594ef45ba859d7f86b41f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fa322316432b6648b5e0c8dc47c0eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spellStats: {fileID: 11400000, guid: 3e25aab5415065a9283e3d651d529a66, type: 2}
-  _spellID: 6
+  _spellID: 9
   projectileInstances: []
   _spellImpact: {fileID: 4313206897871289791, guid: 59a288fa6f724c545944bd7922d4a1af, type: 3}

@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: SpellIconsSO
   m_EditorClassIdentifier: 
   spellIcons:
-  - spellName: Fire Bolt
-    spellType: {fileID: 6299724353493196906, guid: 59992b5d52313290eaf79c56d30ccc0d, type: 3}
-    iconPrefab: {fileID: 7963058771845118775, guid: 12f591a08d66968c39eab9973d46b8a8, type: 3}
   - spellName: Double Spell
     spellType: {fileID: -1956828166999229447, guid: 01dcd3c7f0f842fb9b90240fa915c61d, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: 40c5e34e3d0fe5dfcab28732b1af72e4, type: 3}
-  - spellName: Magic Bolt
-    spellType: {fileID: 5570100024292235093, guid: 5277f0b19a5ad0d0891c3da7b3d36934, type: 3}
-    iconPrefab: {fileID: 7963058771845118775, guid: 7de1fa3f531fb1ef6b3ee01b8833091a, type: 3}
-  - spellName: Mana Modifier
-    spellType: {fileID: -1242309958385121150, guid: 6f85f3baabd6968fa872ad9b85fc8465, type: 3}
-    iconPrefab: {fileID: 7963058771845118775, guid: b109237e5b68fdb978d30f598ed58d2b, type: 3}
   - spellName: Speed Modifier
     spellType: {fileID: 3220833177985977120, guid: be3ba722d09d0fa319f566567f13c541, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: 992df4cc78c1f73f08907f2a07ab6268, type: 3}
+  - spellName: Magic Bolt
+    spellType: {fileID: 5570100024292235093, guid: 5277f0b19a5ad0d0891c3da7b3d36934, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 7de1fa3f531fb1ef6b3ee01b8833091a, type: 3}
+  - spellName: Fire Bolt
+    spellType: {fileID: 6299724353493196906, guid: 59992b5d52313290eaf79c56d30ccc0d, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 12f591a08d66968c39eab9973d46b8a8, type: 3}
+  - spellName: Mana Modifier
+    spellType: {fileID: -1242309958385121150, guid: 6f85f3baabd6968fa872ad9b85fc8465, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: b109237e5b68fdb978d30f598ed58d2b, type: 3}
   - spellName: Magic Spark
     spellType: {fileID: 17580707466202172, guid: 838b7c709becbf84a99d66ea75f4d37f, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: 0c60da5a23201894d84d3fe76313a3f1, type: 3}
@@ -40,3 +40,12 @@ MonoBehaviour:
   - spellName: Ice Shard
     spellType: {fileID: 5749786944769019907, guid: 620c161a3c3a12d43af445fd807adf95, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: d57e47b384878964e84910ba8bcb09a6, type: 3}
+  - spellName: Meteor Blast
+    spellType: {fileID: 4121502760359690571, guid: 132ed496824f723418455326816626c8, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 6df5b31fee91ef64b90d9b45a4f2ac66, type: 3}
+  - spellName: Magic Shotgun
+    spellType: {fileID: -8099359537192146296, guid: 704a581172160484bbd82a7c274e28d3, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: faa951a0638932c46b5fd45daab4c4ad, type: 3}
+  - spellName: Dash
+    spellType: {fileID: -3026162080141920166, guid: 256f051d59661274aa0a5a5715db5526, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: c6239e858f2b15d4c8aec6451630604a, type: 3}

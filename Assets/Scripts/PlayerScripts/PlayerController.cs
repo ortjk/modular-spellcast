@@ -40,4 +40,14 @@ public class PlayerController : CharacterController
             _spellCastRequested = true;
         }
     }
+
+    public void Dash(float multiplier)
+    {
+        _maxStableMoveSpeed *= multiplier;
+    }
+
+    public void ResetSpeed()
+    {
+        _maxStableMoveSpeed = _normalSpeed;
+    }  
 }

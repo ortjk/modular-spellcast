@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour, ICharacterController
     protected Vector3 _gravity = new Vector3(0f, -30f, 0f);
 
     [SerializeField]
-    protected float _maxStableMoveSpeed = 10f, _stableMovementSharpness = 15f, 
+    protected float _maxStableMoveSpeed = 10f, _stableMovementSharpness = 15f, _normalSpeed, 
     _orientaionSharpness = 10f, _jumpSpeed = 10f;
     
     protected Vector3 _moveInputVector, _lookInputVector;
@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour, ICharacterController
     protected void Start()
     {
         _motor.CharacterController = this;
+        _normalSpeed = _maxStableMoveSpeed;
     }
 
     public void AfterCharacterUpdate(float deltaTime)
