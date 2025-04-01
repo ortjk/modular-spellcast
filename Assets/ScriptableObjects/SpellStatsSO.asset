@@ -145,3 +145,25 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 5349488142887110459, guid: c7fb0a8fd4da43c6592eea753f868a92, type: 3}
+  - spellName: TripleSpell
+    spellTier: 3
+    spellSound: {fileID: 0}
+    damage: 0
+    cooldown: 0
+    mana: 0
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 0}
+  - spellName: QuadSpell
+    spellTier: 2
+    spellSound: {fileID: 0}
+    damage: 0
+    cooldown: 0
+    mana: 0
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 0}
