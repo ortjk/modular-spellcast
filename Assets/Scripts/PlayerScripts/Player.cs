@@ -101,7 +101,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void OnResume(InputValue value)
     {
-        if (_spellMenu.IsOpen)
+        if (_spellMenu.gameObject.activeInHierarchy)
         {
             _spellMenu.Close(_inventory, _wand);
             _menuController.ResumeTime();

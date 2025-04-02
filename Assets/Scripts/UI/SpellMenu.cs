@@ -10,15 +10,12 @@ public class SpellMenu: MonoBehaviour
     public DragSlot[] wandSlots = {};
     
     public RectTransform defaultLayer;
-
-    public bool IsOpen { get; private set; } = false;
     
     private Dictionary<Type, GameObject> _iconMap = new Dictionary<Type, GameObject>();
     private Dictionary<Type, GameObject> _prefabMap = new Dictionary<Type, GameObject>();
 
     public void Open(Inventory inventory, Wand wand)
     {
-        IsOpen = true;
         this.gameObject.SetActive(true);
         
         (Type, uint)[] counts = inventory.GetCounts();
@@ -59,7 +56,6 @@ public class SpellMenu: MonoBehaviour
 
     public void Close(Inventory inventory, Wand wand)
     {
-        IsOpen = false;
         inventory.Reset();
         Queue<GameObject> wandSpells = new Queue<GameObject>();
         

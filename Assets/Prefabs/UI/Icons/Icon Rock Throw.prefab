@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6954005623021647331}
   - component: {fileID: 3641455671125894042}
   - component: {fileID: 439214746491799434}
-  - component: {fileID: -7008372531279968114}
   m_Layer: 0
   m_Name: Icon Rock Throw
   m_TagString: Untagged
@@ -29,8 +28,8 @@ RectTransform:
   m_GameObject: {fileID: 7963058771845118775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -90,18 +89,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
-  tooltip: {fileID: 0}
---- !u!114 &-7008372531279968114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7963058771845118775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fbae1e230caa49488e95ddad42d6526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toolTip: {fileID: 3798839394375977934, guid: 6f1b2caa64dc1f947a28fb4dd10670e6, type: 3}
-  index: 6
+  tooltip: {fileID: 3179478391350254840, guid: b8d722c904063463ab10a75046250e93, type: 3}
