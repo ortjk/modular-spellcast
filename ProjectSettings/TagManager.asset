@@ -20,6 +20,7 @@ TagManager:
   - Spell
   - PlayerWandModel
   - Boss
+  - Tooltip
   layers:
   - Default
   - TransparentFX

@@ -43,9 +43,24 @@ MonoBehaviour:
   - spellName: Meteor Blast
     spellType: {fileID: 4121502760359690571, guid: 132ed496824f723418455326816626c8, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: 6df5b31fee91ef64b90d9b45a4f2ac66, type: 3}
-  - spellName: Magic Shotgun
-    spellType: {fileID: -8099359537192146296, guid: 704a581172160484bbd82a7c274e28d3, type: 3}
-    iconPrefab: {fileID: 7963058771845118775, guid: faa951a0638932c46b5fd45daab4c4ad, type: 3}
   - spellName: Dash
     spellType: {fileID: -3026162080141920166, guid: 256f051d59661274aa0a5a5715db5526, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: c6239e858f2b15d4c8aec6451630604a, type: 3}
+  - spellName: Bouncing Bolt
+    spellType: {fileID: 5656968347624585466, guid: 0187c311eb631642ba661d025ba50609, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 6c6807198873a3743a34f61e3d155207, type: 3}
+  - spellName: Chain Lightning
+    spellType: {fileID: -4540084460065078480, guid: 171294c7810cc46e8b84c8cfa6bc56e5, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 388279c77c9511d469a8f5d5ed07a110, type: 3}
+  - spellName: Piercing Bolt
+    spellType: {fileID: 5616726122040835113, guid: d7c136e3703bdd2bd994b0783fd6f6fd, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 32cf4043bf73bb046b0148d79e125604, type: 3}
+  - spellName: Triple Spell
+    spellType: {fileID: 3003267161389789274, guid: 2c029c7fcf820cde09319e7aec54b112, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: 83a0ea5941ade59419a77c62313f5b37, type: 3}
+  - spellName: Quad Spell
+    spellType: {fileID: -7285320948190695898, guid: 4dba56b4c48e2fe2e86b5781e671a5b1, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: d97066aca4edde24db00bb9ac78ce573, type: 3}
+  - spellName: Magic Shotgun
+    spellType: {fileID: -8099359537192146296, guid: 704a581172160484bbd82a7c274e28d3, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: faa951a0638932c46b5fd45daab4c4ad, type: 3}

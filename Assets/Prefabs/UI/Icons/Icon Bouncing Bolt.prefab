@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6954005623021647331}
   - component: {fileID: 3641455671125894042}
   - component: {fileID: 439214746491799434}
+  - component: {fileID: -6038987408697457131}
   m_Layer: 0
-  m_Name: Icon Magic Shotgun
+  m_Name: Icon Bouncing Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: af3a47de977ba6b458583aa6c1a259b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71e69358186c7244f9145932f9247793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,3 +91,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
   tooltip: {fileID: 0}
+--- !u!114 &-6038987408697457131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7963058771845118775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbae1e230caa49488e95ddad42d6526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toolTip: {fileID: 3798839394375977934, guid: 6f1b2caa64dc1f947a28fb4dd10670e6, type: 3}
+  index: 11
