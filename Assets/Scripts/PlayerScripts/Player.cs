@@ -27,6 +27,8 @@ public class Player : MonoBehaviour, IDamageable
     private MenuController _menuController;
     [SerializeField] 
     private SpellMenu _spellMenu;
+    [SerializeField] 
+    private ShopMenu _shopMenu;
     
 
     private PlayerInputs _inputs = new PlayerInputs();
@@ -113,6 +115,10 @@ public class Player : MonoBehaviour, IDamageable
             _spellMenu.Close(_inventory, _wand);
             _menuController.ResumeTime();
         }
+        else if (_shopMenu.gameObject.activeInHierarchy)
+        {
+            _shopMenu.Close(_inventory, ref _coins);
+        }
         else if(_menuController._settingMenuUI.activeSelf)
         {
             _menuController._settingMenuUI.SetActive(false);
@@ -133,6 +139,12 @@ public class Player : MonoBehaviour, IDamageable
     {
         _menuController.StopTime(); 
         _spellMenu.Open(_inventory, _wand);
+    }
+
+    private void OnShop(InputValue value)
+    {
+        _menuController.StopTime();
+        _shopMenu.Open(_inventory);
     }
 
     void OnTriggerEnter(Collider other)

@@ -53,8 +53,11 @@ public class DragManager : MonoBehaviour
         {
             _startSlot.Assign(drag);
         }
-        
-        drag.transform.position = drag.slot.transform.position;
+
+        if (drag.slot != null)
+        {
+            drag.transform.position = drag.slot.transform.position;
+        }
     }
 
     public bool IsWithinBounds(Vector2 position)
