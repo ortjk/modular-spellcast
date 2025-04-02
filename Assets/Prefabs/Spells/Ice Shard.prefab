@@ -46,17 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spellStats: {fileID: 11400000, guid: 3e25aab5415065a9283e3d651d529a66, type: 2}
   _spellID: 8
-  _spellStat:
-    spellName: 
-    spellTier: 0
-    spellSound: {fileID: 0}
-    damage: 0
-    cooldown: 0
-    mana: 0
-    speed: 0
-    range: 0
-    area: 0
-    isModifier: 0
-    prefab: {fileID: 0}
   projectileInstances: []
   _spellImpact: {fileID: 4313206897871289791, guid: d12feb93e5cf2ce428bc8c438637a858, type: 3}

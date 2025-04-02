@@ -5,7 +5,7 @@ public class MeteorBlast: ProjectileSpell
 {
     [SerializeField] private GameObject _spellImpact;
 
-    public void SpellLand(GameObject target)
+    public void SpellLand(Vector3 origin, GameObject target)
     {
         var hit = target.GetComponent<IDamageable>();
         if (hit != null && !target.CompareTag("Player"))

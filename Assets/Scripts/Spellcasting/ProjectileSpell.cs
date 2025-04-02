@@ -18,6 +18,7 @@ public abstract class ProjectileSpell: Spell
     public override void Cast(Vector3 direction, Vector3 origin)
     {
         var projectile = GameObject.Instantiate(_spellStat.prefab, this.transform.position, Quaternion.identity).GetComponent<Projectile>();
+        Debug.Log(projectile);
         projectile.Direction = direction;
         projectile.Speed = _spellStat.speed;
         projectile.Gravity = _spellStat.range;
