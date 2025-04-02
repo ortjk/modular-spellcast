@@ -148,6 +148,16 @@ public class Player : MonoBehaviour, IDamageable
         _shopMenu.Open(_inventory);
     }
 
+    private void OnStopTime(InputValue value)
+    {
+        _menuController.StopTime();
+    }
+
+    private void OnStartTime(InputValue value)
+    {
+        _menuController.ResumeTime();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Gold"))
