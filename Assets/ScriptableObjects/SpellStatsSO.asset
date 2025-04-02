@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpellStatsSO
   m_EditorClassIdentifier: 
   spellStats:
-  - spellName: Double Spell
+  - spellName: Double
     spellTier: 4
     spellSound: {fileID: 0}
     damage: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 5349488142887110459, guid: c7fb0a8fd4da43c6592eea753f868a92, type: 3}
-  - spellName: Triple Spell
+  - spellName: Triple
     spellTier: 3
     spellSound: {fileID: 0}
     damage: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 0}
-  - spellName: Quad Spell
+  - spellName: Quad
     spellTier: 2
     spellSound: {fileID: 0}
     damage: 0

@@ -17,23 +17,21 @@ public class Tooltip : MonoBehaviour
     public TextMeshProUGUI rangeText;
     public TextMeshProUGUI areaText;
 
-    private SpellStat _stats;
-
     private void Awake()
     {
-        _stats = statsSO.spellStats[index];
+        SpellStat stats = statsSO.spellStats[index];
         
-        titleText.text = _stats.spellName + " Spell";
-        if (_stats.damage > 0) { damageText.text = "Damage: " + _stats.damage; }
-        cooldownText.text = "Cooldown: " + _stats.cooldown + "s";
-        manaText.text = "Mana: " + _stats.mana;
-        if (_stats.speed > 0) { speedText.text = "Speed: " + _stats.speed; }
-        if (_stats.range > 0)
+        titleText.text = stats.spellName + " Spell";
+        if (stats.damage > 0) { damageText.text = "Damage: " + stats.damage; }
+        cooldownText.text = "Cooldown: " + stats.cooldown + "s";
+        manaText.text = "Mana: " + stats.mana;
+        if (stats.speed > 0) { speedText.text = "Speed: " + stats.speed; }
+        if (stats.range > 0)
         {
-            if (_stats.range < 1) { rangeText.text = "Gravity: " + (1 / _stats.range); }
-            else {rangeText.text = "Range: " + _stats.range; }
+            if (stats.range < 1) { rangeText.text = "Gravity: " + (1 / stats.range); }
+            else {rangeText.text = "Range: " + stats.range; }
         }
-        if (_stats.area > 0) { areaText.text = "Area: " + _stats.area; }
+        if (stats.area > 0) { areaText.text = "Area: " + stats.area; }
         
     }
 }

@@ -64,3 +64,6 @@ MonoBehaviour:
   - spellName: Magic Shotgun
     spellType: {fileID: -8099359537192146296, guid: 704a581172160484bbd82a7c274e28d3, type: 3}
     iconPrefab: {fileID: 7963058771845118775, guid: faa951a0638932c46b5fd45daab4c4ad, type: 3}
+  - spellName: Cooldown Reduction
+    spellType: {fileID: -7737771900208829315, guid: 33c8dd0f55074985dac61ffd92011af4, type: 3}
+    iconPrefab: {fileID: 7963058771845118775, guid: a8d3669969396169c9635700305a90e3, type: 3}

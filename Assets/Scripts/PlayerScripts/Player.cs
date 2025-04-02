@@ -53,6 +53,8 @@ public class Player : MonoBehaviour, IDamageable
         _playerCamera.SetFollowTransform(_cameraFollowPoint);
         _currentHealth = _maxHealth;
         _currentMana = _maxMana;
+        
+        // add spells to inventory for demo
         for (int i = 0; i < 2; i++)
         {
             _inventory.AddSpell(typeof(DoubleSpell));
@@ -65,7 +67,12 @@ public class Player : MonoBehaviour, IDamageable
             _inventory.AddSpell(typeof(MinorHeal));
             _inventory.AddSpell(typeof(IceShard));
             _inventory.AddSpell(typeof(MeteorBlast));
-            _inventory.AddSpell(typeof(Dash));  
+            _inventory.AddSpell(typeof(Dash));
+            _inventory.AddSpell(typeof(BouncingBolt));
+            _inventory.AddSpell(typeof(ChainLightning));
+            _inventory.AddSpell(typeof(PiercingBolt));
+            _inventory.AddSpell(typeof(MagicShotgun));
+            _inventory.AddSpell(typeof(CooldownReduction));
         }
     }
 
