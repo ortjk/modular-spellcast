@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spellStats: {fileID: 11400000, guid: 3e25aab5415065a9283e3d651d529a66, type: 2}
-  _spellID: 10
+  _spellID: 16
   _spells: {fileID: 3612490773062604572}
   spellIcons: {fileID: 11400000, guid: 2fab45b2694379933b360b2f358e1dae, type: 2}
 --- !u!114 &3612490773062604572

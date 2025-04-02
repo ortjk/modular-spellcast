@@ -200,3 +200,14 @@ MonoBehaviour:
     area: 0
     isModifier: 0
     prefab: {fileID: 436069025593736437, guid: eaa6a7d6f7dd95e4692c2b83b85c1d7b, type: 3}
+  - spellName: CooldownReduction
+    spellTier: 4
+    spellSound: {fileID: 0}
+    damage: 0
+    cooldown: 0.8
+    mana: 0
+    speed: 0
+    range: 0
+    area: 0
+    isModifier: 0
+    prefab: {fileID: 0}
