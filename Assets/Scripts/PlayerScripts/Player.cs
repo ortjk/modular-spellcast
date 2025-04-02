@@ -118,6 +118,7 @@ public class Player : MonoBehaviour, IDamageable
         else if (_shopMenu.gameObject.activeInHierarchy)
         {
             _shopMenu.Close(_inventory, ref _coins);
+            _menuController.ResumeTime();
         }
         else if(_menuController._settingMenuUI.activeSelf)
         {

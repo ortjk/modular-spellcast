@@ -20,6 +20,7 @@ public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
     public void Init()
     {
+        this.transform.localScale = Vector3.one;
         _manager = GetComponentInParent<DragManager>();
         _image = GetComponent<Image>();
         _centerPoint = (transform as RectTransform).rect.center;

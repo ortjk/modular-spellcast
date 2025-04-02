@@ -104,5 +104,9 @@ public class AudioManager : MonoBehaviour
     public void ToggleSoundEffects()
     {
         _soundEffectSource.mute = !_soundEffectSource.mute;
+        _playerSource.mute = !_playerSource.mute;
+        _enemySource.mute = !_enemySource.mute; 
+        _environmentalSource.mute = !_environmentalSource.mute; 
+        _spellSource.mute = !_spellSource.mute;
     }
 }

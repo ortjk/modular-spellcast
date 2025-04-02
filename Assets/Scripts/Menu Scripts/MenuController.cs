@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     public GameObject _pauseMenuUI, _settingMenuUI, _wandPopUpUI, _spellPopUpUI, _deathScreenUI;
     public SpellMenu _spellMenu;
+    public ShopMenu _shopMenu;
     public Inventory _inventory;
     public Wand _wand;
     public Spell[] _spells;
@@ -43,24 +44,6 @@ public class MenuController : MonoBehaviour
     {
         _pauseMenuUI.SetActive(false);   
         ResumeTime();
-    }
-
-    public void ToggleSpellMenu(bool _isOpen)
-    {
-        if (!_isOpen)
-        {
-            _spellMenu.Open(_inventory, _wand);
-            StopTime();
-            foreach (var s in _spells)
-            {
-                _inventory.AddSpell(s);
-            }
-        }
-        else
-        {
-            _spellMenu.Close(_inventory, _wand);
-            ResumeTime();
-        }
     }
 
     public void StartGame()

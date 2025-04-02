@@ -267,8 +267,9 @@ MonoBehaviour:
   _wand: {fileID: 2662221865175984521}
   _spells: {fileID: 3093844745041106917}
   _inventory: {fileID: 2467224229497021024}
-  _menuController: {fileID: 3581175237797218594, guid: 91c698e9a56e6a04c84e50f3a71c2624, type: 3}
-  _spellMenu: {fileID: 7569807077194330308, guid: 0a9b0bf5d5a943d43b5a658ff5be71bf, type: 3}
+  _menuController: {fileID: 0}
+  _spellMenu: {fileID: 0}
+  _shopMenu: {fileID: 0}
   _coins: 0
   _currentMana: 0
   _currentHealth: 0
@@ -288,6 +289,7 @@ MonoBehaviour:
   _gravity: {x: 0, y: -30, z: 0}
   _maxStableMoveSpeed: 10
   _stableMovementSharpness: 15
+  _normalSpeed: 0
   _orientaionSharpness: 10
   _jumpSpeed: 10
   _playerCamera: {fileID: 5732037573429925042}
